@@ -7,7 +7,6 @@ import copy
 
 class DynamicData(object):
     def __init__(self, data, defaults={}):
-
         # Set the defaults first
         for variable, value in defaults.items():
             setattr(self, variable, value)
@@ -19,7 +18,6 @@ class DynamicData(object):
 
 class AnimalCategory(DynamicData):
     def __init__(self, data):
-
         defaults = {
             "pop": 0,
             "daily_milk": 0,
@@ -42,14 +40,12 @@ class AnimalCategory(DynamicData):
 
 class AnimalCollection(DynamicData):
     def __init__(self, data):
-
         super(AnimalCollection, self).__init__(data)
 
 
 class Farm(DynamicData):
-    def __init__(self, data):#, animal_collections):
-
-        #self.animals = animal_collections.get(data.get("farm_id"))
+    def __init__(self, data):  # , animal_collections):
+        # self.animals = animal_collections.get(data.get("farm_id"))
 
         super(Farm, self).__init__(data)
 
@@ -59,13 +55,11 @@ class Farm(DynamicData):
 ######################################################################################
 class Animal_Features(object):
     def __init__(self, data):
-
         self.data_frame = data
 
         self.animal_features = {}
 
         for _, row in self.data_frame.iterrows():
-
             birth_weight = row.get("birth_weight")
             mature_weight_bulls = row.get("mature_weight_bulls")
             mature_weight_dairy_cows = row.get("mature_weight_dairy_cows")
@@ -347,10 +341,10 @@ class Animal_Features(object):
 
     def get_bulls_n_retention(self):
         return self.animal_features.get("bulls_n_retention")
-    
+
     def get_data(self):
         return self.data_frame
-    
+
     def is_loaded(self):
         if self.data_frame is not None:
             return True
@@ -360,18 +354,17 @@ class Animal_Features(object):
 
 #######################################################################################
 
+
 ######################################################################################
 # Emissions Factors Data
 ######################################################################################
 class Emissions_Factors(object):
     def __init__(self, data):
-
         self.data_frame = data
 
         self.emissions_factors = {}
 
         for _, row in self.data_frame.iterrows():
-
             ef_net_energy_for_maintenance_non_lactating_cow = row.get(
                 "ef_net_energy_for_maintenance_non_lactating_cow"
             )
@@ -646,10 +639,10 @@ class Emissions_Factors(object):
 
     def get_ef_Frac_P_Leach(self):
         return self.emissions_factors.get("ef_Frac_P_Leach")
-    
+
     def get_data(self):
         return self.data_frame
-    
+
     def is_loaded(self):
         if self.data_frame is not None:
             return True
@@ -662,7 +655,6 @@ class Emissions_Factors(object):
 
 class Grass(object):
     def average(self, property):
-
         values = [
             row.get(property)
             for _, row in self.data_frame.iterrows()
@@ -672,13 +664,11 @@ class Grass(object):
         return sum(values) / len(values)
 
     def __init__(self, data):
-
         self.data_frame = data
 
         self.grasses = {}
 
         for _, row in self.data_frame.iterrows():
-
             genus = row.get("grass_genus".lower())
             dmd = row.get("forage_dry_matter_digestibility")
             cp = row.get("crude_protein")
@@ -707,10 +697,10 @@ class Grass(object):
 
     def get_gross_energy_mje_dry_matter(self, forage):
         return self.grasses.get(forage).get("gross_energy")
-    
+
     def get_data(self):
         return self.data_frame
-    
+
     def is_loaded(self):
         if self.data_frame is not None:
             return True
@@ -723,7 +713,6 @@ class Grass(object):
 ########################################################################################
 class Concentrate(object):
     def average(self, property):
-
         values = [
             row.get(property)
             for _, row in self.data_frame.iterrows()
@@ -736,13 +725,11 @@ class Concentrate(object):
             pass
 
     def __init__(self, data):
-
         self.data_frame = data
 
         self.concentrates = {}
 
         for _, row in self.data_frame.iterrows():
-
             con_type = row.get("con_type".lower())
             con_dmd = row.get("con_dry_matter_digestibility")
             con_de = row.get("con_digestible_energy")
@@ -762,9 +749,10 @@ class Concentrate(object):
 
         # Pre-compute averages
         self.concentrates["average"] = {
-            "con_dry_matter_digestibility": self.average( "con_dry_matter_digestibility"
+            "con_dry_matter_digestibility": self.average(
+                "con_dry_matter_digestibility"
             ),
-            "con_digestible_energy": self.average( "con_digestible_energy"),
+            "con_digestible_energy": self.average("con_digestible_energy"),
             "con_crude_protein": self.average("con_crude_protein"),
         }
 
@@ -785,28 +773,27 @@ class Concentrate(object):
 
     def get_con_po4_e(self, concentrate):
         return self.concentrates.get(concentrate).get("con_po4_e")
-    
+
     def get_data(self):
         return self.data_frame
-    
+
     def is_loaded(self):
         if self.data_frame is not None:
             return True
         else:
             return False
 
+
 ########################################################################################
 # Upstream class
 ########################################################################################
 class Upstream(object):
     def __init__(self, data):
-
         self.data_frame = data
 
         self.upstream = {}
 
         for _, row in self.data_frame.iterrows():
-
             upstream_type = row.get("upstream_type".lower())
             upstream_fu = row.get("upstream_fu")
             upstream_kg_co2e = row.get("upstream_kg_co2e")
@@ -841,15 +828,16 @@ class Upstream(object):
 
     def get_upstream_kg_sbe(self, upstream):
         return self.upstream.get(upstream).get("upstream_kg_sbe")
-    
+
     def get_data(self):
         return self.data_frame
-    
+
     def is_loaded(self):
         if self.data_frame is not None:
             return True
         else:
             return False
+
 
 #############################################################################################
 
@@ -875,8 +863,15 @@ def load_animal_features_data():
 
 
 def load_farm_data(farm_data_frame):
-
-    subset = ["total_urea", "total_urea_abated", "total_n_fert", "total_p_fert", "total_k_fert", "diesel_kg", "elec_kwh"]
+    subset = [
+        "total_urea",
+        "total_urea_abated",
+        "total_n_fert",
+        "total_p_fert",
+        "total_k_fert",
+        "diesel_kg",
+        "elec_kwh",
+    ]
     farm_data_frame.drop_duplicates(subset=subset, keep="first", inplace=True)
 
     scenario_list = []
@@ -889,9 +884,8 @@ def load_farm_data(farm_data_frame):
 
 
 def load_livestock_data(animal_data_frame):
-
     # 1. Load each animal category into an object
-  
+
     categories = []
 
     for _, row in animal_data_frame.iterrows():
@@ -903,7 +897,6 @@ def load_livestock_data(animal_data_frame):
     collections = {}
 
     for category in categories:
-
         farm_id = category.farm_id
         cohort = category.cohort
 
@@ -912,7 +905,6 @@ def load_livestock_data(animal_data_frame):
         else:
             collections[farm_id][cohort] = category
 
-
     # 3. Convert the raw collection data into animal collection objects
 
     collection_objects = {}
@@ -920,16 +912,19 @@ def load_livestock_data(animal_data_frame):
     for farm_id, raw_data in collections.items():
         collection_objects[farm_id] = {"animals": AnimalCollection(raw_data)}
 
-
     return collection_objects
 
-def print_livestock_data(data):
 
+def print_livestock_data(data):
     for _, key in enumerate(data):
         for animal in data[key].keys():
             for cohort in data[key][animal].__dict__.keys():
-                for attribute in data[key][animal].__getattribute__(cohort).__dict__.keys():
-                    print(f"{cohort}: {attribute} = {data[key][animal].__getattribute__(cohort).__getattribute__(attribute)}")
+                for attribute in (
+                    data[key][animal].__getattribute__(cohort).__dict__.keys()
+                ):
+                    print(
+                        f"{cohort}: {attribute} = {data[key][animal].__getattribute__(cohort).__getattribute__(attribute)}"
+                    )
 
 
 def create_emissions_dictionary(keys):
@@ -951,7 +946,7 @@ def create_emissions_dictionary(keys):
         "soil_N_direct",
         "soil_N_indirect",
         "soils_N2O",
-        ]
+    ]
 
     keys_dict = dict.fromkeys(keys)
 
