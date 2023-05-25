@@ -103,101 +103,65 @@ class DatasetLoadingTestCase(unittest.TestCase):
         past_animals_loc = list(past_animals.keys())[0]
         past_farm_loc = list(past_farms.keys())[0]
 
-        self.emissions_dict["enteric_ch4"][self.baseline_index] += (
-            climatechange.CH4_enteric_ch4(
-                past_animals[past_animals_loc]["animals"]
-            )
+        self.assertIsNotNone(
+            climatechange.CH4_enteric_ch4(past_animals[past_animals_loc]["animals"]),
+            "No result generated for enteric CH4 emissions"
         )
-        self.emissions_dict["manure_management_N2O"][self.baseline_index] += (
+
+        self.assertIsNotNone(
             climatechange.Total_storage_N2O(
                 past_animals[past_animals_loc]["animals"]
-            )
+            ),"No result generated for Total_storage_N2O"
         )
-        self.emissions_dict["manure_management_CH4"][self.baseline_index] += (
+        self.assertIsNotNone(
             climatechange.CH4_manure_management(
                 past_animals[past_animals_loc]["animals"]
-            )
+            ),"No result generated for CH4_manure_management"
             
         )
-        self.emissions_dict["manure_applied_N"][self.baseline_index] += (
+        self.assertIsNotNone(
             climatechange.Total_N2O_Spreading(
                 past_animals[past_animals_loc]["animals"]
-            )
+            ),"No result generated for Total_N2O_Spreading"
             
         )
-        self.emissions_dict["N_direct_PRP"][self.baseline_index] += (
+        self.assertIsNotNone(
             climatechange.N2O_total_PRP_N2O_direct(
                 past_animals[past_animals_loc]["animals"]
-            )
+            ), "No result generated for N2O_total_PRP_N2O_direct"
             
         )
 
-        self.emissions_dict["N_indirect_PRP"][self.baseline_index] += (
+        self.assertIsNotNone(
             climatechange.N2O_total_PRP_N2O_indirect(
                 past_animals[past_animals_loc]["animals"]
-            )
+            ), "No result generated for N2O_total_PRP_N2O_indirect"
             
         )
-        self.emissions_dict["N_direct_fertiliser"][self.baseline_index] = (
+        self.assertIsNotNone(
             climatechange.N2O_direct_fertiliser(
                 past_farms[past_farm_loc].total_urea,
                 past_farms[past_farm_loc].total_urea_abated,
                 past_farms[past_farm_loc].total_n_fert
-            )
+            ), "No result generated for N2O_direct_fertiliser"
             
         )
 
-        self.emissions_dict["N_indirect_fertiliser"][self.baseline_index] += (
+        self.assertIsNotNone(
             climatechange.N2O_fertiliser_indirect(
                 past_farms[past_farm_loc].total_urea,
                 past_farms[past_farm_loc].total_urea_abated,
                 past_farms[past_farm_loc].total_n_fert,
-            )
+            ), "No result generated for N2O_fertiliser_indirect"
            
         )
-        self.emissions_dict["soils_CO2"][self.baseline_index] += (
+        self.assertIsNotNone(
             climatechange.CO2_soils_GWP(
                 past_farms[past_farm_loc].total_urea,
                 past_farms[past_farm_loc].total_urea_abated,
-            )
+            ), "No result generated for CO2_soils_GWP"
             
         )
-
-
-        # Totals
-        self.emissions_dict["soil_organic_N_direct"][self.baseline_index] = (
-            self.emissions_dict["manure_applied_N"][self.baseline_index]
-            + self.emissions_dict["N_direct_PRP"][self.baseline_index]
-        )
-        self.emissions_dict["soil_organic_N_indirect"][self.baseline_index] = self.emissions_dict[
-            "N_indirect_PRP"
-        ][self.baseline_index]
-
-        self.emissions_dict["soil_inorganic_N_direct"][self.baseline_index] = self.emissions_dict[
-            "N_direct_fertiliser"
-        ][self.baseline_index]
-        self.emissions_dict["soil_inorganic_N_indirect"][
-            self.baseline_index
-        ] = self.emissions_dict["N_indirect_fertiliser"][self.baseline_index]
-
-        self.emissions_dict["soil_N_direct"][self.baseline_index] = (
-            self.emissions_dict["soil_organic_N_direct"][self.baseline_index]
-            + self.emissions_dict["soil_inorganic_N_direct"][self.baseline_index]
-        )
-
-        self.emissions_dict["soil_N_indirect"][self.baseline_index] = (
-            self.emissions_dict["soil_inorganic_N_indirect"][self.baseline_index]
-            + self.emissions_dict["soil_organic_N_indirect"][self.baseline_index]
-        )
-
-        self.emissions_dict["soils_N2O"][self.baseline_index] = (
-            self.emissions_dict["soil_N_direct"][self.baseline_index]
-            + self.emissions_dict["soil_N_indirect"][self.baseline_index]
-        )
-
-        print(self.emissions_dict)
-
-
 
 
 if __name__ == "__main__":
