@@ -39,8 +39,8 @@ jobs:
       run: |
         pwd
         ls -la
-        
+
     - name: Test with pytest
       run: |
-        cd ./cattle_lca/tests/
-        pytest scenario_runner_test.py
+        cd ./tests/
+        pytest assert_result_generated.py
