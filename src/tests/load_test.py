@@ -45,6 +45,7 @@ class DatasetLoadingTestCase(unittest.TestCase):
         self.assertTrue(ef_class.is_loaded())
         self.assertTrue(grass_class.is_loaded())
         self.assertTrue(upstream_class.is_loaded())
+        
 
 
 if __name__ == "__main__":
