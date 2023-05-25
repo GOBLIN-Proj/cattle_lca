@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "cattle_lca"
+version = "0.1.0"
+description = "Tier 2 Environmental Impact Assessment tool for dairy and beef cattle."
+authors = ["Colm Duffy"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.3.0"
+numpy = "^1.21.0"
+seaborn = "^0.11.2"
+matplotlib = "^3.4.3"
+sqlalchemy = "^1.4.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

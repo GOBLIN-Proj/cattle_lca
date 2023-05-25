@@ -1,0 +1,43 @@
+upstream_type,upstream_fu,upstream_kg_co2e,upstream_kg_po4e,upstream_kg_so2e,upstream_mje,upstream_kg_sbe
+ammonium_nitrate_fertiliser,kg n,6.1,0.00678,0.0241,55.71725572,0.0268
+urea_fert,kg n,3.43,0.00387,0.025,57.5,1.81e-05
+triple_superphosphate,kg p2o5,2.02,0.0453,0.037,28.27442827,0.0136
+potassium_chloride,kg k2o,0.495,0.000766,0.00172,8.316008316,0.004
+lime,kg caco3,0.204,0.0004,0.000683,3.305613306,0.00159
+agrochemicals,kg a_i,10.1,0.0325,0.0971,174.4282744,0.0839
+ww_seed,kg,0.574,0.00634,0.00388,3.40956341,0.00164
+sb_seed,kg,0.407,0.00696,0.00349,2.827442827,0.00136
+osr_seed,kg,1.73,0.0127,0.018,11.26819127,0.00542
+maize_seed,kg,1.92,0.0179,0.00796,13.16008316,0.00633
+grass_seed,kg,1.9,0.00507,0.0102,16.00831601,0.0077
+diesel_indirect,kg,0.6937,0.00089,0.00619,51.559,0.0248
+electricity_consumed,kwh_consumed,0.01028,3.96e-05,4.35e-05,0.0,1.29e-06
+transport_tractor_trailer,kg_or_tkm,0.161,0.000248,0.0011,2.141372141,0.00103
+marginal_electricity,kwh_generated,0.41976,6.402e-05,0.0002255,7.318087318,0.00352
+concentrate_feed,kg,0.577,0.00708,0.0041,3.035343035,0.00146
+concentrate_feed_iluc,kg,0.71,0.000566,0.0,0.0,0.0
+sbmedirect,kg,0.249336641,0.003934465,0.001770274,6.824616269,0.003282656
+sbme_iluc,kg,11.02618662,0.003536943,0.0,0.0,0.0
+transport_more_than_16t_ch_av,tkm,0.106,0.00139,0.00596,1.384615385,0.000666
+transport_16_to_32 t_euro_iv,tkm,0.134,0.000107,0.00049,1.752598753,0.000843
+transport_more_than32t_truck_euro_5,tkm,0.0813,6.69e-05,0.000304,1.064449064,0.000512
+liquid_tanker_transport_28t,tkm,0.0962,0.0009,0.00165,0.708939709,0.000341
+ocean_transport,tkm,0.00244,7.61e-06,8.05e-05,0.030977131,1.49e-05
+mw_collection_ch,tkm,1.26,0.0012,0.00552,16.46569647,0.00792
+landfill_waste,kg,0.517172562,0.000144623,0.000419128,-1.563107642,-0.000751855
+oil_heat_100kw_condensing,kwhth,0.33732,9.612e-05,0.0007308,4.505613306,0.0021672
+oil_heat_10_kw_condensing,kwhth,0.3402,0.00010764,0.0007488,4.550519751,0.0021888
+natual_gas_heat_more_than_100kw_condensing_modulating,kwhth,0.25668,0.00045,0.0022212,4.408316008,0.0021204
+natual_gas_heat_more_than_100kw_condensing_modulating,kwhth,0.23976,2.88e-05,0.00017712,4.221205821,0.0020304
+coal_electricity,mj fuel,0.108,0.000105,0.00016,1.783783784,0.000858
+miscanthus_combustion_direct,kwhth,,5.6e-05,0.0003024,0.0,0.0
+biodiesel_trans_and_process,t seeds,192.7341117,0.179159731,0.459807925,3198.926049,1.53868343
+ww_bioethanol_trans_and_process,t ww grain,242.3483185,0.195088925,0.537325631,4055.041042,1.950474741
+sb_bioethanol_trans_and_process,t sb grain,0.0,0.0,0.0,0.0,0.0
+diesel_direct,kg,3.0468,0.0,0.0,0.0,0.0
+petrol_indirect_and_direct,kg,3.886,0.000958,0.00695,52.80665281,0.0254
+palm_oil_direct,kg,2.33,0.0057,0.0084,0.005966736,2.87e-06
+palm_oil_iluc,kg,5.330349632,0.002100208,,,
+maize,kg dm,0.168353489,0.001481882,0.003792413,0.319186411,0.000153529
+maize_iluc_factor,kg dm,1.860524153,0.000733064,,0.0,0.0
+pig_slurry_per_kg_n_excreted,kg nex,9.601107714,0.0273275,0.124925714,0.0,0.0
