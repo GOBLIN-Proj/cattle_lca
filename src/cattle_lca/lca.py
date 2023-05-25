@@ -1867,8 +1867,8 @@ class ClimateChangeTotals:
         mole_weight = 44 / 28
 
         result = (
-            self.fertiliser_class.urea_N2O_direct(self, total_urea, total_urea_abated)
-            + self.fertiliser_class.n_fertiliser_direct(self, total_n_fert)
+            self.fertiliser_class.urea_N2O_direct(total_urea, total_urea_abated)
+            + self.fertiliser_class.n_fertiliser_direct(total_n_fert)
         ) * mole_weight
 
         return result
