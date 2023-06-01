@@ -1627,6 +1627,8 @@ class ClimateChangeTotals:
             "soil_N_direct",
             "soil_N_indirect",
             "soils_N2O",
+            "upstream_fuel_fert",
+            "upstream_feed",
             "upstream",
         ]
 
@@ -1827,7 +1829,6 @@ class ClimateChangeTotals:
         total_urea_abated,
         total_p_fert,
         total_k_fert,
-        animal,
     ):
         return (
             self.upstream_class.diesel_CO2(diesel_kg)
@@ -1839,8 +1840,11 @@ class ClimateChangeTotals:
                 total_p_fert,
                 total_k_fert,
             )
-            + self.upstream_class.co2_from_concentrate_production(animal)
+            
         )
+    
+    def co2_from_concentrate_production(self, animal):
+        return self.upstream_class.co2_from_concentrate_production(animal)
 
 
 ###############################################################################
@@ -1884,7 +1888,10 @@ class EutrophicationTotals:
         key_list = [
             "manure_management",
             "soils",
+            "upstream_fuel_fert",
+            "upstream_feed",
             "upstream",
+
         ]
 
         keys_dict = dict.fromkeys(keys)
@@ -2039,7 +2046,6 @@ class EutrophicationTotals:
         total_urea_abated,
         total_p_fert,
         total_k_fert,
-        animal,
     ):
         return (
             self.upstream_class.diesel_PO4(diesel_kg)
@@ -2051,8 +2057,10 @@ class EutrophicationTotals:
                 total_p_fert,
                 total_k_fert,
             )
-            + self.upstream_class.po4_from_concentrate_production(animal)
         )
+    
+    def po4_from_concentrate_production(self, animal):
+        return self.upstream_class.po4_from_concentrate_production(animal)
 
 
 ###############################################################################
