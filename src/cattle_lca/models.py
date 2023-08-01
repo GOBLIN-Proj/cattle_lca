@@ -863,16 +863,6 @@ def load_animal_features_data():
 
 
 def load_farm_data(farm_data_frame):
-    subset = [
-        "total_urea",
-        "total_urea_abated",
-        "total_n_fert",
-        "total_p_fert",
-        "total_k_fert",
-        "diesel_kg",
-        "elec_kwh",
-    ]
-    farm_data_frame.drop_duplicates(subset=subset, keep="first", inplace=True)
 
     scenario_list = []
 
