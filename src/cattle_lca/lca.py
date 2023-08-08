@@ -321,6 +321,11 @@ class Energy:
 
         return (animal.con_amount * dm / 100) * mj
 
+
+    def concentrate_needs(self, animal):
+
+        return animal.con_amount
+
     def gross_energy_from_grass(self, animal):
         """
         This function utilises all of the energy equations to estimate the total energy intake from grasses minus the
