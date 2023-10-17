@@ -933,6 +933,7 @@ def create_emissions_dictionary(keys):
         "soil_organic_N_indirect",
         "soil_inorganic_N_direct",
         "soil_inorganic_N_indirect",
+        "soil_histosol_N_direct",
         "soil_N_direct",
         "soil_N_indirect",
         "soils_N2O",
