@@ -22,9 +22,12 @@
     -   soil_organic_N_indirect
     -   soil_inorganic_N_direct
     -   soil_inorganic_N_indirect
+    -   soil_histosol_N_direct
     -   soil_N_direct
     -   soil_N_indirect
     -   soils_N2O
+
+Note, that the soil_histosol_N_direct category will be 0. Estimation of the soils N2O direct emissions from histosols uses requires the land use data. Emissions can be included using the [landcover_lca](https://github.com/colmduff/landcover_lca) module.
 
 ## Installation
 
@@ -45,15 +48,12 @@ pip install "cattle_lca@git+https://github.com/colmduff/cattle_lca.git@main"
 ## Usage
 ```python
 import pandas as pd
-from cattle_lca.models import load_livestock_data, load_farm_data, create_emissions_dictionary
+from cattle_lca.models import load_livestock_data, load_farm_data
 from cattle_lca.lca import ClimateChangeTotals
 
 
 def main():
 
-    #Create a dictionary to store results 
-    index = -1
-    emissions_dict = create_emissions_dictionary([index])
 
     #Create some data to generate results 
 
@@ -105,6 +105,10 @@ def main():
 
     # Instantiate ClimateChange Totals Class, passing Ireland as the emissions factor country
     climatechange = ClimateChangeTotals("ireland")
+
+    #Create a dictionary to store results 
+    index = -1
+    emissions_dict = climatechange.create_emissions_dictionary([index])
     
     #load the dataframes 
     animals = load_livestock_data(livestock_data_frame)

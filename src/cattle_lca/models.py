@@ -917,35 +917,3 @@ def print_livestock_data(data):
                     )
 
 
-def create_emissions_dictionary(keys):
-    key_list = [
-        "enteric_ch4",
-        "manure_management_N2O",
-        "manure_management_CH4",
-        "manure_applied_N",
-        "N_direct_PRP",
-        "N_direct_PRP",
-        "N_indirect_PRP",
-        "N_direct_fertiliser",
-        "N_indirect_fertiliser",
-        "soils_CO2",
-        "soil_organic_N_direct",
-        "soil_organic_N_indirect",
-        "soil_inorganic_N_direct",
-        "soil_inorganic_N_indirect",
-        "soil_histosol_N_direct",
-        "soil_N_direct",
-        "soil_N_indirect",
-        "soils_N2O",
-    ]
-
-    keys_dict = dict.fromkeys(keys)
-
-    emissions_dict = dict.fromkeys(key_list)
-
-    for key in emissions_dict.keys():
-        emissions_dict[key] = copy.deepcopy(keys_dict)
-        for inner_k in keys_dict.keys():
-            emissions_dict[key][inner_k] = 0
-
-    return emissions_dict
