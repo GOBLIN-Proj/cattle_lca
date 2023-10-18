@@ -639,6 +639,12 @@ class Emissions_Factors(object):
 
     def get_ef_Frac_P_Leach(self):
         return self.emissions_factors.get("ef_Frac_P_Leach")
+    
+    def get_ef_urea_co2(self):
+        return self.emissions_factors.get("ef_urea_co2")
+    
+    def get_ef_lime_co2(self):
+        return self.emissions_factors.get("ef_lime_co2")
 
     def get_data(self):
         return self.data_frame

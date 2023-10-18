@@ -1185,12 +1185,22 @@ class FertiliserInputs:
             self.urea_nleach(total_urea, total_urea_abated) * indirect_leaching
         )
 
-    def urea_co2(self, total_urea, total_urea_abated):
+    def urea_co2(self, total_urea):
         """
         returns the total CO2 from urea application
         """
+        ef_urea_co2 = float(self.loader_class.emissions_factors.get_ef_urea_co2())
 
-        return ((total_urea + total_urea_abated) * 0.2) * (
+        return (total_urea  * ef_urea_co2) * (
+            44 / 12
+        )  # adjusted to the NIR version of this calculation
+
+
+    def lime_co2(self, total_lime):
+
+        ef_lime_co2 = float(self.loader_class.emissions_factors.get_ef_lime_co2())
+
+        return (total_lime * ef_lime_co2) * (
             44 / 12
         )  # adjusted to the NIR version of this calculation
 
@@ -1795,8 +1805,8 @@ class ClimateChangeTotals:
             animal
         ) + self.storage_class.CH4_STORAGE(animal)
 
-    def CO2_soils_GWP(self, total_urea, total_urea_abated):
-        return self.fertiliser_class.urea_co2(total_urea, total_urea_abated)
+    def CO2_soils_GWP(self, total_urea, total_lime):
+        return self.fertiliser_class.urea_co2(total_urea) + self.fertiliser_class.lime_co2(total_lime)
 
     def N2O_direct_fertiliser(self, total_urea, total_urea_abated, total_n_fert):
         """

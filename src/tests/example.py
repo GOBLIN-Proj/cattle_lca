@@ -43,9 +43,11 @@ def main():
         'ef_country': ['ireland'],
         'farm_id': [2018],
         'year': [2018],
-        'total_urea': [2072487.127],
-        'total_urea_abated': [0],
-        'total_n_fert': [17310655.18],
+        'total_urea_kg': [2072487.127],
+        'total_lime_kg': [2072487.127],
+        'an_n_fert': [2072487.127],
+        'urea_n_fert': [2072487],
+        'total_urea_abated': [17310655.18],
         'total_p_fert': [1615261.859],
         'total_k_fert': [3922778.8],
         'diesel_kg': [0],
@@ -108,25 +110,25 @@ def main():
     )
     emissions_dict["N_direct_fertiliser"][index] = (
         climatechange.N2O_direct_fertiliser(
-            farms[farm_loc].total_urea,
+            farms[farm_loc].urea_n_fert,
             farms[farm_loc].total_urea_abated,
-            farms[farm_loc].total_n_fert
+            farms[farm_loc].an_n_fert
         )
         
     )
 
     emissions_dict["N_indirect_fertiliser"][index] += (
         climatechange.N2O_fertiliser_indirect(
-            farms[farm_loc].total_urea,
+            farms[farm_loc].urea_n_fert,
             farms[farm_loc].total_urea_abated,
-            farms[farm_loc].total_n_fert,
+            farms[farm_loc].an_n_fert,
         )
         
     )
     emissions_dict["soils_CO2"][index] += (
         climatechange.CO2_soils_GWP(
-            farms[farm_loc].total_urea,
-            farms[farm_loc].total_urea_abated,
+            farms[farm_loc].total_urea_kg,
+            farms[farm_loc].total_lime_kg,
         )
         
     )
