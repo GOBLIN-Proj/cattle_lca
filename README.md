@@ -23,11 +23,12 @@
     -   soil_inorganic_N_direct
     -   soil_inorganic_N_indirect
     -   soil_histosol_N_direct
+    -   crop_residues_N_direct
     -   soil_N_direct
     -   soil_N_indirect
     -   soils_N2O
 
-Note, that the soil_histosol_N_direct category will be 0. Estimation of the soils N2O direct emissions from histosols uses requires the land use data. Emissions can be included using the [landcover_lca](https://github.com/colmduff/landcover_lca) module.
+Note, that the soil_histosol_N_direct and  crop_residues_N_direct category will be 0. Estimation of the soils N2O direct emissions from histosols uses requires the land use data. Emissions can be included using the [landcover_lca](https://github.com/colmduff/landcover_lca) module and the [crop_lca](https://github.com/colmduff/crop_lca) module.
 
 ## Installation
 
