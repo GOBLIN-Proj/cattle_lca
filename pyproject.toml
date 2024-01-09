@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cattle_lca"
-version = "0.1.0"
+version = "0.2.0"
 description = "Tier 2 Environmental Impact Assessment tool for dairy and beef cattle."
 authors = ["Colm Duffy"]
 license = "MIT"
