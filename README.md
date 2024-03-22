@@ -1,4 +1,7 @@
 # 🐮 Cattle_lca, a lifecycle assessment tool for livestock systems
+[![license](https://img.shields.io/badge/License-MIT-red)](https://github.com/GOBLIN-Proj/cattle_lca/blob/0.1.0/LICENSE)
+[![python](https://img.shields.io/badge/python-3.9-blue?logo=python&logoColor=white)](https://github.com/GOBLIN-Proj/cattle_lca)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
  Based on the [GOBLIN](https://gmd.copernicus.org/articles/15/2239/2022/) (**G**eneral **O**verview for a **B**ackcasting approach of **L**ivestock **IN**tensification) LifeCycle Analysis tool, the Cattle_lca module decouples this module making it an independent distribution package.
 
@@ -28,7 +31,7 @@
     -   soil_N_indirect
     -   soils_N2O
 
-Note, that the soil_histosol_N_direct and  crop_residues_N_direct category will be 0. Estimation of the soils N2O direct emissions from histosols uses requires the land use data. Emissions can be included using the [landcover_lca](https://github.com/colmduff/landcover_lca) module and the [crop_lca](https://github.com/colmduff/crop_lca) module.
+Note, that the soil_histosol_N_direct and  crop_residues_N_direct category will be 0. Estimation of the soils N2O direct emissions from histosols uses requires the land use data. Emissions can be included using the [landcover_lca](https://github.com/GOBLIN-Proj/landcover_lca) module and the [crop_lca](https://github.com/GOBLIN-Proj/crop_lca) module.
 
 ## Installation
 
@@ -42,7 +45,7 @@ When prompted enter your ```<username>``` and password, which is your ```<access
 
 
 ```bash
-pip install "cattle_lca@git+https://github.com/colmduff/cattle_lca.git@main" 
+pip install "cattle_lca@git+https://github.com/GOBLIN-Proj/cattle_lca.git@main" 
 
 ```
 
