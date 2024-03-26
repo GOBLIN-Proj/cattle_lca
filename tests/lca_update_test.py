@@ -1,11 +1,12 @@
-from cattle_lca.models import print_livestock_data, load_livestock_data
-from cattle_lca.animal_data import AnimalData as ad
-import pandas as pd 
+import pandas as pd
+from cattle_lca.resource_manager.models import load_livestock_data, load_farm_data
+from cattle_lca.lca import ClimateChangeTotals
 
 
 def main():
 
-        #Create some data to generate results 
+
+    #Create some data to generate results 
 
     livestock_data = [
         ['ireland', 2018, 2018, 'dairy_cows', 175298, 538, 14.953, 'irish_grass', 'pasture', 'concentrate', 2.992828296, 13.5890411, 10.4109589, 0, 0, 'tank liquid', 'broadcast', 0, 0],
@@ -30,40 +31,76 @@ def main():
         ['ireland', 2018, 2018, 'BxB_calves_m', 13424.64053, 178.775, 0, 'irish_grass', 'pasture', 'concentrate', 1, 7.945205479, 16.05479452, 0, 0, 'tank liquid', 'broadcast', 0, 0],
         ['ireland', 2018, 2018, 'bulls', 4641.388771, 773, 0, 'irish_grass', 'pasture', 'concentrate', 0.654140961, 11.56164384, 12.43835616, 0, 0, 'tank liquid', 'broadcast', 0, 0]
         ]
-    
+
+
     columns = ['ef_country', 'farm_id', 'year', 'cohort', 'pop', 'weight', 'daily_milk', 'forage', 'grazing',
                 'con_type', 'con_amount', 't_outdoors', 't_indoors', 'wool', 't_stabled', 'mm_storage',
                 'daily_spreading', 'n_sold', 'n_bought']
-    
+
     livestock_data_frame = pd.DataFrame(livestock_data, columns=columns)
 
+    farm_data = {
+        'ef_country': ['ireland'],
+        'farm_id': [2018],
+        'year': [2018],
+        'total_urea_kg': [2072487.127],
+        'total_lime_kg': [2072487.127],
+        'an_n_fert': [2072487.127],
+        'urea_n_fert': [2072487],
+        'total_urea_abated': [17310655.18],
+        'total_p_fert': [1615261.859],
+        'total_k_fert': [3922778.8],
+        'diesel_kg': [0],
+        'elec_kwh': [0]
+    }
+
+    farm_dataframe = pd.DataFrame(farm_data)
+
+    # Instantiate ClimateChange Totals Class, passing Ireland as the emissions factor country
+    climatechange = ClimateChangeTotals("ireland")
+
+    #Create a dictionary to store results 
+    index = -1
+    emissions_dict = climatechange.create_emissions_dictionary([index])
+    
+    #load the dataframes 
     animals = load_livestock_data(livestock_data_frame)
+    farms = load_farm_data(farm_dataframe)
 
-    print_livestock_data(animals)
 
-    cohorts = livestock_data_frame.cohort.unique()
+    animals_loc = list(animals.keys())[0]
+    farm_loc = list(farms.keys())[0]
 
-    print(cohorts)
+    #generate results and store them in the dictionary
 
-    for cohort in cohorts:
-        animal = getattr(animals[2018]["animals"], cohort)
-        print(f"{cohort}: bought: {ad.get_animal_bought(animal)}")
-        print(f"{cohort}: sold: {ad.get_animal_sold(animal)}")
-        print(f"{cohort}: population: {ad.get_animal_population(animal)}")
-        print(f"{cohort}: weight: {ad.get_animal_weight(animal)}")
-        print(f"{cohort}: daily milk: {ad.get_animal_daily_milk(animal)}")
-        print(f"{cohort}: grazing: {ad.get_animal_grazing(animal)}")
-        print(f"{cohort}: t outdoors: {ad.get_animal_t_outdoors(animal)}")
-
-        print(f"{cohort}: t indoors: {ad.get_animal_t_indoors(animal)}")
-        print(f"{cohort}: t stabled: {ad.get_animal_t_stabled(animal)}")
-        print(f"{cohort}: mm storage: {ad.get_animal_mm_storage(animal)}")
-        print(f"{cohort}: forage: {ad.get_animal_forage(animal)}")
-        print(f"{cohort}: concentrate type: {ad.get_animal_concentrate_type(animal)}")
-        print(f"{cohort}: concentrate amount: {ad.get_animal_concentrate_amount(animal)}")
-        print(f"{cohort}: year: {ad.get_animal_year(animal)}")
-        print(f"{cohort}: cohort: {ad.get_animal_cohort(animal)}")
+    emissions_dict["enteric_ch4"][index] += (
+        climatechange.CH4_enteric_ch4(
+            animals[animals_loc]["animals"]
+        )
+    )
+    emissions_dict["manure_management_N2O"][index] += (
+        climatechange.Total_storage_N2O(
+            animals[animals_loc]["animals"]
+        )
+    )
+    emissions_dict["manure_management_CH4"][index] += (
+        climatechange.CH4_manure_management(
+            animals[animals_loc]["animals"]
+        )
         
+    )
+    emissions_dict["manure_applied_N"][index] += (
+        climatechange.Total_N2O_Spreading(
+            animals[animals_loc]["animals"]
+        )
+        
+    )
 
-if __name__ == '__main__': 
+    
+
+    #Print the emission results dictionary
+    print(emissions_dict)
+
+
+if __name__ == "__main__":
     main()

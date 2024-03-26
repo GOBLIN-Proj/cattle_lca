@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from cattle_lca.models import load_livestock_data, load_farm_data
+from cattle_lca.resource_manager.models import load_livestock_data, load_farm_data
 from cattle_lca.lca import AirQualityTotals
 import matplotlib.pyplot as plt
 import os

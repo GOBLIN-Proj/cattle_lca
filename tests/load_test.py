@@ -2,7 +2,7 @@ import unittest
 import pandas as pd
 import os
 
-from cattle_lca.models import (
+from cattle_lca.resource_manager.models import (
     Animal_Features,
     Grass,
     Concentrate,

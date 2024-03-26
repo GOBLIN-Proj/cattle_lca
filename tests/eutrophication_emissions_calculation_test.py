@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from cattle_lca.models import load_livestock_data, load_farm_data
+from cattle_lca.resource_manager.models import load_livestock_data, load_farm_data
 from cattle_lca.lca import EutrophicationTotals
 import matplotlib.pyplot as plt
 import os
@@ -486,6 +486,7 @@ class EmissionCalculationTestCase(unittest.TestCase):
             "total_n_fert": [17310655.18],
             "total_p_fert": [1615261.859],
             "total_k_fert": [3922778.8],
+            "total_lime": [365422.0],
             "diesel_kg": [0],
             "elec_kwh": [0],
         }
@@ -520,6 +521,7 @@ class EmissionCalculationTestCase(unittest.TestCase):
             past_farms[past_farm_loc].total_urea_abated,
             past_farms[past_farm_loc].total_n_fert,
             past_farms[past_farm_loc].total_p_fert,
+
         )
 
         self.emissions_dict["upstream_fuel_fert"][
@@ -532,6 +534,8 @@ class EmissionCalculationTestCase(unittest.TestCase):
             past_farms[past_farm_loc].total_urea_abated,
             past_farms[past_farm_loc].total_p_fert,
             past_farms[past_farm_loc].total_k_fert,
+            past_farms[past_farm_loc].total_lime,
+
         )
 
         self.emissions_dict["upstream_feed"][
