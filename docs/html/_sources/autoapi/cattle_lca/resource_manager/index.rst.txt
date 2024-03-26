@@ -1,0 +1,19 @@
+:py:mod:`cattle_lca.resource_manager`
+=====================================
+
+.. py:module:: cattle_lca.resource_manager
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   animal_data/index.rst
+   cattle_lca_data_manager/index.rst
+   data_loader/index.rst
+   database_manager/index.rst
+   models/index.rst
+
+

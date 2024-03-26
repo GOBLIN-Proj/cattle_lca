@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cattle_lca.resource_manager.database_manager &mdash; Cattle LCA 0.3.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=e259d695"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Cattle LCA
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cattle LCA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">cattle_lca.resource_manager.database_manager</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for cattle_lca.resource_manager.database_manager</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Database Manager Module</span>
+<span class="sd">-----------------------</span>
+
+<span class="sd">This module contains the DataManager class, which is responsible for handling the retrieval of country-specific and generic data </span>
+<span class="sd">from the SQL database for use in lifecycle assessment calculations.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="k">as</span> <span class="nn">sqa</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">cattle_lca.database</span> <span class="kn">import</span> <span class="n">get_local_dir</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<div class="viewcode-block" id="DataManager">
+<a class="viewcode-back" href="../../../autoapi/cattle_lca/resource_manager/database_manager/index.html#cattle_lca.resource_manager.database_manager.DataManager">[docs]</a>
+<span class="k">class</span> <span class="nc">DataManager</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    DataManager handles the retrieval of country-specific and generic data from the SQL database for use in lifecycle assessment calculations. </span>
+<span class="sd">    It utilizes SQLAlchemy for database connection and operations. </span>
+<span class="sd">    The data is returned as Pandas DataFrames for easy manipulation and access within the Python ecosystem.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        database_dir (str): Directory where the SQL database is stored.</span>
+<span class="sd">        engine (sqa.engine.Engine): SQLAlchemy engine instance for connecting to the database.</span>
+<span class="sd">        ef_country (str): The country identifier used to retrieve country-specific data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ef_country (str): A string representing the country for which the data is to be loaded. It is used to filter the data in country-specific tables.</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        data_engine_creater(): Initializes and returns a SQLAlchemy engine connected to the local cattle LCA database.</span>
+<span class="sd">        grass_data(index=None): Retrieves grass-related data from the database. Optional index parameter sets a column as DataFrame index.</span>
+<span class="sd">        upstream_data(index=None): Retrieves upstream (pre-farm gate inputs and processes) data. Optional index parameter for DataFrame indexing.</span>
+<span class="sd">        emissions_factor_data(index=None): Fetches emissions factors specific to the set country. Can set an index column if provided.</span>
+<span class="sd">        concentrate_data(index=None): Gathers data regarding animal feed concentrates. Optional indexing with the index parameter.</span>
+<span class="sd">        animal_features_data(index=None): Collects data related to the features of various animal types, filtered by country. Indexing option available.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ef_country</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">database_dir</span> <span class="o">=</span> <span class="n">get_local_dir</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_engine_creater</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ef_country</span> <span class="o">=</span> <span class="n">ef_country</span>
+
+
+<div class="viewcode-block" id="DataManager.data_engine_creater">
+<a class="viewcode-back" href="../../../autoapi/cattle_lca/resource_manager/database_manager/index.html#cattle_lca.resource_manager.database_manager.DataManager.data_engine_creater">[docs]</a>
+    <span class="k">def</span> <span class="nf">data_engine_creater</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes and returns a SQLAlchemy engine connected to the local cattle LCA database.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            sqa.engine.Engine: SQLAlchemy engine instance for connecting to the database.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">database_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">database_dir</span><span class="p">,</span> <span class="s2">&quot;cattle_database.db&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">engine_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;sqlite:///</span><span class="si">{</span><span class="n">database_path</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">return</span> <span class="n">sqa</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="n">engine_url</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="DataManager.grass_data">
+<a class="viewcode-back" href="../../../autoapi/cattle_lca/resource_manager/database_manager/index.html#cattle_lca.resource_manager.database_manager.DataManager.grass_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">grass_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves grass-related data from the database. Optional index parameter sets a column as DataFrame index.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            index (str): The column to use as the DataFrame index.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: A DataFrame containing grass-related data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="s2">&quot;grass_database&quot;</span>
+
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">table</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span>
+                <span class="s2">&quot;SELECT * FROM &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">table</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span>
+                <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="n">index</span><span class="p">],</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+
+<div class="viewcode-block" id="DataManager.upstream_data">
+<a class="viewcode-back" href="../../../autoapi/cattle_lca/resource_manager/database_manager/index.html#cattle_lca.resource_manager.database_manager.DataManager.upstream_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">upstream_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves upstream (pre-farm gate inputs and processes) data. Optional index parameter for DataFrame indexing.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            index (str): The column to use as the DataFrame index.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: A DataFrame containing upstream data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="s2">&quot;upstream_database&quot;</span>
+
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">table</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span>
+                <span class="s2">&quot;SELECT * FROM &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">table</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span>
+                <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="n">index</span><span class="p">],</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+<div class="viewcode-block" id="DataManager.emissions_factor_data">
+<a class="viewcode-back" href="../../../autoapi/cattle_lca/resource_manager/database_manager/index.html#cattle_lca.resource_manager.database_manager.DataManager.emissions_factor_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">emissions_factor_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fetches emissions factors specific to the set country. Can set an index column if provided.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            index (str): The column to use as the DataFrame index.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: A DataFrame containing emissions factors data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="s2">&quot;emissions_factors_database&quot;</span>
+
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span>
+                <span class="s2">&quot;SELECT * FROM &#39;</span><span class="si">%s</span><span class="s2">&#39; WHERE ef_country = &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ef_country</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span>
+                <span class="s2">&quot;SELECT * FROM &#39;</span><span class="si">%s</span><span class="s2">&#39; WHERE ef_country = &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ef_country</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span>
+                <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="n">index</span><span class="p">],</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">dataframe</span></div>
+
+    
+
+<div class="viewcode-block" id="DataManager.concentrate_data">
+<a class="viewcode-back" href="../../../autoapi/cattle_lca/resource_manager/database_manager/index.html#cattle_lca.resource_manager.database_manager.DataManager.concentrate_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">concentrate_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gathers data regarding animal feed concentrates. Optional indexing with the index parameter.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            index (str): The column to use as the DataFrame index.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: A DataFrame containing concentrate feed data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="s2">&quot;concentrate_database&quot;</span>
+
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">table</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span>
+                <span class="s2">&quot;SELECT * FROM &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">table</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span>
+                <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="n">index</span><span class="p">],</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">dataframe</span></div>
+
+
+
+<div class="viewcode-block" id="DataManager.animal_features_data">
+<a class="viewcode-back" href="../../../autoapi/cattle_lca/resource_manager/database_manager/index.html#cattle_lca.resource_manager.database_manager.DataManager.animal_features_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">animal_features_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Collects data related to the features of various animal types, filtered by country. Indexing option available.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            index (str): The column to use as the DataFrame index.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: A DataFrame containing animal features data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="s2">&quot;animal_features_database&quot;</span>
+
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span>
+                <span class="s2">&quot;SELECT * FROM &#39;</span><span class="si">%s</span><span class="s2">&#39; WHERE ef_country = &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ef_country</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span>
+                <span class="s2">&quot;SELECT * FROM &#39;</span><span class="si">%s</span><span class="s2">&#39; WHERE ef_country = &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ef_country</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span>
+                <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="n">index</span><span class="p">],</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">dataframe</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Colm Duffy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

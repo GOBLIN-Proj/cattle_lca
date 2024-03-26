@@ -1,0 +1,345 @@
+:py:mod:`cattle_lca.resource_manager.animal_data`
+=================================================
+
+.. py:module:: cattle_lca.resource_manager.animal_data
+
+.. autoapi-nested-parse::
+
+   Animal data module
+   ------------------
+   This module provides a class that contains static methods to access various attributes related to an animal's characteristics and management
+   practices within a farming operation.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cattle_lca.resource_manager.animal_data.AnimalData
+
+
+
+
+.. py:class:: AnimalData
+
+
+   The AnimalData class provides static methods to access various attributes related to an animal's characteristics and management practices
+   within a farming operation. This class is designed to facilitate the extraction of specific data from animal objects,
+   supporting calculations and analyses in environmental assessments, nutritional planning, and other agricultural applications.
+
+   Each method in this class is a static method, meaning it can be called without creating an instance of the class.
+   These methods are intended to work with animal objects that contain attributes such as concentrate amount, forage type, cohort, and more.
+
+   .. method:: get_animal_concentrate_amount(animal)
+
+      Returns the amount of concentrate feed consumed by the animal.
+
+   .. method:: get_animal_concentrate_type(animal)
+
+      Returns the type of concentrate feed consumed by the animal.
+
+   .. method:: get_animal_forage(animal)
+
+      Returns the type of forage consumed by the animal.
+
+   .. method:: get_animal_cohort(animal)
+
+      Returns the cohort category to which the animal belongs.
+
+   .. method:: get_animal_population(animal)
+
+      Returns the population count of the animal's group.
+
+   .. method:: get_animal_weight(animal)
+
+      Returns the weight of the animal.
+
+   .. method:: get_animal_daily_milk(animal)
+
+      Returns the daily milk yield of the animal, if applicable.
+
+   .. method:: get_animal_year(animal)
+
+      Returns the year associated with the animal data.
+
+   .. method:: get_animal_grazing(animal)
+
+      Returns the grazing management practice for the animal.
+
+   .. method:: get_animal_t_outdoors(animal)
+
+      Returns the time spent outdoors by the animal.
+
+   .. method:: get_animal_t_indoors(animal)
+
+      Returns the time spent indoors by the animal.
+
+   .. method:: get_animal_sold(animal)
+
+      Returns the number of animals sold from this group.
+
+   .. method:: get_animal_bought(animal)
+
+      Returns the number of animals bought into this group.
+
+   .. method:: get_animal_t_stabled(animal)
+
+      Returns the time the animal is stabled.
+
+   .. method:: get_animal_mm_storage(animal)
+
+      Returns the manure management storage type used for the animal.
+
+   .. method:: get_animal_daily_spreading(animal)
+
+      Returns the type of daily spreading practice used for manure management.
+
+   .. method:: get_animal_wool(animal)
+
+      Returns the amount of wool produced by the animal, if applicable.
+
+   .. method:: get_animal_ef_country(animal)
+
+      Returns the country for which environmental factor data should be used.
+
+   .. method:: get_animal_farm_id(animal)
+
+      Returns the identification number of the farm where the animal is raised.
+      
+
+   .. py:method:: get_animal_concentrate_amount(animal)
+      :staticmethod:
+
+      Returns the amount of concentrate feed consumed by the animal.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The amount of concentrate feed consumed by the animal.
+      :rtype: float
+
+
+   .. py:method:: get_animal_concentrate_type(animal)
+      :staticmethod:
+
+      Returns the type of concentrate feed consumed by the animal.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The type of concentrate feed consumed by the animal.
+      :rtype: str
+
+
+   .. py:method:: get_animal_forage(animal)
+      :staticmethod:
+
+      Returns the type of forage consumed by the animal.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The type of forage consumed by the animal.
+      :rtype: str
+
+
+   .. py:method:: get_animal_cohort(animal)
+      :staticmethod:
+
+      Returns the cohort category to which the animal belongs.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The cohort category to which the animal belongs.
+      :rtype: str
+
+
+   .. py:method:: get_animal_population(animal)
+      :staticmethod:
+
+      Returns the population count of the animal's group.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The population count of the animal's group.
+      :rtype: float
+
+
+   .. py:method:: get_animal_weight(animal)
+      :staticmethod:
+
+      Returns the weight of the animal.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The weight of the animal.
+      :rtype: float
+
+
+   .. py:method:: get_animal_daily_milk(animal)
+      :staticmethod:
+
+      Returns the daily milk yield of the animal.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The daily milk yield of the animal.
+      :rtype: float
+
+
+   .. py:method:: get_animal_year(animal)
+      :staticmethod:
+
+      Returns the year associated with the animal data.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The year associated with the animal data.
+      :rtype: int
+
+
+   .. py:method:: get_animal_grazing(animal)
+      :staticmethod:
+
+      Returns the grazing management practice for the animal.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The grazing management practice for the animal.
+      :rtype: str
+
+
+   .. py:method:: get_animal_t_outdoors(animal)
+      :staticmethod:
+
+      Returns the time spent outdoors by the animal.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The time spent outdoors by the animal.
+      :rtype: float
+
+
+   .. py:method:: get_animal_t_indoors(animal)
+      :staticmethod:
+
+      Returns the time spent indoors by the animal.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The time spent indoors by the animal.
+      :rtype: float
+
+
+   .. py:method:: get_animal_sold(animal)
+      :staticmethod:
+
+      Returns the number of animals sold from this group.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The number of animals sold from this group.
+      :rtype: int
+
+
+   .. py:method:: get_animal_bought(animal)
+      :staticmethod:
+
+      Returns the number of animals bought into this group.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The number of animals bought into this group.
+      :rtype: int
+
+
+   .. py:method:: get_animal_t_stabled(animal)
+      :staticmethod:
+
+      Returns the time the animal is stabled.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The time the animal is stabled.
+      :rtype: float
+
+
+   .. py:method:: get_animal_mm_storage(animal)
+      :staticmethod:
+
+      Returns the manure management storage type used for the animal.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The manure management storage type used for the animal.
+      :rtype: str
+
+
+   .. py:method:: get_animal_daily_spreading(animal)
+      :staticmethod:
+
+      Returns the type of daily spreading
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The type of daily spreading practice used for manure management.
+      :rtype: float
+
+
+   .. py:method:: get_animal_wool(animal)
+      :staticmethod:
+
+      Returns the amount of wool produced by the animal.
+
+      Not Apllicable for all animals
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The amount of wool produced by the animal.
+      :rtype: float
+
+
+   .. py:method:: get_animal_ef_country(animal)
+      :staticmethod:
+
+      Returns the country for which environmental factor data should be used.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The country for which environmental factor data should be used.
+      :rtype: str
+
+
+   .. py:method:: get_animal_farm_id(animal)
+      :staticmethod:
+
+      Returns the identification number.
+
+      :param animal: An animal object containing data attributes.
+      :type animal: object
+
+      :returns: The identification number.
+      :rtype: int
+
+
+
