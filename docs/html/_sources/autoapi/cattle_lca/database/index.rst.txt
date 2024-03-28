@@ -1,0 +1,27 @@
+:py:mod:`cattle_lca.database`
+=============================
+
+.. py:module:: cattle_lca.database
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   cattle_lca.database.get_local_dir
+
+
+
+.. py:function:: get_local_dir()
+
+   Gets the directory containing this script
+
+   :returns: full path to the the script's directory
+   :rtype: str
+
+

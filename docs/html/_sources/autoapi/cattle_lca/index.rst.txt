@@ -1,0 +1,25 @@
+:py:mod:`cattle_lca`
+====================
+
+.. py:module:: cattle_lca
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   database/index.rst
+   resource_manager/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   lca/index.rst
+
+

@@ -1,0 +1,523 @@
+:py:mod:`cattle_lca.resource_manager.cattle_lca_data_manager`
+=============================================================
+
+.. py:module:: cattle_lca.resource_manager.cattle_lca_data_manager
+
+.. autoapi-nested-parse::
+
+   Cattle LCA Data Manager
+   ------------------------
+
+   This module contains the LCADataManager class, which is responsible for aggregating and managing all data relevant
+   to the life cycle assessment (LCA) of cattle within a specified region (Ireland). It consolidates emissions factors,
+   animal characteristics, and other environmental impact parameters specific to various cattle cohorts (e.g., dairy cows, bulls, calves)
+   and management practices (e.g., feeding, manure management). This centralized management supports the calculation and analysis of environmental
+   impacts associated with different livestock management strategies.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cattle_lca.resource_manager.cattle_lca_data_manager.LCADataManager
+
+
+
+
+.. py:class:: LCADataManager(ef_country)
+
+
+   The LCADataManager class is responsible for aggregating and managing all data relevant to the life cycle assessment (LCA) of
+   cattle within a specified region (Ireland). It consolidates emissions factors, animal characteristics, and other environmental
+   impact parameters specific to various cattle cohorts (e.g., dairy cows, bulls, calves) and management practices (e.g., feeding, manure management).
+   This centralized management supports the calculation and analysis of environmental impacts associated with different livestock management strategies.
+
+   The class utilizes data from the Loader class, which provides access to country-specific information.
+   This enables the LCADataManager to provide tailored data for accurate LCA modeling.
+   Parameters such as methane conversion factors, nitrogen retention rates, and energy coefficients are organized by cattle cohort,
+   allowing for detailed and nuanced environmental impact assessments.
+
+   Through its methods, the LCADataManager offers an interface to retrieve specific data points necessary for LCA calculations,
+   such as greenhouse gas emissions, energy use, and nutrient balances. This supports the development of sustainable cattle farming practices
+   by providing the necessary data to assess environmental impacts and identify areas for improvement.
+
+   .. attribute:: loader_class
+
+      An instance of the Loader class to load country-specific emissions factors and animal features.
+
+      :type: Loader
+
+   .. attribute:: cohorts_data
+
+      A comprehensive dictionary containing various parameters for different cattle cohorts.
+
+      :type: dict
+
+   .. attribute:: grazing_type
+
+      Emissions factors associated with different types of grazing environments.
+
+      :type: dict
+
+   .. attribute:: milk_density
+
+      The average density of milk, critical for various calculations in LCA.
+
+      :type: float
+
+   .. attribute:: fat
+
+      The average fat percentage in milk.
+
+      :type: float
+
+   .. attribute:: storage_TAN
+
+      Total Ammonia Nitrogen (TAN) factors for different manure storage types.
+
+      :type: dict
+
+   .. attribute:: storage_MCF
+
+      Methane Conversion Factors (MCF) applicable to different storage scenarios.
+
+      :type: dict
+
+   .. attribute:: storage_N2O
+
+      Nitrous Oxide (N2O) emissions factors for varying manure storage types.
+
+      :type: dict
+
+   .. attribute:: daily_spreading
+
+      Ammonia emissions factors for different manure spreading practices.
+
+      :type: dict
+
+   :param ef_country: A country identifier used to load specific datasets applicable to the given region.
+   :type ef_country: str
+
+   .. py:method:: mature_weight_average()
+
+      Calculates the average mature weight of dairy and suckler cows. This is used for cohorts where specific mature weight data is not available.
+
+      :returns: The average mature weight of dairy and suckler cows.
+      :rtype: float
+
+
+   .. py:method:: get_cohort_keys()
+
+      Retrieves the keys (names) of all cattle cohorts available in the data.
+
+      :returns: A list of all cattle cohort names.
+      :rtype: list
+
+
+   .. py:method:: get_cohort_parameter(cohort, parameter)
+
+      Retrieves a specific parameter value for a given cattle cohort.
+
+      :param cohort: The name of the cattle cohort.
+      :type cohort: str
+      :param parameter: The parameter to retrieve from the cohort data.
+      :type parameter: str
+
+      :returns: The value of the requested parameter for the specified cohort.
+      :rtype: Various
+
+
+   .. py:method:: get_grazing_type(grazing_type)
+
+      Retrieves the coefficient for a specific type of grazing.
+
+      :param grazing_type: The type of grazing (e.g., 'pasture', 'large area').
+      :type grazing_type: str
+
+      :returns: The coefficient associated with the specified type of grazing.
+      :rtype: float
+
+
+   .. py:method:: get_milk_density()
+
+      Retrieves the density of milk.
+
+      :returns: The density of milk in kg/l.
+      :rtype: float
+
+
+   .. py:method:: get_fat()
+
+      Retrieves the fat content of milk.
+
+      :returns: The fat content of milk as a percentage.
+      :rtype: float
+
+
+   .. py:method:: get_concentrate_digestibility(con_type)
+
+      Retrieves the dry matter digestibility of a concentrate type.
+
+      :param con_type: The type of concentrate.
+      :type con_type: str
+
+      :returns: The dry matter digestibility of the specified concentrate type.
+      :rtype: float
+
+
+   .. py:method:: get_con_dry_matter_gross_energy(con_type)
+
+      Retrieves the gross energy of a concentrate type.
+
+      :param con_type: The type of concentrate.
+      :type con_type: str
+
+      :returns: The gross energy of the specified concentrate type in MJ/kg dry matter.
+      :rtype: float
+
+
+   .. py:method:: get_forage_digestibility(forage)
+
+      Retrieves the dry matter digestibile energy proportion of gross energy of a forage type.
+
+      :param forage: The type of forage.
+      :type forage: str
+
+      :returns: The dry matter digestibile energy proportion of gross energy of the specified forage type.
+      :rtype: float
+
+
+   .. py:method:: get_grass_dry_matter_gross_energy(forage)
+
+      Retrieves the gross energy of a forage type.
+
+      :param forage: The type of forage.
+      :type forage: str
+
+      :returns: The gross energy of the specified forage type in MJ/kg dry matter.
+      :rtype: float
+
+
+   .. py:method:: get_grass_crude_protein(forage)
+
+      Retrieves the crude protein content of a forage type.
+
+      :param forage: The type of forage.
+      :type forage: str
+
+      :returns: The crude protein content of the specified forage type.
+      :rtype: float
+
+
+   .. py:method:: get_concentrate_crude_protein(con_type)
+
+      Retrieves the crude protein content of a concentrate type.
+
+      :param con_type: The type of concentrate.
+      :type con_type: str
+
+      :returns: The crude protein content of the specified concentrate type.
+      :rtype: float
+
+
+   .. py:method:: get_concentrate_digestable_energy(con_type)
+
+      Retrieves the digestible energy proprotion of gross energy available of a concentrate type.
+
+      :param con_type: The type of concentrate.
+      :type con_type: str
+
+      :returns: The digestible energy proportion of the specified concentrate type.
+      :rtype: float
+
+
+   .. py:method:: get_storage_TAN(storage_type)
+
+      Retrieves the emissions factor for TAN storage.
+
+      :param storage_type: The type of storage (e.g., 'tank solid', 'solid').
+      :type storage_type: str
+
+      :returns: The emissions factor for the specified type of TAN storage.
+      :rtype: float
+
+
+   .. py:method:: get_storage_MCF(storage_type)
+
+      Retrieves the emissions factor for MCF storage.
+
+      :param storage_type: The type of storage (e.g., 'tank solid', 'solid').
+      :type storage_type: str
+
+      :returns: The emissions factor for the specified type of MCF storage.
+      :rtype: float
+
+
+   .. py:method:: get_storage_N2O(storage_type)
+
+      Retrieves the emissions factor for N2O storage.
+
+      :param storage_type: The type of storage (e.g., 'tank solid', 'solid').
+      :type storage_type: str
+
+      :returns: The emissions factor for the specified type of N2O storage.
+      :rtype: float
+
+
+   .. py:method:: get_daily_spreading(spreading_type)
+
+      Retrieves the emissions factor for daily spreading.
+
+      :param spreading_type: The type of spreading (e.g., 'none', 'manure').
+      :type spreading_type: str
+
+      :returns: The emissions factor for the specified type of daily spreading.
+      :rtype: float
+
+
+   .. py:method:: get_ef_urea()
+
+      Retrieves the emissions factor for urea.
+
+      :returns: The emissions factor for urea.
+      :rtype: float
+
+
+   .. py:method:: get_ef_urea_abated()
+
+      Retrieves the emissions factor for abated urea.
+
+      :returns: The emissions factor for abated urea.
+      :rtype: float
+
+
+   .. py:method:: get_ef_urea_to_nh3_and_nox()
+
+      Retrieves the emissions factor for urea to NH3 and NOx.
+
+      :returns: The emissions factor for urea to NH3 and NOx.
+      :rtype: float
+
+
+   .. py:method:: get_ef_urea_abated_to_nh3_and_nox()
+
+      Retrieves the emissions factor for abated urea to NH3 and NOx.
+
+      :returns: The emissions factor for abated urea to NH3 and NOx.
+      :rtype: float
+
+
+   .. py:method:: get_ef_fration_leach_runoff()
+
+      Retrieves the fraction of leaching and runoff.
+
+      :returns: The fraction of leaching and runoff.
+      :rtype: float
+
+
+   .. py:method:: get_indirect_atmospheric_deposition()
+
+      Retrieves the emissions factor for indirect N2O from atmospheric deposition to soils and water.
+
+      :returns: The emissions factor for indirect N2O from atmospheric deposition to soils and water.
+      :rtype: float
+
+
+   .. py:method:: get_indirect_leaching()
+
+      Retrieves the emissions factor for indirect N2O from leaching and runoff.
+
+      :returns: The emissions factor for indirect N2O from leaching and runoff.
+      :rtype: float
+
+
+   .. py:method:: get_ef_urea_co2()
+
+      Retrieves the emissions factor for CO2 from urea.
+
+      :returns: The emissions factor for CO2 from urea.
+      :rtype: float
+
+
+   .. py:method:: get_ef_lime_co2()
+
+      Retrieves the emissions factor for CO2 from lime.
+
+      :returns: The emissions factor for CO2 from lime.
+      :rtype: float
+
+
+   .. py:method:: get_frac_p_leach()
+
+      Retrieves the fraction of P leaching.
+
+      :returns: The fraction of P leaching.
+      :rtype: float
+
+
+   .. py:method:: get_ef_AN_fertiliser()
+
+      Retrieves the emissions factor for ammonium nitrate fertiliser.
+
+      :returns: The emissions factor for ammonium nitrate fertiliser.
+      :rtype: float
+
+
+   .. py:method:: get_ef_AN_fertiliser_to_nh3_and_nox()
+
+      Retrieves the emissions factor for ammonium nitrate fertiliser to NH3 and NOx.
+
+      :returns: The emissions factor for ammonium nitrate fertiliser to NH3 and NOx.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_diesel_co2e_indirect()
+
+      Retrieves the upstream emissions co2e factor for diesel (indirect).
+
+      :returns: The upstream emissions co2e factor for diesel (indirect).
+      :rtype: float
+
+
+   .. py:method:: get_upstream_diesel_co2e_direct()
+
+      Retrieves the upstream emissions co2e factor for diesel (direct).
+
+      :returns: The upstream emissions co2e factor for diesel (direct).
+      :rtype: float
+
+
+   .. py:method:: get_upstream_diesel_po4e_indirect()
+
+      Retrieves the upstream emissions po4e factor for diesel (indirect).
+
+      :returns: The upstream emissions po4e factor for diesel (indirect).
+      :rtype: float
+
+
+   .. py:method:: get_upstream_diesel_po4e_direct()
+
+      Retrieves the upstream emissions po4e factor for diesel (direct).
+
+      :returns: The upstream emissions po4e factor for diesel (direct).
+      :rtype: float
+
+
+   .. py:method:: get_upstream_electricity_co2e()
+
+      Retrieves the upstream emissions co2e factor for electricity.
+
+      :returns: The upstream emissions co2e factor for electricity.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_electricity_po4e()
+
+      Retrieves the upstream emissions po4e factor for electricity.
+
+      :returns: The upstream emissions po4e factor for electricity.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_AN_fertiliser_co2e()
+
+      Retrieves the upstream emissions co2e factor for ammonium nitrate fertiliser.
+
+      :returns: The upstream emissions co2e factor for ammonium nitrate fertiliser.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_urea_fertiliser_co2e()
+
+      Retrieves the upstream emissions co2e factor for urea fertiliser.
+
+      :returns: The upstream emissions co2e factor for urea fertiliser.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_triple_phosphate_co2e()
+
+      Retrieves the upstream emissions co2e factor for triple superphosphate.
+
+      :returns: The upstream emissions co2e factor for triple superphosphate.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_potassium_chloride_co2e()
+
+      Retrieves the upstream emissions co2e factor for potassium chloride.
+
+      :returns: The upstream emissions co2e factor for potassium chloride.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_lime_co2e()
+
+      Retrieves the upstream emissions co2e factor for lime.
+
+      :returns: The upstream emissions co2e factor for lime.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_AN_fertiliser_po4e()
+
+      Retrieves the upstream emissions po4e factor for ammonium nitrate fertiliser.
+
+      :returns: The upstream emissions po4e factor for ammonium nitrate fertiliser.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_urea_fertiliser_po4e()
+
+      Retrieves the upstream emissions po4e factor for urea fertiliser.
+
+      :returns: The upstream emissions po4e factor for urea fertiliser.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_triple_phosphate_po4e()
+
+      Retrieves the upstream emissions po4e factor for triple superphosphate.
+
+      :returns: The upstream emissions po4e factor for triple superphosphate.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_potassium_chloride_po4e()
+
+      Retrieves the upstream emissions po4e factor for potassium chloride.
+
+      :returns: The upstream emissions po4e factor for potassium chloride.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_lime_po4e()
+
+      Retrieves the upstream emissions po4e factor for lime.
+
+      :returns: The upstream emissions po4e factor for lime.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_concentrate_co2e(con_type)
+
+      Retrieves the upstream emissions co2e factor for concentrate.
+
+      :returns: The upstream emissions co2e factor for concentrate.
+      :rtype: float
+
+
+   .. py:method:: get_upstream_concentrate_po4e(con_type)
+
+      Retrieves the upstream emissions po4e factor for concentrate.
+
+      :returns: The upstream emissions po4e factor for concentrate.
+      :rtype: float
+
+
+

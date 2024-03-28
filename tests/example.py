@@ -1,56 +1,3 @@
-# 🐮 Cattle_lca, a lifecycle assessment tool for livestock systems
-[![license](https://img.shields.io/badge/License-MIT-red)](https://github.com/GOBLIN-Proj/cattle_lca/blob/0.1.0/LICENSE)
-[![python](https://img.shields.io/badge/python-3.9-blue?logo=python&logoColor=white)](https://github.com/GOBLIN-Proj/cattle_lca)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-
- Based on the [GOBLIN](https://gmd.copernicus.org/articles/15/2239/2022/) (**G**eneral **O**verview for a **B**ackcasting approach of **L**ivestock **IN**tensification) LifeCycle Analysis tool, the Cattle_lca module decouples this module making it an independent distribution package.
-
- The package is shipped with key data for emissions factors, concentrate feed inputs, animal features, grassland parameters and upstream emissions. 
-
- Currently parameterised for Ireland, but the database can be updated with additional emissions factor contexts, which are selected able with an emissions factor key. 
-
- Final results are output as a dictionary object capturing emissions for:
-
-    -   enteric_ch4
-    -   manure_management_N2O
-    -   manure_management_CH4
-    -   manure_applied_N
-    -   N_direct_PRP
-    -   N_direct_PRP
-    -   N_indirect_PRP
-    -   N_direct_fertiliser
-    -   N_indirect_fertiliser
-    -   soils_CO2
-    -   soil_organic_N_direct
-    -   soil_organic_N_indirect
-    -   soil_inorganic_N_direct
-    -   soil_inorganic_N_indirect
-    -   soil_histosol_N_direct
-    -   crop_residues_N_direct
-    -   soil_N_direct
-    -   soil_N_indirect
-    -   soils_N2O
-
-Note, that the soil_histosol_N_direct and  crop_residues_N_direct category will be 0. Estimation of the soils N2O direct emissions from histosols uses requires the land use data. Emissions can be included using the [landcover_lca](https://github.com/GOBLIN-Proj/landcover_lca) module and the [crop_lca](https://github.com/GOBLIN-Proj/crop_lca) module.
-
-## Installation
-
-Install from git hub. 
-
-When prompted enter your ```<username>``` and password, which is your ```<access_token>```.
-
-```<access_token>``` is provided by the repo manager.
-
-```<username>``` pass your own github username.
-
-
-```bash
-pip install "cattle_lca@git+https://github.com/GOBLIN-Proj/cattle_lca.git@main" 
-
-```
-
-## Usage
-```python
 import pandas as pd
 from cattle_lca.resource_manager.models import load_livestock_data, load_farm_data
 from cattle_lca.lca import ClimateChangeTotals
@@ -224,7 +171,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-```
-## License
-This project is licensed under the terms of the MIT license.

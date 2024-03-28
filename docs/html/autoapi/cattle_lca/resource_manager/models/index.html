@@ -1,0 +1,2452 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cattle_lca.resource_manager.models &mdash; Cattle LCA 0.3.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=e259d695"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="cattle_lca.lca" href="../../lca/index.html" />
+    <link rel="prev" title="cattle_lca.resource_manager.database_manager" href="../database_manager/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Cattle LCA
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cattle_lca</span></code></a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../database/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cattle_lca.database</span></code></a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cattle_lca.resource_manager</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cattle LCA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cattle_lca</span></code></a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cattle_lca.resource_manager</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cattle_lca.resource_manager.models</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/cattle_lca/resource_manager/models/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-cattle_lca.resource_manager.models">
+<span id="cattle-lca-resource-manager-models"></span><h1><a class="reference internal" href="#module-cattle_lca.resource_manager.models" title="cattle_lca.resource_manager.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cattle_lca.resource_manager.models</span></code></a><a class="headerlink" href="#module-cattle_lca.resource_manager.models" title="Link to this heading"></a></h1>
+<section id="models-module">
+<p>This module contains classes for representing and manipulating dynamic data structures used in livestock data management, specifically for lifecycle assessment in cattle farming. It includes classes for handling animal data, emissions factors, grass data, concentrate data, and upstream data.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><p>DynamicData: A base class for creating objects that hold dynamic data.
+AnimalCategory: Represents different categories of animals on a farm, inheriting from DynamicData.
+AnimalCollection: Represents a collection of animal categories, inheriting from DynamicData.
+Farm: Represents a farm entity, inheriting from DynamicData.
+Animal_Features: Contains all features related to animals used in lifecycle assessment.
+Emissions_Factors: Holds emissions factors data relevant to lifecycle assessment.
+Grass: Contains data about different types of grasses.
+Concentrate: Contains data about different types of animal feed concentrates.
+Upstream: Contains upstream data such as resources used and emissions released before reaching the farm.</p>
+</dd>
+<dt>Functions:</dt><dd><p>load_grass_data(): Loads and returns grass data.
+load_concentrate_data(): Loads and returns concentrate data.
+load_upstream_data(): Loads and returns upstream data.
+load_emissions_factors_data(): Loads and returns emissions factors data.
+load_animal_features_data(): Loads and returns animal features data.
+load_farm_data(farm_data_frame): Takes a DataFrame and returns a dictionary of Farm objects.
+load_livestock_data(animal_data_frame): Takes a DataFrame and returns a dictionary of AnimalCollection objects mapped by farm ID.
+print_livestock_data(data): Utility function to print livestock data for debugging or logging.</p>
+</dd>
+</dl>
+<p>The classes mainly serve as containers for the data loaded from external sources like databases or CSV files, enabling structured access and manipulation of this data within the lifecycle assessment processes.</p>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.DynamicData" title="cattle_lca.resource_manager.models.DynamicData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DynamicData</span></code></a></p></td>
+<td><p>A base class for creating dynamic data objects. This class is designed to create instances with attributes</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.AnimalCategory" title="cattle_lca.resource_manager.models.AnimalCategory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AnimalCategory</span></code></a></p></td>
+<td><p>A specialized data container class for animal categories, extending DynamicData. This class is designed</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.AnimalCollection" title="cattle_lca.resource_manager.models.AnimalCollection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AnimalCollection</span></code></a></p></td>
+<td><p>A data container class for a collection of animal categories. It extends the</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.Farm" title="cattle_lca.resource_manager.models.Farm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Farm</span></code></a></p></td>
+<td><p>A data container class representing a &quot;farm&quot;, or similar unit, extending the DynamicData class to enable dynamic attribute assignment</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.Animal_Features" title="cattle_lca.resource_manager.models.Animal_Features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Animal_Features</span></code></a></p></td>
+<td><p>A class that encapsulates various features and statistical data related to different categories of farm animals.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.Emissions_Factors" title="cattle_lca.resource_manager.models.Emissions_Factors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Emissions_Factors</span></code></a></p></td>
+<td><p>A class that encapsulates emissions factor data for various elements related to livestock farming. This includes</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.Grass" title="cattle_lca.resource_manager.models.Grass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Grass</span></code></a></p></td>
+<td><p>Represents the data and functionality related to various types of grass.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.Concentrate" title="cattle_lca.resource_manager.models.Concentrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Concentrate</span></code></a></p></td>
+<td><p>Represents the data and functionality related to various types of animal feed concentrates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.Upstream" title="cattle_lca.resource_manager.models.Upstream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Upstream</span></code></a></p></td>
+<td><p>Represents upstream data for various inputs in an agricultural context.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.load_grass_data" title="cattle_lca.resource_manager.models.load_grass_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_grass_data</span></code></a>()</p></td>
+<td><p>Load the grass data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.load_concentrate_data" title="cattle_lca.resource_manager.models.load_concentrate_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_concentrate_data</span></code></a>()</p></td>
+<td><p>Load the concentrate data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.load_upstream_data" title="cattle_lca.resource_manager.models.load_upstream_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_upstream_data</span></code></a>()</p></td>
+<td><p>Load the upstream data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.load_emissions_factors_data" title="cattle_lca.resource_manager.models.load_emissions_factors_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_emissions_factors_data</span></code></a>()</p></td>
+<td><p>Load the emissions factors data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.load_animal_features_data" title="cattle_lca.resource_manager.models.load_animal_features_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_animal_features_data</span></code></a>()</p></td>
+<td><p>Load the animal features data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.load_farm_data" title="cattle_lca.resource_manager.models.load_farm_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_farm_data</span></code></a>(farm_data_frame)</p></td>
+<td><p>Load the farm data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.load_livestock_data" title="cattle_lca.resource_manager.models.load_livestock_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_livestock_data</span></code></a>(animal_data_frame)</p></td>
+<td><p>Load the livestock data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.resource_manager.models.print_livestock_data" title="cattle_lca.resource_manager.models.print_livestock_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_livestock_data</span></code></a>(data)</p></td>
+<td><p>Print the livestock data.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.DynamicData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">DynamicData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaults</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.DynamicData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A base class for creating dynamic data objects. This class is designed to create instances with attributes
+that are dynamically assigned based on input data. It allows for the easy creation and manipulation of
+data objects without needing a predefined class structure.</p>
+<p>Attributes are set based on two inputs: a defaults dictionary and a data dictionary. The defaults dictionary
+provides initial values for attributes, ensuring that the object has all necessary attributes with default values.
+The data dictionary contains actual values meant to override these defaults where applicable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>dict</em>) – A dictionary containing actual values for attributes of the instance. Keys correspond to attribute
+names, and values correspond to the values those attributes should take.</p></li>
+<li><p><strong>defaults</strong> (<em>dict</em><em>, </em><em>optional</em>) – A dictionary containing default values for attributes of the instance. Keys
+correspond to attribute names, and values are the default values those attributes
+should take. Defaults to an empty dictionary if not provided.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.AnimalCategory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">AnimalCategory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.AnimalCategory" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cattle_lca.resource_manager.models.DynamicData" title="cattle_lca.resource_manager.models.DynamicData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DynamicData</span></code></a></p>
+<p>A specialized data container class for animal categories, extending DynamicData. This class is designed
+to store and manage information specific to different types of animals.
+It predefines a set of attributes with default values relevant to animal data management.</p>
+<dl class="simple">
+<dt>Inherits from:</dt><dd><p>DynamicData: Inherits the capability to dynamically set attributes based on input data.</p>
+</dd>
+<dt>Default Attributes (and their default values):</dt><dd><p>pop (int): Population count of the animals in this category (default: 0).
+daily_milk (float): Average daily milk production per animal, in litres (default: 0.0).
+weight (float): Average weight per animal, in kilograms (default: 0.0).
+forage (str): Type of forage consumed by the animals (default: ‘average’).
+grazing (str): Type of grazing condition (default: ‘pasture’).
+con_type (str): Type of concentrate feed provided (default: ‘concentrate’).
+con_amount (float): Amount of concentrate feed provided per day, in kilograms (default: 0.0).
+t_outdoors (int): Average time spent outdoors per day, in hours (default: 24).
+t_indoors (int): Average time spent indoors per day, in hours (default: 0).
+t_stabled (int): Average time spent in stable conditions per day, in hours (default: 0).
+mm_storage (str): Type of manure management storage system (default: ‘solid’).
+daily_spreading (str): Type of manure spreading technique used daily (default: ‘none’).
+n_sold (int): Number of animals sold from this category (default: 0).
+n_bought (int): Number of animals bought into this category (default: 0).</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – A dictionary containing actual values for attributes of the animal category. Keys correspond
+to attribute names, and values correspond to the values those attributes should take.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.AnimalCollection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">AnimalCollection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.AnimalCollection" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cattle_lca.resource_manager.models.DynamicData" title="cattle_lca.resource_manager.models.DynamicData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DynamicData</span></code></a></p>
+<p>A data container class for a collection of animal categories. It extends the
+DynamicData class to enable dynamic attribute assignment based on input data, typically used to represent a group
+of animals categorized by species, age, or other criteria.</p>
+<dl class="simple">
+<dt>Inherits from:</dt><dd><p>DynamicData: Inherits the capability to dynamically set attributes based on input data.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – A dictionary where keys represent category names or identifiers, and values are instances of
+AnimalCategory or similar data structures that hold information specific to each animal group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Farm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">Farm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Farm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cattle_lca.resource_manager.models.DynamicData" title="cattle_lca.resource_manager.models.DynamicData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DynamicData</span></code></a></p>
+<p>A data container class representing a “farm”, or similar unit, extending the DynamicData class to enable dynamic attribute assignment
+based on input data. This class is typically used to encapsulate all relevant information about a “farm”, including
+details about various animal collections, resources, and management practices.</p>
+<dl class="simple">
+<dt>Inherits from:</dt><dd><p>DynamicData: Inherits the capability to dynamically set attributes based on input data.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – A dictionary containing attributes and values that represent various aspects of the farm. This
+can include information such as the farm’s ID, location, size, and any specific animal collections
+associated with the farm.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">Animal_Features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class that encapsulates various features and statistical data related to different categories of farm animals.
+This class is designed to store and provide access to a wide array of information concerning animal characteristics,
+such as weight gain, nitrogen retention, and mature weight for different animal categories like dairy cows,
+suckler cows, bulls, and various calf types.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.data_frame">
+<span class="sig-name descname"><span class="pre">data_frame</span></span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.data_frame" title="Link to this definition"></a></dt>
+<dd><p>A DataFrame containing animal features data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.animal_features">
+<span class="sig-name descname"><span class="pre">animal_features</span></span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.animal_features" title="Link to this definition"></a></dt>
+<dd><p>A dictionary storing all the animal features with keys representing the feature names
+and values representing the corresponding data extracted from the DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.DataFrame</em>) – The DataFrame containing the animal features data. Expected to contain columns such as
+‘birth_weight’, ‘mature_weight_bulls’, ‘dairy_cows_weight_gain’, etc., with each row
+representing a different set of animal feature values.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Various</span> <span class="pre">getter</span> <span class="pre">methods</span> <span class="pre">for</span> <span class="pre">each</span> <span class="pre">animal</span> <span class="pre">feature,</span> <span class="pre">such</span> <span class="pre">as</span> <span class="pre">get_birth_weight(),</span> <span class="pre">get_mature_weight_bulls(),</span> <span class="pre">etc.,</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">which</span> <span class="pre">return</span> <span class="pre">the</span> <span class="pre">respective</span> <span class="pre">values</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">animal_features</span> <span class="pre">dictionary.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p># Assuming animal_features_df is a pandas DataFrame containing the relevant animal features data
+animal_features = Animal_Features(animal_features_df)
+mature_weight = animal_features.get_mature_weight_dairy_cows()</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_birth_weight">
+<span class="sig-name descname"><span class="pre">get_birth_weight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_birth_weight" title="Link to this definition"></a></dt>
+<dd><p>Get the birth weight of the animals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The birth weight of the animals.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_mature_weight_bulls">
+<span class="sig-name descname"><span class="pre">get_mature_weight_bulls</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_mature_weight_bulls" title="Link to this definition"></a></dt>
+<dd><p>Get the mature weight of bulls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The mature weight of bulls.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_mature_weight_dairy_cows">
+<span class="sig-name descname"><span class="pre">get_mature_weight_dairy_cows</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_mature_weight_dairy_cows" title="Link to this definition"></a></dt>
+<dd><p>Get the mature weight of dairy cows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The mature weight of dairy cows.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_mature_weight_suckler_cows">
+<span class="sig-name descname"><span class="pre">get_mature_weight_suckler_cows</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_mature_weight_suckler_cows" title="Link to this definition"></a></dt>
+<dd><p>Get the mature weight of suckler cows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The mature weight of suckler cows.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_dairy_cows_weight_gain">
+<span class="sig-name descname"><span class="pre">get_dairy_cows_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_dairy_cows_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of dairy cows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of dairy cows.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_suckler_cows_weight_gain">
+<span class="sig-name descname"><span class="pre">get_suckler_cows_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_suckler_cows_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of suckler cows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of suckler cows.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxD_calves_m_weight_gain">
+<span class="sig-name descname"><span class="pre">get_DxD_calves_m_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxD_calves_m_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of DxD male calves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of dairy male calves.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxD_calves_f_weight_gain">
+<span class="sig-name descname"><span class="pre">get_DxD_calves_f_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxD_calves_f_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of DxD female calves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of dairy female calves.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxB_calves_m_weight_gain">
+<span class="sig-name descname"><span class="pre">get_DxB_calves_m_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxB_calves_m_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of DxB male calves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of dairy-beef male calves.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxB_calves_f_weight_gain">
+<span class="sig-name descname"><span class="pre">get_DxB_calves_f_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxB_calves_f_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of DxB female calves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of dairy-beef female calves.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_BxB_calves_m_weight_gain">
+<span class="sig-name descname"><span class="pre">get_BxB_calves_m_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_BxB_calves_m_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of BxB male calves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of suckler beef male calves.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_BxB_calves_f_weight_gain">
+<span class="sig-name descname"><span class="pre">get_BxB_calves_f_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_BxB_calves_f_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of BxB female calves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of suckler beef female calves.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxD_heifers_less_2_yr_weight_gain">
+<span class="sig-name descname"><span class="pre">get_DxD_heifers_less_2_yr_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxD_heifers_less_2_yr_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of DxD heifers less than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of dairy heifers less than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxD_steers_less_2_yr_weight_gain">
+<span class="sig-name descname"><span class="pre">get_DxD_steers_less_2_yr_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxD_steers_less_2_yr_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of DxD steers less than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of dairy steers less than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxB_heifers_less_2_yr_weight_gain">
+<span class="sig-name descname"><span class="pre">get_DxB_heifers_less_2_yr_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxB_heifers_less_2_yr_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of DxB heifers less than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of dairy-beef heifers less than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxB_steers_less_2_yr_weight_gain">
+<span class="sig-name descname"><span class="pre">get_DxB_steers_less_2_yr_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxB_steers_less_2_yr_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of DxB steers less than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of dairy-beef steers less than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_BxB_heifers_less_2_yr_weight_gain">
+<span class="sig-name descname"><span class="pre">get_BxB_heifers_less_2_yr_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_BxB_heifers_less_2_yr_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of BxB heifers less than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of suckler beef heifers less than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_BxB_steers_less_2_yr_weight_gain">
+<span class="sig-name descname"><span class="pre">get_BxB_steers_less_2_yr_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_BxB_steers_less_2_yr_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of BxB steers less than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of suckler beef steers less than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxD_heifers_more_2_yr_weight_gain">
+<span class="sig-name descname"><span class="pre">get_DxD_heifers_more_2_yr_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxD_heifers_more_2_yr_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of DxD heifers more than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of dairy heifers more than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxD_steers_more_2_yr_weight_gain">
+<span class="sig-name descname"><span class="pre">get_DxD_steers_more_2_yr_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxD_steers_more_2_yr_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of DxD steers more than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of dairy steers more than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxB_heifers_more_2_yr_weight_gain">
+<span class="sig-name descname"><span class="pre">get_DxB_heifers_more_2_yr_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxB_heifers_more_2_yr_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of DxB heifers more than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of dairy-beef heifers more than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxB_steers_more_2_yr_weight_gain">
+<span class="sig-name descname"><span class="pre">get_DxB_steers_more_2_yr_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxB_steers_more_2_yr_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of DxB steers more than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of dairy-beef steers more than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_BxB_heifers_more_2_yr_weight_gain">
+<span class="sig-name descname"><span class="pre">get_BxB_heifers_more_2_yr_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_BxB_heifers_more_2_yr_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of BxB heifers more than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of suckler beef heifers more than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_BxB_steers_more_2_yr_weight_gain">
+<span class="sig-name descname"><span class="pre">get_BxB_steers_more_2_yr_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_BxB_steers_more_2_yr_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of BxB steers more than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of suckler beef steers more than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_bulls_weight_gain">
+<span class="sig-name descname"><span class="pre">get_bulls_weight_gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_bulls_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Get the weight gain of bulls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The weight gain of bulls.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_dairy_cows_n_retention">
+<span class="sig-name descname"><span class="pre">get_dairy_cows_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_dairy_cows_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of dairy cows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of dairy cows.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_suckler_cows_n_retention">
+<span class="sig-name descname"><span class="pre">get_suckler_cows_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_suckler_cows_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of suckler cows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of suckler cows.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxD_calves_m_n_retention">
+<span class="sig-name descname"><span class="pre">get_DxD_calves_m_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxD_calves_m_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of DxD male calves</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of male dairy calves.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxD_calves_f_n_retention">
+<span class="sig-name descname"><span class="pre">get_DxD_calves_f_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxD_calves_f_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of DxD female calves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention female dairy calves.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxB_calves_m_n_retention">
+<span class="sig-name descname"><span class="pre">get_DxB_calves_m_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxB_calves_m_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of DxB male calves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention dairy-beef male calves.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxB_calves_f_n_retention">
+<span class="sig-name descname"><span class="pre">get_DxB_calves_f_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxB_calves_f_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of DxB female calves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention dairy-beef female calves.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_BxB_calves_m_n_retention">
+<span class="sig-name descname"><span class="pre">get_BxB_calves_m_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_BxB_calves_m_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of BxB male calves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention suckler beef male calves.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_BxB_calves_f_n_retention">
+<span class="sig-name descname"><span class="pre">get_BxB_calves_f_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_BxB_calves_f_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of BxB female calves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of suckler beef female calves.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxD_heifers_less_2_yr_n_retention">
+<span class="sig-name descname"><span class="pre">get_DxD_heifers_less_2_yr_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxD_heifers_less_2_yr_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of DxD heifers less than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of dairy heifers less than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxD_steers_less_2_yr_n_retention">
+<span class="sig-name descname"><span class="pre">get_DxD_steers_less_2_yr_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxD_steers_less_2_yr_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of DxD steers less than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of dairy steers less than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxB_heifers_less_2_yr_n_retention">
+<span class="sig-name descname"><span class="pre">get_DxB_heifers_less_2_yr_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxB_heifers_less_2_yr_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of DxB heifers less than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of dairy-beef heifers less than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxB_steers_less_2_yr_n_retention">
+<span class="sig-name descname"><span class="pre">get_DxB_steers_less_2_yr_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxB_steers_less_2_yr_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of DxB steers less than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of dairy-beef steers less than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_BxB_heifers_less_2_yr_n_retention">
+<span class="sig-name descname"><span class="pre">get_BxB_heifers_less_2_yr_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_BxB_heifers_less_2_yr_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of BxB heifers less than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of suckler beef heifers less than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_BxB_steers_less_2_yr_n_retention">
+<span class="sig-name descname"><span class="pre">get_BxB_steers_less_2_yr_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_BxB_steers_less_2_yr_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of BxB steers less than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of suckler beef steers less than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxD_heifers_more_2_yr_n_retention">
+<span class="sig-name descname"><span class="pre">get_DxD_heifers_more_2_yr_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxD_heifers_more_2_yr_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of DxD heifers more than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of dairy heifers more than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxD_steers_more_2_yr_n_retention">
+<span class="sig-name descname"><span class="pre">get_DxD_steers_more_2_yr_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxD_steers_more_2_yr_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of DxD steers more than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of dairy steers more than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxB_heifers_more_2_yr_n_retention">
+<span class="sig-name descname"><span class="pre">get_DxB_heifers_more_2_yr_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxB_heifers_more_2_yr_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of DxB heifers more than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of dairy-beef heifers more than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_DxB_steers_more_2_yr_n_retention">
+<span class="sig-name descname"><span class="pre">get_DxB_steers_more_2_yr_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_DxB_steers_more_2_yr_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of DxB steers more than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of dairy-beef steers more than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_BxB_heifers_more_2_yr_n_retention">
+<span class="sig-name descname"><span class="pre">get_BxB_heifers_more_2_yr_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_BxB_heifers_more_2_yr_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of BxB heifers more than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of suckler beef heifers more than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_BxB_steers_more_2_yr_n_retention">
+<span class="sig-name descname"><span class="pre">get_BxB_steers_more_2_yr_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_BxB_steers_more_2_yr_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of BxB steers more than 2 years old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of suckler beef steers more than 2 years old.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_bulls_n_retention">
+<span class="sig-name descname"><span class="pre">get_bulls_n_retention</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_bulls_n_retention" title="Link to this definition"></a></dt>
+<dd><p>Get the nitrogen retention of bulls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The nitrogen retention of bulls.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.get_data" title="Link to this definition"></a></dt>
+<dd><p>Get the DataFrame containing the animal features data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The DataFrame containing the animal features data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Animal_Features.is_loaded">
+<span class="sig-name descname"><span class="pre">is_loaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Animal_Features.is_loaded" title="Link to this definition"></a></dt>
+<dd><p>Check if the animal features data has been successfully loaded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the data has been loaded, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">Emissions_Factors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class that encapsulates emissions factor data for various elements related to livestock farming. This includes
+factors for methane production, nitrogen emissions, and energy use among others. The class provides methods to
+retrieve specific emissions factors based on livestock types and activities.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.data_frame">
+<span class="sig-name descname"><span class="pre">data_frame</span></span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.data_frame" title="Link to this definition"></a></dt>
+<dd><p>A DataFrame containing all the emissions factors data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.emissions_factors">
+<span class="sig-name descname"><span class="pre">emissions_factors</span></span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.emissions_factors" title="Link to this definition"></a></dt>
+<dd><p>A dictionary mapping emissions factor names to their values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.DataFrame</em>) – The DataFrame containing emissions factors data. Each row represents a different
+set of factors and includes columns for each type of emissions factor.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Each</span> <span class="pre">'get'</span> <span class="pre">method</span> <span class="pre">corresponds</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">specific</span> <span class="pre">type</span> <span class="pre">of</span> <span class="pre">emissions</span> <span class="pre">factor,</span> <span class="pre">allowing</span> <span class="pre">for</span> <span class="pre">easy</span> <span class="pre">retrieval</span> <span class="pre">of</span> <span class="pre">data</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">for</span> <span class="pre">use</span> <span class="pre">in</span> <span class="pre">calculations.</span> <span class="pre">For</span> <span class="pre">example,</span> <span class="pre">get_ef_net_energy_for_maintenance_non_lactating_cow()</span> <span class="pre">returns</span> <span class="pre">the</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">energy</span> <span class="pre">required</span> <span class="pre">for</span> <span class="pre">maintenance</span> <span class="pre">of</span> <span class="pre">non-lactating</span> <span class="pre">cows.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_maintenance_non_lactating_cow">
+<span class="sig-name descname"><span class="pre">get_ef_net_energy_for_maintenance_non_lactating_cow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_maintenance_non_lactating_cow" title="Link to this definition"></a></dt>
+<dd><p>Get the net energy required for maintenance of non-lactating cows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The net energy required for maintenance of non-lactating cows.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_maintenance_lactating_cow">
+<span class="sig-name descname"><span class="pre">get_ef_net_energy_for_maintenance_lactating_cow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_maintenance_lactating_cow" title="Link to this definition"></a></dt>
+<dd><p>Get the net energy required for maintenance of lactating cows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The net energy required for maintenance of lactating cows.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_maintenance_bulls">
+<span class="sig-name descname"><span class="pre">get_ef_net_energy_for_maintenance_bulls</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_maintenance_bulls" title="Link to this definition"></a></dt>
+<dd><p>Get the net energy required for maintenance of bulls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The net energy required for maintenance of bulls.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_feeding_situation_pasture">
+<span class="sig-name descname"><span class="pre">get_ef_feeding_situation_pasture</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_feeding_situation_pasture" title="Link to this definition"></a></dt>
+<dd><p>Get the coefficient for feeding situations on pasture.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The coefficient for feeding situations on pasture.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_feeding_situation_large_area">
+<span class="sig-name descname"><span class="pre">get_ef_feeding_situation_large_area</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_feeding_situation_large_area" title="Link to this definition"></a></dt>
+<dd><p>Get the coefficientfor feeding situations on large areas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The coefficient for feeding situations on large areas.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_feeding_situation_stall">
+<span class="sig-name descname"><span class="pre">get_ef_feeding_situation_stall</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_feeding_situation_stall" title="Link to this definition"></a></dt>
+<dd><p>Get the coefficient for feeding situations in stalls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The coefficient for feeding situations in stalls.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_growth_females">
+<span class="sig-name descname"><span class="pre">get_ef_net_energy_for_growth_females</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_growth_females" title="Link to this definition"></a></dt>
+<dd><p>Get the net energy required for growth females.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The net energy required for growth for females</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_growth_castrates">
+<span class="sig-name descname"><span class="pre">get_ef_net_energy_for_growth_castrates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_growth_castrates" title="Link to this definition"></a></dt>
+<dd><p>Get the net energy required for growth of castrates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The net energy required for growth of castrates.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_growth_bulls">
+<span class="sig-name descname"><span class="pre">get_ef_net_energy_for_growth_bulls</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_growth_bulls" title="Link to this definition"></a></dt>
+<dd><p>Get the net energy required for growth of bulls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The net energy required for growth of bulls.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_pregnancy">
+<span class="sig-name descname"><span class="pre">get_ef_net_energy_for_pregnancy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_net_energy_for_pregnancy" title="Link to this definition"></a></dt>
+<dd><p>Get the net energy required for pregnancy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The net energy required for pregnancy.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_methane_conversion_factor_dairy_cow">
+<span class="sig-name descname"><span class="pre">get_ef_methane_conversion_factor_dairy_cow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_methane_conversion_factor_dairy_cow" title="Link to this definition"></a></dt>
+<dd><p>Get the methane conversion factor for dairy cows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The methane conversion factor for dairy cows.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_methane_conversion_factor_steer">
+<span class="sig-name descname"><span class="pre">get_ef_methane_conversion_factor_steer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_methane_conversion_factor_steer" title="Link to this definition"></a></dt>
+<dd><p>Get the methane conversion factor for steers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The methane conversion factor for steers.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_methane_conversion_factor_calves">
+<span class="sig-name descname"><span class="pre">get_ef_methane_conversion_factor_calves</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_methane_conversion_factor_calves" title="Link to this definition"></a></dt>
+<dd><p>Get the methane conversion factor for calves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The methane conversion factor for calves.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_methane_conversion_factor_bulls">
+<span class="sig-name descname"><span class="pre">get_ef_methane_conversion_factor_bulls</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_methane_conversion_factor_bulls" title="Link to this definition"></a></dt>
+<dd><p>Get the methane conversion factor for bulls.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The methane conversion factor for bulls.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_fracGASM_total_ammonia_nitrogen_pasture_range_paddock_deposition">
+<span class="sig-name descname"><span class="pre">get_ef_fracGASM_total_ammonia_nitrogen_pasture_range_paddock_deposition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_fracGASM_total_ammonia_nitrogen_pasture_range_paddock_deposition" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for total ammonia nitrogen pasture range paddock deposition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for total ammonia nitrogen pasture range paddock deposition.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_cpp_pasture_range_paddock_for_dairy_and_non_dairy_direct_n2o">
+<span class="sig-name descname"><span class="pre">get_ef_cpp_pasture_range_paddock_for_dairy_and_non_dairy_direct_n2o</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_cpp_pasture_range_paddock_for_dairy_and_non_dairy_direct_n2o" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for pasture range paddock for dairy and non-dairy direct N2O.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for pasture range paddock for dairy and non-dairy direct N2O.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_direct_n2o_emissions_soils">
+<span class="sig-name descname"><span class="pre">get_ef_direct_n2o_emissions_soils</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_direct_n2o_emissions_soils" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for direct N2O emissions from soils.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for direct N2O emissions from soils.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_indirect_n2o_atmospheric_deposition_to_soils_and_water">
+<span class="sig-name descname"><span class="pre">get_ef_indirect_n2o_atmospheric_deposition_to_soils_and_water</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_indirect_n2o_atmospheric_deposition_to_soils_and_water" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for indirect N2O atmospheric deposition to soils and water.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for indirect N2O atmospheric deposition to soils and water.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_indirect_n2o_from_leaching_and_runoff">
+<span class="sig-name descname"><span class="pre">get_ef_indirect_n2o_from_leaching_and_runoff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_indirect_n2o_from_leaching_and_runoff" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for indirect N2O from leaching and runoff.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for indirect N2O from leaching and runoff.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_TAN_house_liquid">
+<span class="sig-name descname"><span class="pre">get_ef_TAN_house_liquid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_TAN_house_liquid" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for TAN house liquid storage housing stage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for TAN house liquid storage housing stage.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_TAN_house_solid">
+<span class="sig-name descname"><span class="pre">get_ef_TAN_house_solid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_TAN_house_solid" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for TAN house solid storage housing stage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for TAN house solid storage housing stage.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_TAN_storage_tank">
+<span class="sig-name descname"><span class="pre">get_ef_TAN_storage_tank</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_TAN_storage_tank" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for TAN storage tank.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for TAN storage tank.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_TAN_storage_solid">
+<span class="sig-name descname"><span class="pre">get_ef_TAN_storage_solid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_TAN_storage_solid" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for TAN storage solid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for TAN storage solid.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_mcf_liquid_tank">
+<span class="sig-name descname"><span class="pre">get_ef_mcf_liquid_tank</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_mcf_liquid_tank" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for MCF liquid tank.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for MCF liquid tank.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_mcf_solid_storage">
+<span class="sig-name descname"><span class="pre">get_ef_mcf_solid_storage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_mcf_solid_storage" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for MCF solid storage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for MCF solid storage.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_mcf_anaerobic_digestion">
+<span class="sig-name descname"><span class="pre">get_ef_mcf_anaerobic_digestion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_mcf_anaerobic_digestion" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for MCF anaerobic digestion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for MCF anaerobic digestion.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_n2o_direct_storage_tank_liquid">
+<span class="sig-name descname"><span class="pre">get_ef_n2o_direct_storage_tank_liquid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_n2o_direct_storage_tank_liquid" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for N2O direct storage tank liquid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for N2O direct storage tank liquid.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_n2o_direct_storage_tank_solid">
+<span class="sig-name descname"><span class="pre">get_ef_n2o_direct_storage_tank_solid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_n2o_direct_storage_tank_solid" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for N2O direct storage tank solid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for N2O direct storage tank solid.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_n2o_direct_storage_solid">
+<span class="sig-name descname"><span class="pre">get_ef_n2o_direct_storage_solid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_n2o_direct_storage_solid" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for N2O direct storage solid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for N2O direct storage solid.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_n2o_direct_storage_tank_anaerobic_digestion">
+<span class="sig-name descname"><span class="pre">get_ef_n2o_direct_storage_tank_anaerobic_digestion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_n2o_direct_storage_tank_anaerobic_digestion" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for N2O direct storage tank anaerobic digestion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for N2O direct storage tank anaerobic digestion.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_nh3_daily_spreading_none">
+<span class="sig-name descname"><span class="pre">get_ef_nh3_daily_spreading_none</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_nh3_daily_spreading_none" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for NH3 daily spreading none.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for NH3 daily spreading none.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_nh3_daily_spreading_manure">
+<span class="sig-name descname"><span class="pre">get_ef_nh3_daily_spreading_manure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_nh3_daily_spreading_manure" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for NH3 daily spreading manure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for NH3 daily spreading manure.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_nh3_daily_spreading_broadcast">
+<span class="sig-name descname"><span class="pre">get_ef_nh3_daily_spreading_broadcast</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_nh3_daily_spreading_broadcast" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for NH3 daily spreading broadcast.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for NH3 daily spreading broadcast.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_nh3_daily_spreading_injection">
+<span class="sig-name descname"><span class="pre">get_ef_nh3_daily_spreading_injection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_nh3_daily_spreading_injection" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for NH3 daily spreading injection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for NH3 daily spreading injection.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_nh3_daily_spreading_traling_hose">
+<span class="sig-name descname"><span class="pre">get_ef_nh3_daily_spreading_traling_hose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_nh3_daily_spreading_traling_hose" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for NH3 daily spreading trailing hose.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for NH3 daily spreading trailing hose.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_urea">
+<span class="sig-name descname"><span class="pre">get_ef_urea</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_urea" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for urea.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for urea.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_urea_and_nbpt">
+<span class="sig-name descname"><span class="pre">get_ef_urea_and_nbpt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_urea_and_nbpt" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for urea and NBPT.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for urea and NBPT.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_fracGASF_urea_fertilisers_to_nh3_and_nox">
+<span class="sig-name descname"><span class="pre">get_ef_fracGASF_urea_fertilisers_to_nh3_and_nox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_fracGASF_urea_fertilisers_to_nh3_and_nox" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for urea fertilisers to NH3 and NOx.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for urea fertilisers to NH3 and NOx.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_fracGASF_urea_and_nbpt_to_nh3_and_nox">
+<span class="sig-name descname"><span class="pre">get_ef_fracGASF_urea_and_nbpt_to_nh3_and_nox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_fracGASF_urea_and_nbpt_to_nh3_and_nox" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for urea and NBPT to NH3 and NOx.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for urea and NBPT to NH3 and NOx.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_frac_leach_runoff">
+<span class="sig-name descname"><span class="pre">get_ef_frac_leach_runoff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_frac_leach_runoff" title="Link to this definition"></a></dt>
+<dd><p>Get the fraction of leaching and runoff.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The fraction of leaching and runoff.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_ammonium_nitrate">
+<span class="sig-name descname"><span class="pre">get_ef_ammonium_nitrate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_ammonium_nitrate" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for ammonium nitrate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for ammonium nitrate.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_fracGASF_ammonium_fertilisers_to_nh3_and_nox">
+<span class="sig-name descname"><span class="pre">get_ef_fracGASF_ammonium_fertilisers_to_nh3_and_nox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_fracGASF_ammonium_fertilisers_to_nh3_and_nox" title="Link to this definition"></a></dt>
+<dd><p>Get the emissions factor for ammonium fertilisers to NH3 and NOx.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The emissions factor for ammonium fertilisers to NH3 and NOx.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_Frac_P_Leach">
+<span class="sig-name descname"><span class="pre">get_ef_Frac_P_Leach</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_Frac_P_Leach" title="Link to this definition"></a></dt>
+<dd><p>Get the fraction of phosphorus leaching.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The fraction of phosphorus leaching.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_urea_co2">
+<span class="sig-name descname"><span class="pre">get_ef_urea_co2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_urea_co2" title="Link to this definition"></a></dt>
+<dd><p>Get the co2 emissions factor for urea.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The co2 emissions factor for urea.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_ef_lime_co2">
+<span class="sig-name descname"><span class="pre">get_ef_lime_co2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_ef_lime_co2" title="Link to this definition"></a></dt>
+<dd><p>Get the co2 emissions factor for lime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The co2 emissions factor for lime.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.get_data" title="Link to this definition"></a></dt>
+<dd><p>Get the DataFrame containing the emissions factors data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The DataFrame containing the emissions factors data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Emissions_Factors.is_loaded">
+<span class="sig-name descname"><span class="pre">is_loaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Emissions_Factors.is_loaded" title="Link to this definition"></a></dt>
+<dd><p>Check if the emissions factors data has been successfully loaded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the data has been loaded, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Grass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">Grass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Grass" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the data and functionality related to various types of grass.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Grass.data_frame">
+<span class="sig-name descname"><span class="pre">data_frame</span></span><a class="headerlink" href="#cattle_lca.resource_manager.models.Grass.data_frame" title="Link to this definition"></a></dt>
+<dd><p>A DataFrame containing grass data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Grass.grasses">
+<span class="sig-name descname"><span class="pre">grasses</span></span><a class="headerlink" href="#cattle_lca.resource_manager.models.Grass.grasses" title="Link to this definition"></a></dt>
+<dd><p>A dictionary storing information for each grass genus,
+including its forage dry matter digestibility, crude protein,
+and gross energy values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Grass.average">
+<span class="sig-name descname"><span class="pre">average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Grass.average" title="Link to this definition"></a></dt>
+<dd><p>Calculates the average value of a specified property
+(e.g., dry matter digestibility) across all grasses.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Grass.get_forage_dry_matter_digestibility">
+<span class="sig-name descname"><span class="pre">get_forage_dry_matter_digestibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Grass.get_forage_dry_matter_digestibility" title="Link to this definition"></a></dt>
+<dd><p>Returns the dry matter
+digestibility for a given forage.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Grass.get_crude_protein">
+<span class="sig-name descname"><span class="pre">get_crude_protein</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Grass.get_crude_protein" title="Link to this definition"></a></dt>
+<dd><p>Returns the crude protein value for a given forage.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Grass.get_gross_energy_mje_dry_matter">
+<span class="sig-name descname"><span class="pre">get_gross_energy_mje_dry_matter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Grass.get_gross_energy_mje_dry_matter" title="Link to this definition"></a></dt>
+<dd><p>Returns the gross energy (in MJ per
+dry matter) for a given forage.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Grass.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Grass.get_data" title="Link to this definition"></a></dt>
+<dd><p>Returns the original data frame used to create the instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Grass.is_loaded">
+<span class="sig-name descname"><span class="pre">is_loaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Grass.is_loaded" title="Link to this definition"></a></dt>
+<dd><p>Checks whether the data frame is loaded successfully.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">get_forage_dry_matter_digestibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Get the dry matter digestibility for a given forage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>forage</strong> (<em>str</em>) – The name of the forage.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The dry matter digestibility for the specified forage.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">get_crude_protein</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd><p>Get the crude protein value for a given forage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>forage</strong> (<em>str</em>) – The name of the forage.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The crude protein value for the specified forage.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">get_gross_energy_mje_dry_matter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd><p>Get the gross energy (in MJ per dry matter) for a given forage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>forage</strong> (<em>str</em>) – The name of the forage.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The gross energy for the specified forage.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd><p>Get the DataFrame containing the grass data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The DataFrame containing the grass data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">is_loaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<dd><p>Check if the grass data has been successfully loaded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the data has been loaded, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Concentrate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">Concentrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Concentrate" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the data and functionality related to various types of animal feed concentrates.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Concentrate.data_frame">
+<span class="sig-name descname"><span class="pre">data_frame</span></span><a class="headerlink" href="#cattle_lca.resource_manager.models.Concentrate.data_frame" title="Link to this definition"></a></dt>
+<dd><p>A DataFrame containing concentrate data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Concentrate.concentrates">
+<span class="sig-name descname"><span class="pre">concentrates</span></span><a class="headerlink" href="#cattle_lca.resource_manager.models.Concentrate.concentrates" title="Link to this definition"></a></dt>
+<dd><p>A dictionary storing information for each type of concentrate,
+including its dry matter digestibility, digestible energy, crude protein,
+gross energy, CO2 equivalents, and PO4 equivalents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Concentrate.average">
+<span class="sig-name descname"><span class="pre">average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Concentrate.average" title="Link to this definition"></a></dt>
+<dd><p>Calculates the average value of a specified property (e.g., dry matter digestibility)
+across all concentrates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Concentrate.get_con_dry_matter_digestibility">
+<span class="sig-name descname"><span class="pre">get_con_dry_matter_digestibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">concentrate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Concentrate.get_con_dry_matter_digestibility" title="Link to this definition"></a></dt>
+<dd><p>Returns the dry matter digestibility for a given concentrate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Concentrate.get_con_digestible_energy">
+<span class="sig-name descname"><span class="pre">get_con_digestible_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">concentrate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Concentrate.get_con_digestible_energy" title="Link to this definition"></a></dt>
+<dd><p>Returns the digestible energy proportion for a given concentrate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Concentrate.get_con_crude_protein">
+<span class="sig-name descname"><span class="pre">get_con_crude_protein</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">concentrate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Concentrate.get_con_crude_protein" title="Link to this definition"></a></dt>
+<dd><p>Returns the crude protein value for a given concentrate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Concentrate.get_gross_energy_mje_dry_matter">
+<span class="sig-name descname"><span class="pre">get_gross_energy_mje_dry_matter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">concentrate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Concentrate.get_gross_energy_mje_dry_matter" title="Link to this definition"></a></dt>
+<dd><p>Returns the gross energy (in MJ per dry matter) for a given concentrate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Concentrate.get_con_co2_e">
+<span class="sig-name descname"><span class="pre">get_con_co2_e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">concentrate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Concentrate.get_con_co2_e" title="Link to this definition"></a></dt>
+<dd><p>Returns the CO2 equivalents for a given concentrate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Concentrate.get_con_po4_e">
+<span class="sig-name descname"><span class="pre">get_con_po4_e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">concentrate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Concentrate.get_con_po4_e" title="Link to this definition"></a></dt>
+<dd><p>Returns the PO4 equivalents for a given concentrate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Concentrate.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Concentrate.get_data" title="Link to this definition"></a></dt>
+<dd><p>Returns the original data frame used to create the instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Concentrate.is_loaded">
+<span class="sig-name descname"><span class="pre">is_loaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Concentrate.is_loaded" title="Link to this definition"></a></dt>
+<dd><p>Checks whether the data frame is loaded successfully.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">get_con_dry_matter_digestibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">concentrate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id7" title="Link to this definition"></a></dt>
+<dd><p>Get the dry matter digestibility for a given concentrate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>concentrate</strong> (<em>str</em>) – The name of the concentrate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The dry matter digestibility for the specified concentrate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">get_con_digestible_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">concentrate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id8" title="Link to this definition"></a></dt>
+<dd><p>Get the digestible energy proportion for a given concentrate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>concentrate</strong> (<em>str</em>) – The name of the concentrate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The digestible energy proportion for the specified concentrate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">get_con_crude_protein</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">concentrate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id9" title="Link to this definition"></a></dt>
+<dd><p>Get the crude protein value for a given concentrate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>concentrate</strong> (<em>str</em>) – The name of the concentrate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The crude protein value for the specified concentrate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">get_gross_energy_mje_dry_matter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">concentrate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id10" title="Link to this definition"></a></dt>
+<dd><p>Get the gross energy (in MJ per dry matter) for a given concentrate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>concentrate</strong> (<em>str</em>) – The name of the concentrate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The gross energy for the specified concentrate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">get_con_co2_e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">concentrate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id11" title="Link to this definition"></a></dt>
+<dd><p>Get the CO2 equivalents for a given concentrate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>concentrate</strong> (<em>str</em>) – The name of the concentrate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The CO2 equivalents for the specified concentrate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">get_con_po4_e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">concentrate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id12" title="Link to this definition"></a></dt>
+<dd><p>Get the PO4 equivalents for a given concentrate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>concentrate</strong> (<em>str</em>) – The name of the concentrate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The PO4 equivalents for the specified concentrate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id13" title="Link to this definition"></a></dt>
+<dd><p>Get the DataFrame containing the concentrate data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The DataFrame containing the concentrate data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">is_loaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id14" title="Link to this definition"></a></dt>
+<dd><p>Check if the concentrate data has been successfully loaded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the data has been loaded, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Upstream">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">Upstream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Upstream" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents upstream data for various inputs in an agricultural context.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Upstream.data_frame">
+<span class="sig-name descname"><span class="pre">data_frame</span></span><a class="headerlink" href="#cattle_lca.resource_manager.models.Upstream.data_frame" title="Link to this definition"></a></dt>
+<dd><p>A DataFrame containing upstream data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Upstream.upstream">
+<span class="sig-name descname"><span class="pre">upstream</span></span><a class="headerlink" href="#cattle_lca.resource_manager.models.Upstream.upstream" title="Link to this definition"></a></dt>
+<dd><p>A dictionary storing upstream data for each type,
+including functional units, CO2 equivalents, PO4 equivalents,
+SO2 equivalents, net calorific value, and antimony equivalents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Upstream.get_upstream_fu">
+<span class="sig-name descname"><span class="pre">get_upstream_fu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upstream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Upstream.get_upstream_fu" title="Link to this definition"></a></dt>
+<dd><p>Returns the functional unit for a given upstream type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Upstream.get_upstream_kg_co2e">
+<span class="sig-name descname"><span class="pre">get_upstream_kg_co2e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upstream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Upstream.get_upstream_kg_co2e" title="Link to this definition"></a></dt>
+<dd><p>Returns the kg of CO2 equivalents for a given upstream type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Upstream.get_upstream_kg_po4e">
+<span class="sig-name descname"><span class="pre">get_upstream_kg_po4e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upstream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Upstream.get_upstream_kg_po4e" title="Link to this definition"></a></dt>
+<dd><p>Returns the kg of PO4 equivalents for a given upstream type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Upstream.get_upstream_kg_so2e">
+<span class="sig-name descname"><span class="pre">get_upstream_kg_so2e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upstream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Upstream.get_upstream_kg_so2e" title="Link to this definition"></a></dt>
+<dd><p>Returns the kg of SO2 equivalents for a given upstream type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Upstream.get_upstream_mje">
+<span class="sig-name descname"><span class="pre">get_upstream_mje</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upstream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Upstream.get_upstream_mje" title="Link to this definition"></a></dt>
+<dd><p>Returns net calorific value in MJ for a given upstream type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Upstream.get_upstream_kg_sbe">
+<span class="sig-name descname"><span class="pre">get_upstream_kg_sbe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upstream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Upstream.get_upstream_kg_sbe" title="Link to this definition"></a></dt>
+<dd><p>Returns the kg of antimony equivalents for a given upstream type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Upstream.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Upstream.get_data" title="Link to this definition"></a></dt>
+<dd><p>Returns the original data frame from which the upstream data is derived.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.Upstream.is_loaded">
+<span class="sig-name descname"><span class="pre">is_loaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.Upstream.is_loaded" title="Link to this definition"></a></dt>
+<dd><p>Checks whether the data frame is loaded successfully.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">get_upstream_fu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upstream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id15" title="Link to this definition"></a></dt>
+<dd><p>Get the functional unit for a given upstream type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>upstream</strong> (<em>str</em>) – The name of the upstream type.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The functional unit for the specified upstream type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">get_upstream_kg_co2e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upstream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id16" title="Link to this definition"></a></dt>
+<dd><p>Get the kg of CO2 equivalents for a given upstream type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>upstream</strong> (<em>str</em>) – The name of the upstream type.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The kg of CO2 equivalents for the specified upstream type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">get_upstream_kg_po4e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upstream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id17" title="Link to this definition"></a></dt>
+<dd><p>Get the kg of PO4 equivalents for a given upstream type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>upstream</strong> (<em>str</em>) – The name of the upstream type.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The kg of PO4 equivalents for the specified upstream type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id18">
+<span class="sig-name descname"><span class="pre">get_upstream_kg_so2e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upstream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id18" title="Link to this definition"></a></dt>
+<dd><p>Get the kg of SO2 equivalents for a given upstream type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>upstream</strong> (<em>str</em>) – The name of the upstream type.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The kg of SO2 equivalents for the specified upstream type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id19">
+<span class="sig-name descname"><span class="pre">get_upstream_mje</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upstream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id19" title="Link to this definition"></a></dt>
+<dd><p>Get the net calorific value in MJ for a given upstream type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>upstream</strong> (<em>str</em>) – The name of the upstream type.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The net calorific value in MJ for the specified upstream type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id20">
+<span class="sig-name descname"><span class="pre">get_upstream_kg_sbe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upstream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id20" title="Link to this definition"></a></dt>
+<dd><p>Get the kg of antimony equivalents for a given upstream type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>upstream</strong> (<em>str</em>) – The name of the upstream type.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The kg of antimony equivalents for the specified upstream type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id21">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id21" title="Link to this definition"></a></dt>
+<dd><p>Get the DataFrame containing the upstream data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The DataFrame containing the upstream data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id22">
+<span class="sig-name descname"><span class="pre">is_loaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id22" title="Link to this definition"></a></dt>
+<dd><p>Check if the upstream data has been successfully loaded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the data has been loaded, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.load_grass_data">
+<span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">load_grass_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.load_grass_data" title="Link to this definition"></a></dt>
+<dd><p>Load the grass data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An instance of the Grass class containing the grass data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#cattle_lca.resource_manager.models.Grass" title="cattle_lca.resource_manager.models.Grass">Grass</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.load_concentrate_data">
+<span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">load_concentrate_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.load_concentrate_data" title="Link to this definition"></a></dt>
+<dd><p>Load the concentrate data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An instance of the Concentrate class containing the concentrate data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#cattle_lca.resource_manager.models.Concentrate" title="cattle_lca.resource_manager.models.Concentrate">Concentrate</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.load_upstream_data">
+<span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">load_upstream_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.load_upstream_data" title="Link to this definition"></a></dt>
+<dd><p>Load the upstream data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An instance of the Upstream class containing the upstream data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#cattle_lca.resource_manager.models.Upstream" title="cattle_lca.resource_manager.models.Upstream">Upstream</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.load_emissions_factors_data">
+<span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">load_emissions_factors_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.load_emissions_factors_data" title="Link to this definition"></a></dt>
+<dd><p>Load the emissions factors data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An instance of the EmissionsFactors class containing the emissions factors data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>EmissionsFactors</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.load_animal_features_data">
+<span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">load_animal_features_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.load_animal_features_data" title="Link to this definition"></a></dt>
+<dd><p>Load the animal features data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An instance of the AnimalFeatures class containing the animal features data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>AnimalFeatures</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.load_farm_data">
+<span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">load_farm_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">farm_data_frame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.load_farm_data" title="Link to this definition"></a></dt>
+<dd><p>Load the farm data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>farm_data_frame</strong> (<em>pandas.DataFrame</em>) – The DataFrame containing the farm data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the farm data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.load_livestock_data">
+<span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">load_livestock_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal_data_frame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.load_livestock_data" title="Link to this definition"></a></dt>
+<dd><p>Load the livestock data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal_data_frame</strong> (<em>pandas.DataFrame</em>) – The DataFrame containing the livestock data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the livestock data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cattle_lca.resource_manager.models.print_livestock_data">
+<span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.models.</span></span><span class="sig-name descname"><span class="pre">print_livestock_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.models.print_livestock_data" title="Link to this definition"></a></dt>
+<dd><p>Print the livestock data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – A dictionary containing the livestock data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../database_manager/index.html" class="btn btn-neutral float-left" title="cattle_lca.resource_manager.database_manager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../lca/index.html" class="btn btn-neutral float-right" title="cattle_lca.lca" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Colm Duffy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

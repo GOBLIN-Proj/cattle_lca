@@ -1,0 +1,2569 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cattle_lca.lca &mdash; Cattle LCA 0.3.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=e259d695"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="cattle_lca.resource_manager.models" href="../resource_manager/models/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Cattle LCA
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cattle_lca</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cattle_lca.lca</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cattle LCA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cattle_lca</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cattle_lca.lca</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/cattle_lca/lca/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-cattle_lca.lca">
+<span id="cattle-lca-lca"></span><h1><a class="reference internal" href="#module-cattle_lca.lca" title="cattle_lca.lca"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cattle_lca.lca</span></code></a><a class="headerlink" href="#module-cattle_lca.lca" title="Link to this heading"></a></h1>
+<section id="cattle-lca-module">
+<p>This module contains classes and methods for calculating the environmental impact of cattle farming, including energy requirements,
+emissions, and waste management. It covers various stages of cattle lifecycle and farm operations such as grazing, housing, manure management, and fertilization practices. The module aims to provide a comprehensive assessment tool for understanding and reducing the environmental footprint associated with cattle production.</p>
+<p>The module includes detailed assessments of greenhouse gas emissions, eutrophication potential, air quality impacts, and resource usage to support sustainable farming practices and decision-making. By integrating data from various sources and applying region-specific emission factors, the module helps in evaluating the overall environmental performance of cattle farms.</p>
+<p>Key Features:
+- Calculation of energy consumption and efficiency in cattle farming.
+- Estimation of greenhouse gas emissions from enteric fermentation, manure management, and other farm activities.
+- Assessment of nutrient runoff and its impact on eutrophication.
+- Evaluation of ammonia emissions and their contribution to air quality issues.
+- Analysis of upstream impacts related to feed production, fertilizer use, and other inputs.</p>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.lca.Energy" title="cattle_lca.lca.Energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Energy</span></code></a></p></td>
+<td><p>Represents the calculations for various energy needs and intakes for animals based on their cohort,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.lca.GrassFeed" title="cattle_lca.lca.GrassFeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GrassFeed</span></code></a></p></td>
+<td><p>The GrassFeed class provides methods to calculate various energy-related metrics for animals, specifically focusing on those fed primarily on grass.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.lca.GrazingStage" title="cattle_lca.lca.GrazingStage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GrazingStage</span></code></a></p></td>
+<td><p>The GrazingStage class calculates various metrics related to the environmental impact of grazing animals.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.lca.HousingStage" title="cattle_lca.lca.HousingStage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HousingStage</span></code></a></p></td>
+<td><p>Represents the housing stage of animals, calculating various emissions and excretion rates</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.lca.StorageStage" title="cattle_lca.lca.StorageStage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StorageStage</span></code></a></p></td>
+<td><p>Represents the manure storage stage of farm management, calculating various emissions and excretion rates</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.lca.DailySpread" title="cattle_lca.lca.DailySpread"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DailySpread</span></code></a></p></td>
+<td><p>A class to calculate the environmental impacts associated with daily manure spreading.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.lca.FertiliserInputs" title="cattle_lca.lca.FertiliserInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FertiliserInputs</span></code></a></p></td>
+<td><p>A class to manage and calculate emissions and other impacts associated with fertiliser application, including urea and ammonium nitrate.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.lca.Upstream" title="cattle_lca.lca.Upstream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Upstream</span></code></a></p></td>
+<td><p>Handles the calculation of upstream emissions related to concentrate production, diesel usage, and electricity consumption</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.lca.Allocation" title="cattle_lca.lca.Allocation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Allocation</span></code></a></p></td>
+<td><p>This class is responsible for calculating the allocations of live weight and milk production</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.lca.ClimateChangeTotals" title="cattle_lca.lca.ClimateChangeTotals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ClimateChangeTotals</span></code></a></p></td>
+<td><p>This class calculates total greenhouse gas emissions associated with various farm activities</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cattle_lca.lca.EutrophicationTotals" title="cattle_lca.lca.EutrophicationTotals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EutrophicationTotals</span></code></a></p></td>
+<td><p>A class responsible for calculating the total eutrophication potential associated with a given farming operation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cattle_lca.lca.AirQualityTotals" title="cattle_lca.lca.AirQualityTotals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AirQualityTotals</span></code></a></p></td>
+<td><p>This class calculates the total ammonia (NH3) emissions contributing to air quality impacts from various farm management practices including manure management, soil management, and fertilization strategies. The calculations are based on the lifecycle of animal cohorts and their feed, manure handling practices, as well as fertiliser application rates.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.lca.Energy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.lca.</span></span><span class="sig-name descname"><span class="pre">Energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ef_country</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Energy" title="Link to this definition"></a></dt>
+<dd><p>Represents the calculations for various energy needs and intakes for animals based on their cohort,
+diet, and physiological state. It utilizes a series of equations from the IPCC 2006 guidelines and other
+resources to estimate the energy required for maintenance, growth, lactation, and pregnancy, as well as
+the energy provided by forage and concentrates.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cattle_lca.lca.Energy.data_manager_class">
+<span class="sig-name descname"><span class="pre">data_manager_class</span></span><a class="headerlink" href="#cattle_lca.lca.Energy.data_manager_class" title="Link to this definition"></a></dt>
+<dd><p>An instance of LCADataManager initialized with a specific ef_country,
+used to access various parameters and energy factors needed for calculations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../resource_manager/cattle_lca_data_manager/index.html#cattle_lca.resource_manager.cattle_lca_data_manager.LCADataManager" title="cattle_lca.resource_manager.cattle_lca_data_manager.LCADataManager">LCADataManager</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Energy.ratio_of_net_energy_maintenance">
+<span class="sig-name descname"><span class="pre">ratio_of_net_energy_maintenance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Energy.ratio_of_net_energy_maintenance" title="Link to this definition"></a></dt>
+<dd><p>Calculates the ratio of net energy available for maintenance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Energy.ratio_of_net_energy_growth">
+<span class="sig-name descname"><span class="pre">ratio_of_net_energy_growth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Energy.ratio_of_net_energy_growth" title="Link to this definition"></a></dt>
+<dd><p>Calculates the ratio of net energy available for growth.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Energy.net_energy_for_maintenance">
+<span class="sig-name descname"><span class="pre">net_energy_for_maintenance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Energy.net_energy_for_maintenance" title="Link to this definition"></a></dt>
+<dd><p>Calculates the net energy required for maintaining basic physiological functions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Energy.net_energy_for_activity">
+<span class="sig-name descname"><span class="pre">net_energy_for_activity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Energy.net_energy_for_activity" title="Link to this definition"></a></dt>
+<dd><p>Calculates the additional net energy required for animal activities based on grazing type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Energy.net_energy_for_weight_gain">
+<span class="sig-name descname"><span class="pre">net_energy_for_weight_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Energy.net_energy_for_weight_gain" title="Link to this definition"></a></dt>
+<dd><p>Calculates the net energy required for animal growth.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Energy.net_energy_for_lactation">
+<span class="sig-name descname"><span class="pre">net_energy_for_lactation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Energy.net_energy_for_lactation" title="Link to this definition"></a></dt>
+<dd><p>Calculates the net energy required for lactation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Energy.net_energy_for_pregnancy">
+<span class="sig-name descname"><span class="pre">net_energy_for_pregnancy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Energy.net_energy_for_pregnancy" title="Link to this definition"></a></dt>
+<dd><p>Calculates the net energy required during pregnancy.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Energy.gross_energy_from_concentrate">
+<span class="sig-name descname"><span class="pre">gross_energy_from_concentrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Energy.gross_energy_from_concentrate" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total gross energy intake from concentrates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Energy.gross_energy_from_grass">
+<span class="sig-name descname"><span class="pre">gross_energy_from_grass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Energy.gross_energy_from_grass" title="Link to this definition"></a></dt>
+<dd><p>Estimates the total gross energy intake from grasses, adjusted for energy intake from concentrates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Energy.total_gross_energy">
+<span class="sig-name descname"><span class="pre">total_gross_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Energy.total_gross_energy" title="Link to this definition"></a></dt>
+<dd><p>Estimates the total gross energy intake from all sources.</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This class requires detailed data about the animal cohorts, their diets, and physiological states to perform accurate calculations.
+These calculations are based on standards provided by IPCC guidelines and other agricultural research sources.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">ratio_of_net_energy_maintenance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Calculates the Ratio of Net Energy Maintenance (REM) to the total digestible energy consumed by the animal.
+This ratio helps in understanding how much of the energy consumed is being used for maintenance activities.</p>
+<section id="parameters">
+<h4>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>animal<span class="classifier">Animal object</span></dt><dd><p>The animal for which the REM is being calculated. The animal object should contain the forage type being consumed.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h4>Returns:<a class="headerlink" href="#returns" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float</dt><dd><p>The ratio of net energy available for maintenance compared to the total energy consumed.</p>
+</dd>
+</dl>
+</section>
+<section id="notes">
+<h4>Notes:<a class="headerlink" href="#notes" title="Link to this heading"></a></h4>
+<p>The digestible energy (DE) from the forage type input into the animal and farm data is used to calculate the REM.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">ratio_of_net_energy_growth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Calculates the Ratio of Net Energy Growth (REG) to the total digestible energy consumed by the animal.
+This ratio is essential for understanding how much of the energy consumed is utilized for growth purposes.</p>
+<section id="id2">
+<h4>Parameters:<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>animal<span class="classifier">Animal object</span></dt><dd><p>The animal cohort type from the animal input data.</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h4>Returns:<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float</dt><dd><p>The ratio of net energy available for growth compared to the total energy consumed.</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h4>Notes:<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<p>The digestible energy (DE) from the forage type input into the animal and farm data is used to calculate the REG.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">net_energy_for_maintenance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<dd><p>Calculates the net energy required for maintenance based on the animal’s weight.
+This involves activities that include basic physiological functions such as respiration, circulation, and maintaining body temperature.</p>
+<section id="id6">
+<h4>Parameters:<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>animal<span class="classifier">Animal object</span></dt><dd><p>The animal for which the energy for maintenance is being calculated.</p>
+</dd>
+</dl>
+</section>
+<section id="id7">
+<h4>Returns:<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float</dt><dd><p>The net energy required for maintenance activities, based on the animal’s weight.</p>
+</dd>
+</dl>
+</section>
+<section id="id8">
+<h4>Notes:<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<p>This calculation follows equation 10.3 from the IPCC 2006 guidelines (NEm).</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">net_energy_for_activity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id9" title="Link to this definition"></a></dt>
+<dd><p>Calculates the net energy required for activities, based on the type of feeding situation (grazing type).
+This includes the energy required for movements and other physical activities other than those for basic maintenance.</p>
+<section id="id10">
+<h4>Parameters:<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>animal<span class="classifier">Animal object</span></dt><dd><p>The animal for which the energy for activity is being calculated.</p>
+</dd>
+</dl>
+</section>
+<section id="id11">
+<h4>Returns:<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float</dt><dd><p>The net energy required for activities.</p>
+</dd>
+</dl>
+</section>
+<section id="id12">
+<h4>Notes:<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<p>This uses the net energy for maintenance, multiplied by the coefficient for the animal’s specific feed situation.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">net_energy_for_weight_gain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id13" title="Link to this definition"></a></dt>
+<dd><p>Calculates the net energy required for weight gain, tailored to the animal’s specific weight gain rate and physiological state.</p>
+<section id="id14">
+<h4>Parameters:<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>animal<span class="classifier">Animal object</span></dt><dd><p>The animal for which the energy for weight gain is being calculated.</p>
+</dd>
+</dl>
+</section>
+<section id="id15">
+<h4>Returns:<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float</dt><dd><p>The net energy required for weight gain.</p>
+</dd>
+</dl>
+</section>
+<section id="id16">
+<h4>Notes:<a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
+<p>Utilizes equation 10.6 from the IPCC 2006 guidelines (NEg) and is parameterized to the animal’s daily weight gain.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">net_energy_for_lactation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id17" title="Link to this definition"></a></dt>
+<dd><p>Calculates the energy required for lactation, considering the milk volume and fat content.</p>
+<section id="id18">
+<h4>Parameters:<a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>animal<span class="classifier">Animal object</span></dt><dd><p>The lactating animal for which the energy for lactation is being calculated.</p>
+</dd>
+</dl>
+</section>
+<section id="id19">
+<h4>Returns:<a class="headerlink" href="#id19" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float</dt><dd><p>The net energy required for producing milk.</p>
+</dd>
+</dl>
+</section>
+<section id="id20">
+<h4>Notes:<a class="headerlink" href="#id20" title="Link to this heading"></a></h4>
+<p>Factors in milk density and fat content to compute the required energy for milk production.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id21">
+<span class="sig-name descname"><span class="pre">net_energy_for_pregnancy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id21" title="Link to this definition"></a></dt>
+<dd><p>Calculates the energy required for pregnancy.</p>
+<section id="id22">
+<h4>Parameters:<a class="headerlink" href="#id22" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>animal<span class="classifier">Animal object</span></dt><dd><p>The pregnant animal for which the energy for pregnancy is being calculated.</p>
+</dd>
+</dl>
+</section>
+<section id="id23">
+<h4>Returns:<a class="headerlink" href="#id23" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float</dt><dd><p>The net energy required for supporting pregnancy.</p>
+</dd>
+</dl>
+</section>
+<section id="id24">
+<h4>Notes:<a class="headerlink" href="#id24" title="Link to this heading"></a></h4>
+<p>Based on the net energy for maintenance and modified by the emissions factor for pregnancy.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id25">
+<span class="sig-name descname"><span class="pre">gross_energy_from_concentrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id25" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total gross energy intake from concentrate feeds consumed by the animal.</p>
+<section id="id26">
+<h4>Parameters:<a class="headerlink" href="#id26" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>animal<span class="classifier">Animal object</span></dt><dd><p>The animal for which the energy intake from concentrates is being calculated.</p>
+</dd>
+</dl>
+</section>
+<section id="id27">
+<h4>Returns:<a class="headerlink" href="#id27" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float</dt><dd><p>The total gross energy intake from concentrates.</p>
+</dd>
+</dl>
+</section>
+<section id="id28">
+<h4>Notes:<a class="headerlink" href="#id28" title="Link to this heading"></a></h4>
+<p>Accounts for the digestibility and energy content of the concentrate feed type consumed.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id29">
+<span class="sig-name descname"><span class="pre">gross_energy_from_grass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id29" title="Link to this definition"></a></dt>
+<dd><p>Estimates the total gross energy intake from grasses for an animal, after accounting for energy contributions
+from different physiological needs and adjusted for the energy concentrates.</p>
+<section id="id30">
+<h4>Parameters:<a class="headerlink" href="#id30" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>animal<span class="classifier">Animal object</span></dt><dd><p>The animal for which the gross energy intake from grasses is being estimated.</p>
+</dd>
+</dl>
+</section>
+<section id="id31">
+<h4>Returns:<a class="headerlink" href="#id31" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float</dt><dd><p>The total gross energy intake from grasses, adjusted for the energy already provided by concentrates.</p>
+</dd>
+</dl>
+</section>
+<section id="id32">
+<h4>Notes:<a class="headerlink" href="#id32" title="Link to this heading"></a></h4>
+<p>The calculation considers digestible energy from forage, energy for maintenance, activity, lactation, pregnancy,
+weight gain, and subtracts the energy intake from concentrates.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id33">
+<span class="sig-name descname"><span class="pre">total_gross_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id33" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total gross energy intake for an animal, encompassing all sources of energy including grass and concentrates,
+and accounting for various physiological energy demands.</p>
+<section id="id34">
+<h4>Parameters:<a class="headerlink" href="#id34" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>animal<span class="classifier">Animal object</span></dt><dd><p>The animal for which the total gross energy intake is being estimated.</p>
+</dd>
+</dl>
+</section>
+<section id="id35">
+<h4>Returns:<a class="headerlink" href="#id35" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>float</dt><dd><p>The total gross energy intake, considering all physiological energy needs and sources.</p>
+</dd>
+</dl>
+</section>
+<section id="id36">
+<h4>Notes:<a class="headerlink" href="#id36" title="Link to this heading"></a></h4>
+<p>This method aggregates the net energy for maintenance, activity, lactation, pregnancy, and weight gain against
+the backdrop of the animal’s diet digestibility and respective energy ratios for maintenance and growth.</p>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrassFeed">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.lca.</span></span><span class="sig-name descname"><span class="pre">GrassFeed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ef_country</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrassFeed" title="Link to this definition"></a></dt>
+<dd><p>The GrassFeed class provides methods to calculate various energy-related metrics for animals, specifically focusing on those fed primarily on grass.
+It takes into account the dry matter intake from grass, the proportion of the diet made up of concentrates,
+and methane emissions based on the animal’s diet.</p>
+<section id="attributes">
+<h4>Attributes:<a class="headerlink" href="#attributes" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>energy_class<span class="classifier">Energy</span></dt><dd><p>An instance of the Energy class, used to calculate various energy metrics for the animal.</p>
+</dd>
+<dt>data_manager_class<span class="classifier">LCADataManager</span></dt><dd><p>An instance of the LCADataManager class, used to access data necessary for energy and emissions calculations.</p>
+</dd>
+</dl>
+</section>
+<section id="methods">
+<h4>Methods:<a class="headerlink" href="#methods" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dry_matter_from_grass(animal)</dt><dd><p>Calculates the dry matter intake from grasses for an animal, adjusted for the energy intake from concentrates.</p>
+</dd>
+<dt>gross_amount_from_con_in_percent(animal, share_in_percent)</dt><dd><p>Estimates the total energy intake from concentrates, as a percentage of the animal’s total diet.</p>
+</dd>
+<dt>ch4_emissions_factor(animal)</dt><dd><p>Calculates the methane emissions factor based on the feed intake and methane conversion factors.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrassFeed.dry_matter_from_grass">
+<span class="sig-name descname"><span class="pre">dry_matter_from_grass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrassFeed.dry_matter_from_grass" title="Link to this definition"></a></dt>
+<dd><p>Estimates the dry matter intake from grasses for an animal, adjusted for the energy intake from concentrates.</p>
+<section id="id37">
+<h5>Parameters:<a class="headerlink" href="#id37" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">Animal object</span></dt><dd><p>The animal for which the dry matter intake from grass is being estimated.</p>
+</dd>
+</dl>
+</section>
+<section id="id38">
+<h5>Returns:<a class="headerlink" href="#id38" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The total dry matter intake from grasses, after adjusting for the energy provided by concentrates and accounting for different physiological energy needs.</p>
+</dd>
+</dl>
+</section>
+<section id="id39">
+<h5>Notes:<a class="headerlink" href="#id39" title="Link to this heading"></a></h5>
+<p>The calculation considers net energy for maintenance, activity, lactation, pregnancy, weight gain, and the digestible energy from forage. This method ensures a more accurate estimation of the actual dry matter intake from grass for the specified animal.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrassFeed.gross_amount_from_con_in_percent">
+<span class="sig-name descname"><span class="pre">gross_amount_from_con_in_percent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">share_in_percent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrassFeed.gross_amount_from_con_in_percent" title="Link to this definition"></a></dt>
+<dd><p>Estimates the total energy intake from concentrates, as a percentage of the animal’s total diet, adjusted for the energy intake from grass.</p>
+<section id="id40">
+<h5>Parameters:<a class="headerlink" href="#id40" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">Animal object</span></dt><dd><p>The animal for which the energy intake from concentrates is being estimated.</p>
+</dd>
+<dt>share_in_percent<span class="classifier">float</span></dt><dd><p>The percentage of the diet made up by concentrates.</p>
+</dd>
+</dl>
+</section>
+<section id="id41">
+<h5>Returns:<a class="headerlink" href="#id41" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The energy intake from concentrates, expressed as a percentage of the total diet.</p>
+</dd>
+</dl>
+</section>
+<section id="id42">
+<h5>Notes:<a class="headerlink" href="#id42" title="Link to this heading"></a></h5>
+<p>This method provides an estimate of how much energy the animal is obtaining from concentrates as opposed to grass, helping to balance the diet according to physiological energy demands.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrassFeed.ch4_emissions_factor">
+<span class="sig-name descname"><span class="pre">ch4_emissions_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrassFeed.ch4_emissions_factor" title="Link to this definition"></a></dt>
+<dd><p>Calculates the methane emissions factor based on the feed intake, specifically the gross energy from concentrates and grasses, and the methane conversion factor associated with the animal’s cohort.</p>
+<section id="id43">
+<h5>Parameters:<a class="headerlink" href="#id43" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">Animal object</span></dt><dd><p>The animal for which the methane emissions factor is being estimated.</p>
+</dd>
+</dl>
+</section>
+<section id="id44">
+<h5>Returns:<a class="headerlink" href="#id44" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The methane emissions factor per animal per year, taking into account the animal’s total energy intake from all feed sources.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrazingStage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.lca.</span></span><span class="sig-name descname"><span class="pre">GrazingStage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ef_country</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrazingStage" title="Link to this definition"></a></dt>
+<dd><p>The GrazingStage class calculates various metrics related to the environmental impact of grazing animals.
+This includes the volatile solids excretion rate to pasture, net nitrogen excretion, methane emissions from grazing, ammonia emissions,
+nitrogen and phosphorus leaching, and direct and indirect N2O emissions from pasture.</p>
+<section id="id45">
+<h4>Attributes:<a class="headerlink" href="#id45" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>energy_class<span class="classifier">Energy</span></dt><dd><p>An instance of the Energy class, used for calculations involving energy metrics of animals.</p>
+</dd>
+<dt>grass_feed_class<span class="classifier">GrassFeed</span></dt><dd><p>An instance of the GrassFeed class, used to calculate energy intake from grasses.</p>
+</dd>
+<dt>data_manager_class<span class="classifier">LCADataManager</span></dt><dd><p>An instance of the LCADataManager class, used to access data necessary for the calculations.</p>
+</dd>
+</dl>
+</section>
+<section id="id46">
+<h4>Methods:<a class="headerlink" href="#id46" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>percent_outdoors(animal)</dt><dd><p>Calculates the percentage of time an animal spends outdoors based on its time outdoors attribute.</p>
+</dd>
+<dt>volatile_solids_excretion_rate_GRAZING(animal)</dt><dd><p>Calculates the rate at which volatile solids are excreted to pasture by the animal.</p>
+</dd>
+<dt>net_excretion_GRAZING(animal)</dt><dd><p>Calculates the net nitrogen excretion per kilogram to pasture by the animal.</p>
+</dd>
+<dt>ch4_emissions_for_grazing(animal)</dt><dd><p>Estimates the methane emissions from the animal excretion while grazing.</p>
+</dd>
+<dt>nh3_emissions_per_year_GRAZING(animal)</dt><dd><p>Calculates the total ammonia emissions per year from the animal while grazing.</p>
+</dd>
+<dt>Nleach_GRAZING(animal)</dt><dd><p>Estimates the amount of nitrogen leached from the pasture due to the grazing animal.</p>
+</dd>
+<dt>PLeach_GRAZING(animal)</dt><dd><p>Estimates the amount of phosphorus leached from the pasture due to the grazing animal.</p>
+</dd>
+<dt>PRP_N2O_direct(animal)</dt><dd><p>Calculates the direct nitrous oxide emissions from pasture, range, and paddock due to the grazing animal.</p>
+</dd>
+<dt>PRP_N2O_indirect(animal)</dt><dd><p>Calculates the indirect nitrous oxide emissions from atmospheric deposition and leaching related to pasture,
+range, and paddock due to the grazing animal.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrazingStage.percent_outdoors">
+<span class="sig-name descname"><span class="pre">percent_outdoors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrazingStage.percent_outdoors" title="Link to this definition"></a></dt>
+<dd><p>Calculates the percentage of the day that the animal spends outdoors.</p>
+<section id="id47">
+<h5>Parameters:<a class="headerlink" href="#id47" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant data such as time spent outdoors.</p>
+</dd>
+</dl>
+</section>
+<section id="id48">
+<h5>Returns:<a class="headerlink" href="#id48" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The percentage of the day the animal spends outdoors.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrazingStage.volatile_solids_excretion_rate_GRAZING">
+<span class="sig-name descname"><span class="pre">volatile_solids_excretion_rate_GRAZING</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrazingStage.volatile_solids_excretion_rate_GRAZING" title="Link to this definition"></a></dt>
+<dd><p>Calculates the volatile solids excretion rate (kg/day) to pasture for grazing animals. This measure
+is an indicator of the amount of waste produced by the animal that can contribute to
+greenhouse gas emissions.</p>
+<section id="id49">
+<h5>Parameters:<a class="headerlink" href="#id49" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant dietary and physical information.</p>
+</dd>
+</dl>
+</section>
+<section id="id50">
+<h5>Returns:<a class="headerlink" href="#id50" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The volatile solids excretion rate to pasture.
+This function calculates Volitile Solids Excretion Rate (kg/day -1) to pasture</p>
+</dd>
+</dl>
+</section>
+<section id="id51">
+<h5>Notes:<a class="headerlink" href="#id51" title="Link to this heading"></a></h5>
+<blockquote>
+<div><p>GEC   = Gross Energy from Concentrates
+GEG   = Gross Energy from grass
+DE    = Percentage of Digestible Energy
+UE    = Urinary Energy
+ASH   = Ash content of manure
+18.45 = conversion factor for dietary GE per kg of dry matter, MJ kg-1.</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrazingStage.net_excretion_GRAZING">
+<span class="sig-name descname"><span class="pre">net_excretion_GRAZING</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrazingStage.net_excretion_GRAZING" title="Link to this definition"></a></dt>
+<dd><p>Calculates the net nitrogen excretion (kg/day) per kg to pasture. This is a measure of the nitrogen
+that is excreted by grazing animals and can impact soil and water quality.</p>
+<section id="id52">
+<h5>Parameters:<a class="headerlink" href="#id52" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant dietary and physical information.</p>
+</dd>
+</dl>
+</section>
+<section id="id53">
+<h5>Returns:<a class="headerlink" href="#id53" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The net nitrogen excretion rate to pasture.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrazingStage.ch4_emissions_for_grazing">
+<span class="sig-name descname"><span class="pre">ch4_emissions_for_grazing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrazingStage.ch4_emissions_for_grazing" title="Link to this definition"></a></dt>
+<dd><p>Calculates the methane emissions for grazing based on the animal’s excretion rates and time spent
+outdoors.</p>
+<section id="id54">
+<h5>Parameters:<a class="headerlink" href="#id54" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant dietary, physical, and grazing information.</p>
+</dd>
+</dl>
+</section>
+<section id="id55">
+<h5>Returns:<a class="headerlink" href="#id55" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The annual methane emissions from grazing.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrazingStage.nh3_emissions_per_year_GRAZING">
+<span class="sig-name descname"><span class="pre">nh3_emissions_per_year_GRAZING</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrazingStage.nh3_emissions_per_year_GRAZING" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total ammonia emissions per year from grazing animals. Ammonia emissions contribute
+to air quality issues and can lead to nitrogen deposition in ecosystems.</p>
+<section id="id56">
+<h5>Parameters:<a class="headerlink" href="#id56" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant dietary and physical information.</p>
+</dd>
+</dl>
+</section>
+<section id="id57">
+<h5>Returns:<a class="headerlink" href="#id57" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The total ammonia emissions per year from grazing.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrazingStage.Nleach_GRAZING">
+<span class="sig-name descname"><span class="pre">Nleach_GRAZING</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrazingStage.Nleach_GRAZING" title="Link to this definition"></a></dt>
+<dd><p>Calculates the proportion of nitrogen that is leached from pasture as a result of grazing.</p>
+<section id="id58">
+<h5>Parameters:<a class="headerlink" href="#id58" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant dietary and physical information.</p>
+</dd>
+</dl>
+</section>
+<section id="id59">
+<h5>Returns:<a class="headerlink" href="#id59" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The amount of nitrogen leached from pasture due to grazing.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrazingStage.PLeach_GRAZING">
+<span class="sig-name descname"><span class="pre">PLeach_GRAZING</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrazingStage.PLeach_GRAZING" title="Link to this definition"></a></dt>
+<dd><p>Calculates the proportion of phosphorus that is leached from pasture as a result of grazing.</p>
+<section id="id60">
+<h5>Parameters:<a class="headerlink" href="#id60" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant dietary and physical information.</p>
+</dd>
+</dl>
+</section>
+<section id="id61">
+<h5>Returns:<a class="headerlink" href="#id61" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The amount of phosphorus leached from pasture due to grazing.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrazingStage.PRP_N2O_direct">
+<span class="sig-name descname"><span class="pre">PRP_N2O_direct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrazingStage.PRP_N2O_direct" title="Link to this definition"></a></dt>
+<dd><p>Returns the direct nitrous oxide (N2O) emissions from pasture, range, and paddock (PRP) as a result
+of animal grazing.</p>
+<section id="id62">
+<h5>Parameters:<a class="headerlink" href="#id62" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant dietary and physical information.</p>
+</dd>
+</dl>
+</section>
+<section id="id63">
+<h5>Returns:<a class="headerlink" href="#id63" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The direct N2O emissions from PRP due to grazing.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.GrazingStage.PRP_N2O_indirect">
+<span class="sig-name descname"><span class="pre">PRP_N2O_indirect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.GrazingStage.PRP_N2O_indirect" title="Link to this definition"></a></dt>
+<dd><p>Returns indirect nitrous oxide (N2O) emissions from atmospheric deposition and leaching related to
+pasture, range, and paddock (PRP). These indirect emissions contribute to the overall greenhouse gas
+footprint of grazing practices.</p>
+<section id="id64">
+<h5>Parameters:<a class="headerlink" href="#id64" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant dietary and physical information.</p>
+</dd>
+</dl>
+</section>
+<section id="id65">
+<h5>Returns:<a class="headerlink" href="#id65" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The indirect N2O emissions from PRP due to grazing.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.lca.HousingStage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.lca.</span></span><span class="sig-name descname"><span class="pre">HousingStage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ef_country</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.HousingStage" title="Link to this definition"></a></dt>
+<dd><p>Represents the housing stage of animals, calculating various emissions and excretion rates
+associated with animals being indoors.</p>
+<section id="id66">
+<h4>Attributes:<a class="headerlink" href="#id66" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>data_manager_class<span class="classifier">LCADataManager</span></dt><dd><p>An instance of LCADataManager to access various data related to livestock and their environmental impacts.</p>
+</dd>
+<dt>energy_class<span class="classifier">Energy</span></dt><dd><p>An instance of Energy class to access energy-related calculations for livestock.</p>
+</dd>
+</dl>
+</section>
+<section id="id67">
+<h4>Methods:<a class="headerlink" href="#id67" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>percent_indoors(animal):</dt><dd><p>Calculates the percentage of time an animal spends indoors.</p>
+</dd>
+<dt>volatile_solids_excretion_rate_HOUSED(animal):</dt><dd><p>Calculates the rate of volatile solids excreted by housed animals per day.</p>
+</dd>
+<dt>net_excretion_HOUSED(animal):</dt><dd><p>Calculates the amount of nitrogen excreted per year by animals while they are housed.</p>
+</dd>
+<dt>total_ammonia_nitrogen_nh4_HOUSED(animal):</dt><dd><p>Calculates the total ammonia nitrogen excreted per year by housed animals.</p>
+</dd>
+<dt>nh3_emissions_per_year_HOUSED(animal):</dt><dd><p>Calculates the total ammonia emissions per year from housing.</p>
+</dd>
+<dt>HOUSING_N2O_indirect(animal):</dt><dd><p>Calculates indirect nitrous oxide emissions from the housing stage.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.HousingStage.percent_indoors">
+<span class="sig-name descname"><span class="pre">percent_indoors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.HousingStage.percent_indoors" title="Link to this definition"></a></dt>
+<dd><p>Calculates the percentage of the day that the animal spends indoors including time stabled.</p>
+<section id="id68">
+<h5>Parameters:<a class="headerlink" href="#id68" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant data such as time spent indoors and stabled.</p>
+</dd>
+</dl>
+</section>
+<section id="id69">
+<h5>Returns:<a class="headerlink" href="#id69" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The percentage of the day the animal spends indoors.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.HousingStage.volatile_solids_excretion_rate_HOUSED">
+<span class="sig-name descname"><span class="pre">volatile_solids_excretion_rate_HOUSED</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.HousingStage.volatile_solids_excretion_rate_HOUSED" title="Link to this definition"></a></dt>
+<dd><p>Calculates the rate of volatile solids excreted by housed animals per day, considering the energy
+content of their diet and time spent indoors.</p>
+<section id="id70">
+<h5>Parameters:<a class="headerlink" href="#id70" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant dietary and housing information.</p>
+</dd>
+</dl>
+</section>
+<section id="id71">
+<h5>Returns:<a class="headerlink" href="#id71" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The daily rate of volatile solids excretion for housed animals.</p>
+</dd>
+</dl>
+</section>
+<section id="id72">
+<h5>Notes:<a class="headerlink" href="#id72" title="Link to this heading"></a></h5>
+<blockquote>
+<div><p>Volitile Solids Excretion Rate (kg/day -1)
+GEcon = Gross Energy from Concentrates
+GEgrass = Gross Energy from grass
+DE= Percentage of Digestible Energy
+UE = Urinary Energy
+ASH = Ash content of manure
+18.45 = conversion factor for dietary GE per kg of dry matter, MJ kg-1.</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.HousingStage.net_excretion_HOUSED">
+<span class="sig-name descname"><span class="pre">net_excretion_HOUSED</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.HousingStage.net_excretion_HOUSED" title="Link to this definition"></a></dt>
+<dd><p>Calculates the amount of nitrogen excreted per year by animals while they are housed, factoring in
+the protein content of their diet and the time they spend indoors.</p>
+<section id="id73">
+<h5>Parameters:<a class="headerlink" href="#id73" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant dietary and housing information.</p>
+</dd>
+</dl>
+</section>
+<section id="id74">
+<h5>Returns:<a class="headerlink" href="#id74" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The annual amount of nitrogen excreted by housed animals.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.HousingStage.total_ammonia_nitrogen_nh4_HOUSED">
+<span class="sig-name descname"><span class="pre">total_ammonia_nitrogen_nh4_HOUSED</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.HousingStage.total_ammonia_nitrogen_nh4_HOUSED" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total ammonia nitrogen (TAN NH4) excreted by housed animals.</p>
+<section id="id75">
+<h5>Parameters:<a class="headerlink" href="#id75" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant excretion information.</p>
+</dd>
+</dl>
+</section>
+<section id="id76">
+<h5>Returns:<a class="headerlink" href="#id76" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The total ammonia nitrogen excreted by housed animals.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.HousingStage.nh3_emissions_per_year_HOUSED">
+<span class="sig-name descname"><span class="pre">nh3_emissions_per_year_HOUSED</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.HousingStage.nh3_emissions_per_year_HOUSED" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total ammonia (NH3) emissions per year resulting from animal housing.</p>
+<section id="id77">
+<h5>Parameters:<a class="headerlink" href="#id77" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant housing and manure management information.</p>
+</dd>
+</dl>
+</section>
+<section id="id78">
+<h5>Returns:<a class="headerlink" href="#id78" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The total ammonia emissions per year from animal housing.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.HousingStage.HOUSING_N2O_indirect">
+<span class="sig-name descname"><span class="pre">HOUSING_N2O_indirect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.HousingStage.HOUSING_N2O_indirect" title="Link to this definition"></a></dt>
+<dd><p>Calculates indirect nitrous oxide (N2O) emissions associated with the housing stage of animal
+rearing, considering ammonia emissions and atmospheric deposition.</p>
+<section id="id79">
+<h5>Parameters:<a class="headerlink" href="#id79" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant housing and emissions information.</p>
+</dd>
+</dl>
+</section>
+<section id="id80">
+<h5>Returns:<a class="headerlink" href="#id80" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>Indirect N2O emissions resulting from animal housing.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.lca.StorageStage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.lca.</span></span><span class="sig-name descname"><span class="pre">StorageStage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ef_country</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.StorageStage" title="Link to this definition"></a></dt>
+<dd><p>Represents the manure storage stage of farm management, calculating various emissions and excretion rates
+associated with the storage of animal waste.</p>
+<section id="id81">
+<h4>Attributes:<a class="headerlink" href="#id81" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>housing_class<span class="classifier">HousingStage</span></dt><dd><p>An instance of HousingStage to access calculations related to the housing phase of animal management.</p>
+</dd>
+<dt>data_manager_class<span class="classifier">LCADataManager</span></dt><dd><p>An instance of LCADataManager to access various data related to livestock and environmental impacts.</p>
+</dd>
+</dl>
+</section>
+<section id="id82">
+<h4>Methods:<a class="headerlink" href="#id82" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>net_excretion_STORAGE(animal):</dt><dd><p>Calculates the net nitrogen excretion from storage.</p>
+</dd>
+<dt>total_ammonia_nitrogen_nh4_STORAGE(animal):</dt><dd><p>Calculates the total ammonia nitrogen excreted per year from storage.</p>
+</dd>
+<dt>CH4_STORAGE(animal):</dt><dd><p>Calculates the methane emissions from manure storage per year.</p>
+</dd>
+<dt>STORAGE_N2O_direct(animal):</dt><dd><p>Calculates direct nitrous oxide emissions from manure storage.</p>
+</dd>
+<dt>nh3_emissions_per_year_STORAGE(animal):</dt><dd><p>Calculates the total ammonia emissions per year from manure storage.</p>
+</dd>
+<dt>STORAGE_N2O_indirect(animal):</dt><dd><p>Calculates indirect nitrous oxide emissions from manure storage.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.StorageStage.net_excretion_STORAGE">
+<span class="sig-name descname"><span class="pre">net_excretion_STORAGE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.StorageStage.net_excretion_STORAGE" title="Link to this definition"></a></dt>
+<dd><p>Calculates the net nitrogen excretion from manure storage.</p>
+<section id="id83">
+<h5>Parameters:<a class="headerlink" href="#id83" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant housing information.</p>
+</dd>
+</dl>
+</section>
+<section id="id84">
+<h5>Returns:<a class="headerlink" href="#id84" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The net nitrogen excretion from manure storage.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.StorageStage.total_ammonia_nitrogen_nh4_STORAGE">
+<span class="sig-name descname"><span class="pre">total_ammonia_nitrogen_nh4_STORAGE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.StorageStage.total_ammonia_nitrogen_nh4_STORAGE" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total ammonia nitrogen (TAN NH4) excreted per year from manure storage.</p>
+<section id="id85">
+<h5>Parameters:<a class="headerlink" href="#id85" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant excretion information.</p>
+</dd>
+</dl>
+</section>
+<section id="id86">
+<h5>Returns:<a class="headerlink" href="#id86" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>The total ammonia nitrogen from manure storage per year.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.StorageStage.CH4_STORAGE">
+<span class="sig-name descname"><span class="pre">CH4_STORAGE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.StorageStage.CH4_STORAGE" title="Link to this definition"></a></dt>
+<dd><p>Calculates methane (CH4) emissions from manure storage per year.</p>
+<section id="id87">
+<h5>Parameters:<a class="headerlink" href="#id87" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant waste management information.</p>
+</dd>
+</dl>
+</section>
+<section id="id88">
+<h5>Returns:<a class="headerlink" href="#id88" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>Methane emissions from manure storage per year.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.StorageStage.STORAGE_N2O_direct">
+<span class="sig-name descname"><span class="pre">STORAGE_N2O_direct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.StorageStage.STORAGE_N2O_direct" title="Link to this definition"></a></dt>
+<dd><p>Calculates direct nitrous oxide (N2O) emissions from manure storage.</p>
+<section id="id89">
+<h5>Parameters:<a class="headerlink" href="#id89" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant waste management information.</p>
+</dd>
+</dl>
+</section>
+<section id="id90">
+<h5>Returns:<a class="headerlink" href="#id90" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>Direct N2O emissions from manure storage.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.StorageStage.nh3_emissions_per_year_STORAGE">
+<span class="sig-name descname"><span class="pre">nh3_emissions_per_year_STORAGE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.StorageStage.nh3_emissions_per_year_STORAGE" title="Link to this definition"></a></dt>
+<dd><p>Calculates total ammonia (NH3) emissions per year resulting from manure storage.</p>
+<section id="id91">
+<h5>Parameters:<a class="headerlink" href="#id91" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant storage information.</p>
+</dd>
+</dl>
+</section>
+<section id="id92">
+<h5>Returns:<a class="headerlink" href="#id92" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>Total ammonia emissions per year from manure storage.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.StorageStage.STORAGE_N2O_indirect">
+<span class="sig-name descname"><span class="pre">STORAGE_N2O_indirect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.StorageStage.STORAGE_N2O_indirect" title="Link to this definition"></a></dt>
+<dd><p>Calculates indirect nitrous oxide (N2O) emissions associated with the storage stage of waste management,
+considering ammonia emissions and atmospheric deposition.</p>
+<section id="id93">
+<h5>Parameters:<a class="headerlink" href="#id93" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>animal<span class="classifier">object</span></dt><dd><p>The animal object containing relevant storage information.</p>
+</dd>
+</dl>
+</section>
+<section id="id94">
+<h5>Returns:<a class="headerlink" href="#id94" title="Link to this heading"></a></h5>
+<dl class="simple">
+<dt>float</dt><dd><p>Indirect N2O emissions resulting from manure storage.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.lca.DailySpread">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.lca.</span></span><span class="sig-name descname"><span class="pre">DailySpread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ef_country</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.DailySpread" title="Link to this definition"></a></dt>
+<dd><p>A class to calculate the environmental impacts associated with daily manure spreading.
+It addresses various factors such as nitrogen and phosphorus excretion, ammonia emissions,
+and nitrous oxide emissions from spreading manure on fields.</p>
+<section id="id95">
+<h4>Attributes:<a class="headerlink" href="#id95" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>storage_class (StorageStage): An instance of the StorageStage class to access methods related to manure storage.
+data_manager_class (LCADataManager): An instance of the LCADataManager class to access necessary data and parameters.</p>
+</div></blockquote>
+</section>
+<section id="id96">
+<h4>Parameters:<a class="headerlink" href="#id96" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>ef_country (str): Environmental factor region identifier to tailor calculations to specific regional data.</p>
+</div></blockquote>
+</section>
+<section id="id97">
+<h4>Methods:<a class="headerlink" href="#id97" title="Link to this heading"></a></h4>
+<blockquote>
+<div><dl class="simple">
+<dt>net_excretion_SPREAD(animal):</dt><dd><p>Calculates the net nitrogen excretion from manure storage, accounting for losses.</p>
+</dd>
+<dt>total_ammonia_nitrogen_nh4_SPREAD(animal):</dt><dd><p>Calculates the total ammonia nitrogen released from daily manure spreading.</p>
+</dd>
+<dt>SPREAD_N2O_direct(animal):</dt><dd><p>Calculates direct nitrous oxide emissions associated with nitrogen applied to fields through manure spreading.</p>
+</dd>
+<dt>nh3_emissions_per_year_SPREAD(animal):</dt><dd><p>Calculates ammonia emissions per year resulting from daily manure spreading.</p>
+</dd>
+<dt>leach_nitrogen_SPREAD(animal):</dt><dd><p>Estimates the proportion of nitrogen that is leached into the environment as a result of manure spreading.</p>
+</dd>
+<dt>leach_phospherous_SPREAD(animal):</dt><dd><p>Estimates the proportion of phosphorus that is leached into the environment as a result of manure spreading.</p>
+</dd>
+<dt>SPREAD_N2O_indirect(animal):</dt><dd><p>Calculates indirect nitrous oxide emissions associated with volatilization and leaching due to manure spreading.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.DailySpread.net_excretion_SPREAD">
+<span class="sig-name descname"><span class="pre">net_excretion_SPREAD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.DailySpread.net_excretion_SPREAD" title="Link to this definition"></a></dt>
+<dd><p>Calculates the net nitrogen excretion (Nex) from manure storage, accounting for losses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>Animal</em>) – An instance of the Animal class containing relevant data for the animal.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Net nitrogen excretion from storage, used in daily spread.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.DailySpread.total_ammonia_nitrogen_nh4_SPREAD">
+<span class="sig-name descname"><span class="pre">total_ammonia_nitrogen_nh4_SPREAD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.DailySpread.total_ammonia_nitrogen_nh4_SPREAD" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total ammonia nitrogen (TAN) released from daily manure spreading.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>Animal</em>) – An instance of the Animal class containing relevant data for the animal.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total ammonia nitrogen from daily spreading per year.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.DailySpread.SPREAD_N2O_direct">
+<span class="sig-name descname"><span class="pre">SPREAD_N2O_direct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.DailySpread.SPREAD_N2O_direct" title="Link to this definition"></a></dt>
+<dd><p>Calculates direct nitrous oxide (N2O) emissions associated with nitrogen applied to fields through manure spreading.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>Animal</em>) – An instance of the Animal class containing relevant data for the animal.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Direct N2O emissions from daily spreading.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.DailySpread.nh3_emissions_per_year_SPREAD">
+<span class="sig-name descname"><span class="pre">nh3_emissions_per_year_SPREAD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.DailySpread.nh3_emissions_per_year_SPREAD" title="Link to this definition"></a></dt>
+<dd><p>Calculates ammonia (NH3) emissions per year resulting from daily manure spreading.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>Animal</em>) – An instance of the Animal class containing relevant data for the animal.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Ammonia emissions per year from daily spreading.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.DailySpread.leach_nitrogen_SPREAD">
+<span class="sig-name descname"><span class="pre">leach_nitrogen_SPREAD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.DailySpread.leach_nitrogen_SPREAD" title="Link to this definition"></a></dt>
+<dd><p>Estimates the proportion of nitrogen that is leached into the environment as a result of manure spreading.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>Animal</em>) – An instance of the Animal class containing relevant data for the animal.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Amount of nitrogen leached per year from daily spreading.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.DailySpread.leach_phospherous_SPREAD">
+<span class="sig-name descname"><span class="pre">leach_phospherous_SPREAD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.DailySpread.leach_phospherous_SPREAD" title="Link to this definition"></a></dt>
+<dd><p>Estimates the proportion of phosphorus that is leached into the environment as a result of manure spreading.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>Animal</em>) – An instance of the Animal class containing relevant data for the animal.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Amount of phosphorus leached per year from daily spreading.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.DailySpread.SPREAD_N2O_indirect">
+<span class="sig-name descname"><span class="pre">SPREAD_N2O_indirect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.DailySpread.SPREAD_N2O_indirect" title="Link to this definition"></a></dt>
+<dd><p>Calculates indirect nitrous oxide (N2O) emissions associated with volatilization and leaching due to manure spreading.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>Animal</em>) – An instance of the Animal class containing relevant data for the animal.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Indirect N2O emissions from daily spreading.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.lca.</span></span><span class="sig-name descname"><span class="pre">FertiliserInputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ef_country</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs" title="Link to this definition"></a></dt>
+<dd><p>A class to manage and calculate emissions and other impacts associated with fertiliser application, including urea and ammonium nitrate.</p>
+<section id="id98">
+<h4>Attributes:<a class="headerlink" href="#id98" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>data_manager_class (LCADataManager): An instance of the LCADataManager class to access necessary data and parameters for emission factors and other related data.</p>
+</div></blockquote>
+</section>
+<section id="id99">
+<h4>Parameters:<a class="headerlink" href="#id99" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>ef_country (str): The environmental factor region identifier to tailor calculations to specific regional data.</p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.urea_N2O_direct">
+<span class="sig-name descname"><span class="pre">urea_N2O_direct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.urea_N2O_direct" title="Link to this definition"></a></dt>
+<dd><p>Calculates direct N2O emissions from both standard and abated urea applied to soils.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_urea</strong> (<em>float</em>) – Total amount of urea applied (kg).</p></li>
+<li><p><strong>total_urea_abated</strong> (<em>float</em>) – Total amount of abated urea applied (kg).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total direct N2O emissions (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.urea_NH3">
+<span class="sig-name descname"><span class="pre">urea_NH3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.urea_NH3" title="Link to this definition"></a></dt>
+<dd><p>Estimates the amount of NH3 volatilized from both standard and abated urea applications.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_urea</strong> (<em>float</em>) – Total amount of urea applied (kg).</p></li>
+<li><p><strong>total_urea_abated</strong> (<em>float</em>) – Total amount of abated urea applied (kg).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total NH3 emissions (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.urea_nleach">
+<span class="sig-name descname"><span class="pre">urea_nleach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.urea_nleach" title="Link to this definition"></a></dt>
+<dd><p>Calculates the amount of urea and abated urea leached from soils after application.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_urea</strong> (<em>float</em>) – Total amount of urea applied (kg).</p></li>
+<li><p><strong>total_urea_abated</strong> (<em>float</em>) – Total amount of abated urea applied (kg).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total leached urea (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.urea_N2O_indirect">
+<span class="sig-name descname"><span class="pre">urea_N2O_indirect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.urea_N2O_indirect" title="Link to this definition"></a></dt>
+<dd><p>Calculates indirect emissions from urea and abated urea application, considering atmospheric deposition and leaching.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_urea</strong> (<em>float</em>) – Total amount of urea applied (kg).</p></li>
+<li><p><strong>total_urea_abated</strong> (<em>float</em>) – Total amount of abated urea applied (kg).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total indirect N2O emissions (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.urea_co2">
+<span class="sig-name descname"><span class="pre">urea_co2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.urea_co2" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total CO2 emissions resulting from the application of urea.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>total_urea</strong> (<em>float</em>) – Total amount of urea applied (kg).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total CO2 emissions (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.lime_co2">
+<span class="sig-name descname"><span class="pre">lime_co2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_lime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.lime_co2" title="Link to this definition"></a></dt>
+<dd><p>Calculates total CO2 emissions from the application of lime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>total_lime</strong> (<em>float</em>) – Total amount of lime applied (kg).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total CO2 emissions from lime application (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.urea_P_leach">
+<span class="sig-name descname"><span class="pre">urea_P_leach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.urea_P_leach" title="Link to this definition"></a></dt>
+<dd><p>Calculates the amount of phosphorus leached from urea and abated urea application.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_urea</strong> (<em>float</em>) – Total amount of urea applied (kg).</p></li>
+<li><p><strong>total_urea_abated</strong> (<em>float</em>) – Total amount of abated urea applied (kg).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total phosphorus leached (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.n_fertiliser_P_leach">
+<span class="sig-name descname"><span class="pre">n_fertiliser_P_leach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.n_fertiliser_P_leach" title="Link to this definition"></a></dt>
+<dd><p>Calculates the amount of phosphorus leached due to the application of nitrogen fertilisers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>total_n_fert</strong> (<em>float</em>) – Total amount of nitrogen fertiliser applied (kg).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total phosphorus leached due to nitrogen fertiliser application (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.n_fertiliser_direct">
+<span class="sig-name descname"><span class="pre">n_fertiliser_direct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.n_fertiliser_direct" title="Link to this definition"></a></dt>
+<dd><p>Calculates direct N2O emissions resulting from the application of nitrogen fertilisers at field level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>total_n_fert</strong> (<em>float</em>) – Total amount of nitrogen fertiliser applied (kg).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total direct N2O emissions from nitrogen fertiliser application (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.n_fertiliser_NH3">
+<span class="sig-name descname"><span class="pre">n_fertiliser_NH3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.n_fertiliser_NH3" title="Link to this definition"></a></dt>
+<dd><p>Calculates total NH3 emissions resulting from the application of nitrogen fertilisers at field level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>total_n_fert</strong> (<em>float</em>) – Total amount of nitrogen fertiliser applied (kg).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total NH3 emissions from nitrogen fertiliser application (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.n_fertiliser_nleach">
+<span class="sig-name descname"><span class="pre">n_fertiliser_nleach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.n_fertiliser_nleach" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total nitrogen leached from the application of nitrogen fertilisers at field level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>total_n_fert</strong> (<em>float</em>) – Total amount of nitrogen fertiliser applied (kg).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total nitrogen leached from nitrogen fertiliser application (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.n_fertiliser_indirect">
+<span class="sig-name descname"><span class="pre">n_fertiliser_indirect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.n_fertiliser_indirect" title="Link to this definition"></a></dt>
+<dd><p>Calculates the indirect N2O emissions from the use of nitrogen fertilisers, accounting for atmospheric deposition and leaching.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>total_n_fert</strong> (<em>float</em>) – Total amount of nitrogen fertiliser applied (kg).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total indirect N2O emissions from nitrogen fertiliser application (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.total_fertiliser_N20">
+<span class="sig-name descname"><span class="pre">total_fertiliser_N20</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.total_fertiliser_N20" title="Link to this definition"></a></dt>
+<dd><p>Returns the total N2O emissions, both direct and indirect, from the application of both urea and ammonium nitrate fertilisers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_urea</strong> (<em>float</em>) – Total amount of urea applied (kg).</p></li>
+<li><p><strong>total_urea_abated</strong> (<em>float</em>) – Total amount of abated urea applied (kg).</p></li>
+<li><p><strong>total_n_fert</strong> (<em>float</em>) – Total amount of nitrogen fertiliser applied (kg).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total N2O emissions from all fertiliser applications (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.FertiliserInputs.p_fertiliser_P_leach">
+<span class="sig-name descname"><span class="pre">p_fertiliser_P_leach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_p_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.FertiliserInputs.p_fertiliser_P_leach" title="Link to this definition"></a></dt>
+<dd><p>Calculates the amount of phosphorus leached due to the application of phosphorus fertilisers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>total_p_fert</strong> (<em>float</em>) – Total amount of phosphorus fertiliser applied (kg).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total phosphorus leached from phosphorus fertiliser application (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.lca.Upstream">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.lca.</span></span><span class="sig-name descname"><span class="pre">Upstream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ef_country</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Upstream" title="Link to this definition"></a></dt>
+<dd><p>Handles the calculation of upstream emissions related to concentrate production, diesel usage, and electricity consumption
+for the environmental impact assessment of sheep farming operations. It focuses on CO2 and PO4 emissions from various
+sources including fertiliser production, diesel fuel, and electricity used in farm operations.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cattle_lca.lca.Upstream.data_manager_class">
+<span class="sig-name descname"><span class="pre">data_manager_class</span></span><a class="headerlink" href="#cattle_lca.lca.Upstream.data_manager_class" title="Link to this definition"></a></dt>
+<dd><p>Provides access to necessary data for calculations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../resource_manager/cattle_lca_data_manager/index.html#cattle_lca.resource_manager.cattle_lca_data_manager.LCADataManager" title="cattle_lca.resource_manager.cattle_lca_data_manager.LCADataManager">LCADataManager</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Upstream.co2_from_concentrate_production">
+<span class="sig-name descname"><span class="pre">co2_from_concentrate_production</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Upstream.co2_from_concentrate_production" title="Link to this definition"></a></dt>
+<dd><p>Calculates CO2 emissions from concentrate production for sheep.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Upstream.po4_from_concentrate_production">
+<span class="sig-name descname"><span class="pre">po4_from_concentrate_production</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Upstream.po4_from_concentrate_production" title="Link to this definition"></a></dt>
+<dd><p>Calculates PO4 emissions from concentrate production for sheep.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Upstream.diesel_CO2">
+<span class="sig-name descname"><span class="pre">diesel_CO2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Upstream.diesel_CO2" title="Link to this definition"></a></dt>
+<dd><p>Estimates CO2 emissions from diesel fuel usage.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Upstream.diesel_PO4">
+<span class="sig-name descname"><span class="pre">diesel_PO4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Upstream.diesel_PO4" title="Link to this definition"></a></dt>
+<dd><p>Estimates PO4 emissions from diesel fuel usage.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Upstream.elec_CO2">
+<span class="sig-name descname"><span class="pre">elec_CO2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Upstream.elec_CO2" title="Link to this definition"></a></dt>
+<dd><p>Calculates CO2 emissions from electricity consumption.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Upstream.elec_PO4">
+<span class="sig-name descname"><span class="pre">elec_PO4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Upstream.elec_PO4" title="Link to this definition"></a></dt>
+<dd><p>Calculates PO4 emissions from electricity consumption.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Upstream.fert_upstream_CO2">
+<span class="sig-name descname"><span class="pre">fert_upstream_CO2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Upstream.fert_upstream_CO2" title="Link to this definition"></a></dt>
+<dd><p>Estimates CO2 emissions from the production of various fertilisers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Upstream.fert_upstream_EP">
+<span class="sig-name descname"><span class="pre">fert_upstream_EP</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Upstream.fert_upstream_EP" title="Link to this definition"></a></dt>
+<dd><p>Estimates PO4 emissions from the production of various fertilisers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id100">
+<span class="sig-name descname"><span class="pre">co2_from_concentrate_production</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id100" title="Link to this definition"></a></dt>
+<dd><p>Calculates CO2e emissions from the production of concentrates consumed by the animal cohorts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>object</em>) – An object containing data about different animal cohorts and their concentrate consumption.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total CO2e emissions from concentrate production for all animal cohorts (kg/year).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id101">
+<span class="sig-name descname"><span class="pre">po4_from_concentrate_production</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id101" title="Link to this definition"></a></dt>
+<dd><p>Calculates phosphorus (PO4e) emissions from the production of concentrates consumed by the animal cohorts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>object</em>) – An object containing data about different animal cohorts and their concentrate consumption.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total PO4e emissions from concentrate production for all animal cohorts (kg/year).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id102">
+<span class="sig-name descname"><span class="pre">diesel_CO2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diesel_kg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id102" title="Link to this definition"></a></dt>
+<dd><p>Calculates CO2e emissions from diesel consumption, including both direct and indirect upstream emissions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>diesel_kg</strong> (<em>float</em>) – The amount of diesel consumed (kg).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total CO2e emissions from diesel consumption (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id103">
+<span class="sig-name descname"><span class="pre">diesel_PO4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diesel_kg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id103" title="Link to this definition"></a></dt>
+<dd><p>Calculates phosphorus (PO4e) emissions from diesel consumption, including both direct and indirect upstream emissions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>diesel_kg</strong> (<em>float</em>) – The amount of diesel consumed (kg).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total PO4e emissions from diesel consumption (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id104">
+<span class="sig-name descname"><span class="pre">elec_CO2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elec_kwh</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id104" title="Link to this definition"></a></dt>
+<dd><p>Calculates CO2e emissions from electricity consumption.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>elec_kwh</strong> (<em>float</em>) – The amount of electricity consumed (kWh).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total CO2e emissions from electricity consumption (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id105">
+<span class="sig-name descname"><span class="pre">elec_PO4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elec_kwh</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id105" title="Link to this definition"></a></dt>
+<dd><p>Calculates phosphorus emissions (PO4e) from electricity consumption.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>elec_kwh</strong> (<em>float</em>) – The amount of electricity consumed (kWh).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total PO4e emissions from electricity consumption (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id106">
+<span class="sig-name descname"><span class="pre">fert_upstream_CO2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_p_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_k_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_lime_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id106" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total upstream CO2e emissions from the production of various fertilizers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_n_fert</strong> (<em>float</em>) – Total nitrogen fertilizer applied (kg).</p></li>
+<li><p><strong>total_urea</strong> (<em>float</em>) – Total urea applied (kg).</p></li>
+<li><p><strong>total_urea_abated</strong> (<em>float</em>) – Total abated urea applied (kg).</p></li>
+<li><p><strong>total_p_fert</strong> (<em>float</em>) – Total phosphorus fertilizer applied (kg).</p></li>
+<li><p><strong>total_k_fert</strong> (<em>float</em>) – Total potassium fertilizer applied (kg).</p></li>
+<li><p><strong>total_lime_fert</strong> (<em>float</em>) – Total lime fertilizer applied (kg).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total upstream CO2e emissions from fertilizer production (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id107">
+<span class="sig-name descname"><span class="pre">fert_upstream_EP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_p_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_k_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_lime_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id107" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total upstream emissions (PO4e) from the production of various fertilizers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_n_fert</strong> (<em>float</em>) – Total nitrogen fertilizer applied (kg).</p></li>
+<li><p><strong>total_urea</strong> (<em>float</em>) – Total urea applied (kg).</p></li>
+<li><p><strong>total_urea_abated</strong> (<em>float</em>) – Total abated urea applied (kg).</p></li>
+<li><p><strong>total_p_fert</strong> (<em>float</em>) – Total phosphorus fertilizer applied (kg).</p></li>
+<li><p><strong>total_k_fert</strong> (<em>float</em>) – Total potassium fertilizer applied (kg).</p></li>
+<li><p><strong>total_lime_fert</strong> (<em>float</em>) – Total lime fertilizer applied (kg).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total upstream emissions (PO4e) from fertilizer production (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.lca.Allocation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.lca.</span></span><span class="sig-name descname"><span class="pre">Allocation</span></span><a class="headerlink" href="#cattle_lca.lca.Allocation" title="Link to this definition"></a></dt>
+<dd><p>This class is responsible for calculating the allocations of live weight and milk production
+for various animal cohorts within a farm system. It provides methods to calculate total live
+weight outputs and inputs, convert these weights to energy units, and determine allocation
+factors for milk and meat based on these energy values.</p>
+<p>Methods in this class allow for the calculation of the total output in terms of live weight
+and milk, as well as the conversion of these outputs to energy equivalents for allocation
+purposes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Allocation.live_weight_output">
+<span class="sig-name descname"><span class="pre">live_weight_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Allocation.live_weight_output" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total live weight output from all animal cohorts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>object</em>) – An object containing data about different animal cohorts and their live weights and number sold.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total live weight output for all animal cohorts (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Allocation.live_weight_bought">
+<span class="sig-name descname"><span class="pre">live_weight_bought</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Allocation.live_weight_bought" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total live weight bought for all animal cohorts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>object</em>) – An object containing data about different animal cohorts and their live weights and number bought.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total live weight bought for all animal cohorts (kg).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Allocation.live_weight_to_mje">
+<span class="sig-name descname"><span class="pre">live_weight_to_mje</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Allocation.live_weight_to_mje" title="Link to this definition"></a></dt>
+<dd><p>Converts the total live weight output to Megajoules of energy (MJe).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>object</em>) – An object containing data about different animal cohorts.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total energy output from live weight for all animal cohorts (MJe).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Allocation.milk_to_kg_output">
+<span class="sig-name descname"><span class="pre">milk_to_kg_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Allocation.milk_to_kg_output" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total milk output in kilograms for dairy cows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>object</em>) – An object containing data about the dairy cow cohort.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total milk output for dairy cows (kg/year).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Allocation.milk_to_mje">
+<span class="sig-name descname"><span class="pre">milk_to_mje</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Allocation.milk_to_mje" title="Link to this definition"></a></dt>
+<dd><p>Converts the total milk output to Megajoules of energy (MJe).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>object</em>) – An object containing data about the dairy cow cohort.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total energy output from milk for dairy cows (MJe).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Allocation.milk_allocation_factor">
+<span class="sig-name descname"><span class="pre">milk_allocation_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Allocation.milk_allocation_factor" title="Link to this definition"></a></dt>
+<dd><p>Calculates the allocation factor for milk based on its energy content compared to the total energy content of milk and meat.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>object</em>) – An object containing data about the dairy cow cohort and other animal cohorts contributing to meat production.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The allocation factor for milk.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.Allocation.meat_allocation_factor">
+<span class="sig-name descname"><span class="pre">meat_allocation_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.Allocation.meat_allocation_factor" title="Link to this definition"></a></dt>
+<dd><p>Calculates the allocation factor for meat based on its energy content compared to the total energy content of milk and meat.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>object</em>) – An object containing data about the dairy cow cohort and other animal cohorts contributing to meat production.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The allocation factor for meat.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.lca.</span></span><span class="sig-name descname"><span class="pre">ClimateChangeTotals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ef_country</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals" title="Link to this definition"></a></dt>
+<dd><p>This class calculates total greenhouse gas emissions associated with various farm activities
+including enteric fermentation, manure management, soil management, and the upstream
+impacts of fuel and feed production. It utilizes data from various other classes to
+accumulate total emissions related to climate change.</p>
+<section id="id108">
+<h4>Attributes:<a class="headerlink" href="#id108" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>data_manager_class (LCADataManager): Manages lifecycle assessment data.
+grass_feed_class (GrassFeed): Manages grass feed-related calculations.
+grazing_class (GrazingStage): Manages grazing-related calculations.
+spread_class (DailySpread): Manages nutrient spreading-related calculations.
+housing_class (HousingStage): Manages housing-related calculations.
+storage_class (StorageStage): Manages manure storage-related calculations.
+fertiliser_class (FertiliserInputs): Manages fertiliser input-related calculations.
+upstream_class (Upstream): Manages upstream emissions calculations.</p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.create_emissions_dictionary">
+<span class="sig-name descname"><span class="pre">create_emissions_dictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.create_emissions_dictionary" title="Link to this definition"></a></dt>
+<dd><p>Creates a dictionary template for emissions calculations with zero-initialized values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keys</strong> (<em>list</em>) – List of animal cohorts or other categories for emissions calculation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary of dictionaries for organizing emissions data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.create_expanded_emissions_dictionary">
+<span class="sig-name descname"><span class="pre">create_expanded_emissions_dictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.create_expanded_emissions_dictionary" title="Link to this definition"></a></dt>
+<dd><p>Extends the basic emissions dictionary template with additional categories for more
+detailed emissions calculations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keys</strong> (<em>list</em>) – List of animal cohorts or other categories for detailed emissions calculation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An expanded dictionary of dictionaries for organizing detailed emissions data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.Enteric_CH4">
+<span class="sig-name descname"><span class="pre">Enteric_CH4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.Enteric_CH4" title="Link to this definition"></a></dt>
+<dd><p>Calculates methane emissions from enteric fermentation for a given animal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<a class="reference internal" href="../resource_manager/models/index.html#cattle_lca.resource_manager.models.AnimalCategory" title="cattle_lca.resource_manager.models.AnimalCategory"><em>AnimalCategory</em></a>) – The animal cohort for which emissions are being calculated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total methane emissions from enteric fermentation for the specified animal (kg CH4).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.CH4_enteric_ch4">
+<span class="sig-name descname"><span class="pre">CH4_enteric_ch4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.CH4_enteric_ch4" title="Link to this definition"></a></dt>
+<dd><p>Accumulates total methane emissions from enteric fermentation across all animal cohorts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<a class="reference internal" href="../resource_manager/models/index.html#cattle_lca.resource_manager.models.AnimalCollection" title="cattle_lca.resource_manager.models.AnimalCollection"><em>AnimalCollection</em></a>) – Collection of animal cohorts within the farm system.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total methane emissions from enteric fermentation across all cohorts (kg CH4).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.CH4_manure_management">
+<span class="sig-name descname"><span class="pre">CH4_manure_management</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.CH4_manure_management" title="Link to this definition"></a></dt>
+<dd><p>Calculates methane emissions from manure management for animal cohorts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<a class="reference internal" href="../resource_manager/models/index.html#cattle_lca.resource_manager.models.AnimalCollection" title="cattle_lca.resource_manager.models.AnimalCollection"><em>AnimalCollection</em></a>) – Collection of animal cohorts within the farm system.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total methane emissions from manure management across all cohorts (kg CH4).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.PRP_Total">
+<span class="sig-name descname"><span class="pre">PRP_Total</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.PRP_Total" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total N2O emissions related to Pasture, Range, and Paddock (PRP) for a given animal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<a class="reference internal" href="../resource_manager/models/index.html#cattle_lca.resource_manager.models.AnimalCategory" title="cattle_lca.resource_manager.models.AnimalCategory"><em>AnimalCategory</em></a>) – The animal cohort for which emissions are being calculated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total N2O emissions from PRP for the specified animal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.Total_N2O_Spreading">
+<span class="sig-name descname"><span class="pre">Total_N2O_Spreading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.Total_N2O_Spreading" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total N2O emissions related to the spreading of manure for a given animal collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<a class="reference internal" href="../resource_manager/models/index.html#cattle_lca.resource_manager.models.AnimalCategory" title="cattle_lca.resource_manager.models.AnimalCategory"><em>AnimalCategory</em></a>) – The animal collection for which emissions are being calculated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total N2O emissions from manure spreading for the specified animal collection.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.Total_storage_N2O">
+<span class="sig-name descname"><span class="pre">Total_storage_N2O</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.Total_storage_N2O" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total N2O emissions related to the storage of manure for a given animal collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<a class="reference internal" href="../resource_manager/models/index.html#cattle_lca.resource_manager.models.AnimalCategory" title="cattle_lca.resource_manager.models.AnimalCategory"><em>AnimalCategory</em></a>) – The animal collection for which emissions are being calculated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total N2O emissions from manure storage for the specified animal collection.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.N2O_total_PRP_N2O_direct">
+<span class="sig-name descname"><span class="pre">N2O_total_PRP_N2O_direct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.N2O_total_PRP_N2O_direct" title="Link to this definition"></a></dt>
+<dd><p>Calculates the direct N2O emissions from pasture, range, and paddock for a given animal collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<a class="reference internal" href="../resource_manager/models/index.html#cattle_lca.resource_manager.models.AnimalCategory" title="cattle_lca.resource_manager.models.AnimalCategory"><em>AnimalCategory</em></a>) – The animal cohort collection for which emissions are being calculated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Direct N2O emissions from PRP for the specified animal collection.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.N2O_total_PRP_N2O_indirect">
+<span class="sig-name descname"><span class="pre">N2O_total_PRP_N2O_indirect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.N2O_total_PRP_N2O_indirect" title="Link to this definition"></a></dt>
+<dd><p>Calculates the indirect N2O emissions from pasture, range, and paddock for a given animal collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<a class="reference internal" href="../resource_manager/models/index.html#cattle_lca.resource_manager.models.AnimalCategory" title="cattle_lca.resource_manager.models.AnimalCategory"><em>AnimalCategory</em></a>) – The animal cohort collection for which emissions are being calculated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Indirect N2O emissions from PRP for the specified animal collection.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.Total_manure_ch4">
+<span class="sig-name descname"><span class="pre">Total_manure_ch4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.Total_manure_ch4" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total methane emissions related to manure management for a given animal collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<a class="reference internal" href="../resource_manager/models/index.html#cattle_lca.resource_manager.models.AnimalCategory" title="cattle_lca.resource_manager.models.AnimalCategory"><em>AnimalCategory</em></a>) – The animal collection for which emissions are being calculated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total methane emissions from manure management for the specified animal collection.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.CO2_soils_GWP">
+<span class="sig-name descname"><span class="pre">CO2_soils_GWP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_lime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.CO2_soils_GWP" title="Link to this definition"></a></dt>
+<dd><p>Calculates the global warming potential from CO2 emissions related to soil management through urea and lime application.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_urea</strong> (<em>float</em>) – Total amount of urea used (kg).</p></li>
+<li><p><strong>total_lime</strong> (<em>float</em>) – Total amount of lime used (kg).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>CO2 emissions from soil management.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.N2O_direct_fertiliser">
+<span class="sig-name descname"><span class="pre">N2O_direct_fertiliser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.N2O_direct_fertiliser" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total direct N2O emissions from urea and ammonium fertilizers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_urea</strong> (<em>float</em>) – Total amount of urea used (kg).</p></li>
+<li><p><strong>total_urea_abated</strong> (<em>float</em>) – Total amount of urea with emissions-reducing treatments applied (kg).</p></li>
+<li><p><strong>total_n_fert</strong> (<em>float</em>) – Total amount of nitrogen fertilizer used (kg).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total direct N2O emissions from fertilizer application.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.N2O_fertiliser_indirect">
+<span class="sig-name descname"><span class="pre">N2O_fertiliser_indirect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.N2O_fertiliser_indirect" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total indirect N2O emissions from urea and ammonium fertilizers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_urea</strong> (<em>float</em>) – Total amount of urea used (kg).</p></li>
+<li><p><strong>total_urea_abated</strong> (<em>float</em>) – Total amount of urea with emissions-reducing treatments applied (kg).</p></li>
+<li><p><strong>total_n_fert</strong> (<em>float</em>) – Total amount of nitrogen fertilizer used (kg).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total indirect N2O emissions from fertilizer application.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.upstream_and_inputs_and_fuel_co2">
+<span class="sig-name descname"><span class="pre">upstream_and_inputs_and_fuel_co2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diesel_kg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elec_kwh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_p_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_k_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_lime_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.upstream_and_inputs_and_fuel_co2" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total CO2 emissions from various upstream activities and inputs.
+This includes emissions from the use of diesel, electricity, and different types of fertilizers.</p>
+<p>Parameters:
+- diesel_kg: The amount of diesel used, in kilograms.
+- elec_kwh: The amount of electricity consumed, in kilowatt-hours.
+- total_n_fert: The total amount of nitrogen fertilizer used, in kilograms.
+- total_urea: The total amount of urea used, in kilograms.
+- total_urea_abated: The total amount of abated urea (urea treated to reduce emissions) used, in kilograms.
+- total_p_fert: The total amount of phosphorus fertilizer used, in kilograms.
+- total_k_fert: The total amount of potassium fertilizer used, in kilograms.
+- total_lime_fert: The total amount of lime fertilizer used, in kilograms.</p>
+<p>Returns:
+Total CO2 emissions from all specified sources, measured in equivalent kilograms of CO2.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.ClimateChangeTotals.co2_from_concentrate_production">
+<span class="sig-name descname"><span class="pre">co2_from_concentrate_production</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.ClimateChangeTotals.co2_from_concentrate_production" title="Link to this definition"></a></dt>
+<dd><p>Calculates the CO2e emissions from the production of concentrates fed to the animal.
+This function looks at the type and amount of concentrate feed and uses predefined emission factors to estimate the CO2e impact.</p>
+<p>Parameters:
+- animal: The animal collection for which the CO2e emissions are being calculated.
+This object should contain the type and amount of concentrate feed consumed.</p>
+<p>Returns:
+The total CO2e emissions from the production of concentrate feed, measured in equivalent kilograms of CO2.</p>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.lca.EutrophicationTotals">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.lca.</span></span><span class="sig-name descname"><span class="pre">EutrophicationTotals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ef_country</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.EutrophicationTotals" title="Link to this definition"></a></dt>
+<dd><p>A class responsible for calculating the total eutrophication potential associated with a given farming operation.
+This includes contributions from manure management, soil management, fertiliser application, and upstream processes
+related to feed and fuel production.</p>
+<section id="id109">
+<h4>Attributes:<a class="headerlink" href="#id109" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>data_manager_class (LCADataManager): An instance of the LCADataManager class to access necessary emission factors and conversion values.
+grazing_class (GrazingStage): An instance of the GrazingStage class to access grazing-related eutrophication contributions.
+housing_class (HousingStage): An instance of the HousingStage class to access housing-related eutrophication contributions.
+storage_class (StorageStage): An instance of the StorageStage class to access storage-related eutrophication contributions.
+spread_class (DailySpread): An instance of the DailySpread class to access spreading-related eutrophication contributions.
+fertiliser_class (FertiliserInputs): An instance of the FertiliserInputs class to access fertiliser-related eutrophication contributions.
+upstream_class (Upstream): An instance of the Upstream class to access upstream-related eutrophication contributions.</p>
+</div></blockquote>
+</section>
+<section id="id110">
+<h4>Methods:<a class="headerlink" href="#id110" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>create_emissions_dictionary(keys): Creates a structured dictionary for tracking eutrophication emissions.
+create_expanded_emissions_dictionary(keys): Creates a more detailed structured dictionary for tracking eutrophication emissions, including upstream processes.
+total_manure_NH3_EP(animal): Calculates the total ammonia emissions from manure management, converted to phosphate equivalents.
+total_fertiliser_soils_NH3_and_LEACH_EP(total_urea, total_urea_abated, total_n_fert): Calculates total ammonia and leaching from fertiliser application to soils, converted to phosphate equivalents.
+total_grazing_soils_NH3_and_LEACH_EP(animal): Calculates total ammonia and leaching from grazing management to soils, converted to phosphate equivalents.
+fertiliser_soils_P_LEACH_EP(total_urea, total_urea_abated, total_n_fert, total_p_fert): Calculates total phosphorus leaching from fertiliser application, contributing to eutrophication.
+grazing_soils_P_LEACH_EP(animal): Calculates total phosphorus leaching from grazing, contributing to eutrophication.
+total_fertilser_soils_EP(total_urea, total_urea_abated, total_n_fert, total_p_fert): Aggregates total eutrophication potential from fertiliser applications to soils.
+total_grazing_soils_EP(animal): Aggregates total eutrophication potential from grazing management.
+upstream_and_inputs_and_fuel_po4(diesel_kg, elec_kwh, total_n_fert, total_urea, total_urea_abated, total_p_fert, total_k_fert, total_lime_fert): Calculates total eutrophication potential from upstream activities and inputs, including fuel and electricity usage.
+po4_from_concentrate_production(animal): Calculates total phosphorus emissions from concentrate production used in animal diets.</p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.EutrophicationTotals.create_emissions_dictionary">
+<span class="sig-name descname"><span class="pre">create_emissions_dictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.EutrophicationTotals.create_emissions_dictionary" title="Link to this definition"></a></dt>
+<dd><p>Creates a dictionary to store eutrophication emissions data for different categories.</p>
+<section id="id111">
+<h5>Parameters:<a class="headerlink" href="#id111" title="Link to this heading"></a></h5>
+<blockquote>
+<div><p>keys: A list of keys representing different farm activities or emission sources.</p>
+</div></blockquote>
+</section>
+<section id="id112">
+<h5>Returns:<a class="headerlink" href="#id112" title="Link to this heading"></a></h5>
+<blockquote>
+<div><p>A dictionary with initialized values for each key and sub-key.</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.EutrophicationTotals.create_expanded_emissions_dictionary">
+<span class="sig-name descname"><span class="pre">create_expanded_emissions_dictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.EutrophicationTotals.create_expanded_emissions_dictionary" title="Link to this definition"></a></dt>
+<dd><p>Creates an expanded dictionary to store detailed eutrophication emissions data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keys</strong> – A list of keys representing different farm activities or emission sources.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An expanded dictionary with initialized values for each category and sub-category.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.EutrophicationTotals.total_manure_NH3_EP">
+<span class="sig-name descname"><span class="pre">total_manure_NH3_EP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.EutrophicationTotals.total_manure_NH3_EP" title="Link to this definition"></a></dt>
+<dd><p>Calculates total ammonia emissions from manure, converted to equivalent phosphorus, contributing to eutrophication potential.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> – Animal data object containing manure emission details.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total ammonia emissions from manure management converted to phosphorus equivalent.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.EutrophicationTotals.total_fertiliser_soils_NH3_and_LEACH_EP">
+<span class="sig-name descname"><span class="pre">total_fertiliser_soils_NH3_and_LEACH_EP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.EutrophicationTotals.total_fertiliser_soils_NH3_and_LEACH_EP" title="Link to this definition"></a></dt>
+<dd><p>Calculates total ammonia and leaching emissions from fertilizer application, converted to phosphorus equivalent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_urea</strong> – Total amount of urea applied.</p></li>
+<li><p><strong>total_urea_abated</strong> – Total amount of urea with abatement measures applied.</p></li>
+<li><p><strong>total_n_fert</strong> – Total amount of nitrogen fertilizers applied.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total ammonia and leaching emissions from fertilizers, converted to phosphorus equivalent.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.EutrophicationTotals.total_grazing_soils_NH3_and_LEACH_EP">
+<span class="sig-name descname"><span class="pre">total_grazing_soils_NH3_and_LEACH_EP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.EutrophicationTotals.total_grazing_soils_NH3_and_LEACH_EP" title="Link to this definition"></a></dt>
+<dd><p>Calculates total ammonia and leaching emissions from grazing soils, converted to phosphorus equivalent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> – Animal data object containing grazing information.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total ammonia and leaching emissions from grazing, converted to phosphorus equivalent.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.EutrophicationTotals.fertiliser_soils_P_LEACH_EP">
+<span class="sig-name descname"><span class="pre">fertiliser_soils_P_LEACH_EP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_p_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.EutrophicationTotals.fertiliser_soils_P_LEACH_EP" title="Link to this definition"></a></dt>
+<dd><p>Calculates phosphorus leaching from fertilizer application on soils.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_urea</strong> – Total amount of urea applied.</p></li>
+<li><p><strong>total_urea_abated</strong> – Total amount of urea with abatement measures applied.</p></li>
+<li><p><strong>total_n_fert</strong> – Total amount of nitrogen fertilizers applied.</p></li>
+<li><p><strong>total_p_fert</strong> – Total amount of phosphorus fertilizers applied.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total phosphorus leaching from fertilizers application.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.EutrophicationTotals.grazing_soils_P_LEACH_EP">
+<span class="sig-name descname"><span class="pre">grazing_soils_P_LEACH_EP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.EutrophicationTotals.grazing_soils_P_LEACH_EP" title="Link to this definition"></a></dt>
+<dd><p>Calculates phosphorus leaching from grazing soils.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> – Animal data object containing grazing information.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total phosphorus leaching from grazing activities.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.EutrophicationTotals.total_fertilser_soils_EP">
+<span class="sig-name descname"><span class="pre">total_fertilser_soils_EP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_p_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.EutrophicationTotals.total_fertilser_soils_EP" title="Link to this definition"></a></dt>
+<dd><p>Calculates total eutrophication potential from fertilizer application on soils.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_urea</strong> – Amounts of different fertilizers applied.</p></li>
+<li><p><strong>total_urea_abated</strong> – Amounts of different fertilizers applied.</p></li>
+<li><p><strong>total_n_fert</strong> – Amounts of different fertilizers applied.</p></li>
+<li><p><strong>total_p_fert</strong> – Amounts of different fertilizers applied.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total eutrophication potential from fertilizer application.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.EutrophicationTotals.total_grazing_soils_EP">
+<span class="sig-name descname"><span class="pre">total_grazing_soils_EP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.EutrophicationTotals.total_grazing_soils_EP" title="Link to this definition"></a></dt>
+<dd><p>Calculates total eutrophication potential from grazing soils.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> – Animal data object containing grazing information.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total eutrophication potential from grazing activities.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.EutrophicationTotals.upstream_and_inputs_and_fuel_po4">
+<span class="sig-name descname"><span class="pre">upstream_and_inputs_and_fuel_po4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diesel_kg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elec_kwh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_p_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_k_fert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_lime_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.EutrophicationTotals.upstream_and_inputs_and_fuel_po4" title="Link to this definition"></a></dt>
+<dd><p>Calculates total phosphorus emissions from upstream activities, inputs, and fuel related to livestock production.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>diesel_kg</strong> – Quantities of inputs used.</p></li>
+<li><p><strong>elec_kwh</strong> – Quantities of inputs used.</p></li>
+<li><p><strong>total_n_fert</strong> – Quantities of inputs used.</p></li>
+<li><p><strong>total_urea</strong> – Quantities of inputs used.</p></li>
+<li><p><strong>total_urea_abated</strong> – Quantities of inputs used.</p></li>
+<li><p><strong>total_p_fert</strong> – Quantities of inputs used.</p></li>
+<li><p><strong>total_k_fert</strong> – Quantities of inputs used.</p></li>
+<li><p><strong>total_lime_fert</strong> – Quantities of inputs used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total phosphorus emissions from upstream activities.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.EutrophicationTotals.po4_from_concentrate_production">
+<span class="sig-name descname"><span class="pre">po4_from_concentrate_production</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.EutrophicationTotals.po4_from_concentrate_production" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total phosphorus emissions (PO4 equivalent) resulting from the production of concentrate feeds used in animal diet.
+This method considers the entire lifecycle of concentrate production including the acquisition of raw materials, processing, and transportation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> – An object representing the animal cohort, containing data related to the type and amount of concentrate consumed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total phosphorus emissions (PO4 equivalent) from concentrate production for the given animal cohort over a specified period, contributing to the eutrophication potential of the system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cattle_lca.lca.AirQualityTotals">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.lca.</span></span><span class="sig-name descname"><span class="pre">AirQualityTotals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ef_country</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.AirQualityTotals" title="Link to this definition"></a></dt>
+<dd><p>This class calculates the total ammonia (NH3) emissions contributing to air quality impacts from various farm management practices including manure management, soil management, and fertilization strategies. The calculations are based on the lifecycle of animal cohorts and their feed, manure handling practices, as well as fertiliser application rates.</p>
+<section id="id113">
+<h4>Attributes:<a class="headerlink" href="#id113" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>data_manager_class (LCADataManager): A class instance that provides access to necessary emission factors and data specific to a given country or region.
+grazing_class (GrazingStage): A class instance to calculate emissions from grazing practices.
+housing_class (HousingStage): A class instance to calculate emissions from animal housing practices.
+storage_class (StorageStage): A class instance to calculate emissions from manure storage practices.
+spread_class (DailySpread): A class instance to calculate emissions from manure spreading practices.
+fertiliser_class (FertiliserInputs): A class instance to calculate emissions from fertiliser application.</p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.AirQualityTotals.create_emissions_dictionary">
+<span class="sig-name descname"><span class="pre">create_emissions_dictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.AirQualityTotals.create_emissions_dictionary" title="Link to this definition"></a></dt>
+<dd><p>Creates a nested dictionary structure to store NH3 emission values from various sources categorized by specific keys (e.g., animal types).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keys</strong> (<em>list</em>) – A list of string keys representing different emission categories or animal types.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A nested dictionary structured to hold emission values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.AirQualityTotals.total_manure_NH3_AQ">
+<span class="sig-name descname"><span class="pre">total_manure_NH3_AQ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.AirQualityTotals.total_manure_NH3_AQ" title="Link to this definition"></a></dt>
+<dd><p>Calculates total NH3 emissions from manure management practices for the specified animal collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>Animal</em>) – An instance representing a specific animal collection.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total NH3 emissions (kg) from manure management for the specified animal collection.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.AirQualityTotals.total_fertiliser_soils_NH3_AQ">
+<span class="sig-name descname"><span class="pre">total_fertiliser_soils_NH3_AQ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_urea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_urea_abated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_n_fert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.AirQualityTotals.total_fertiliser_soils_NH3_AQ" title="Link to this definition"></a></dt>
+<dd><p>Calculates total NH3 emissions from fertiliser application to soils.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_urea</strong> (<em>float</em>) – Total urea fertiliser applied (kg).</p></li>
+<li><p><strong>total_urea_abated</strong> (<em>float</em>) – Total abated urea fertiliser applied (kg).</p></li>
+<li><p><strong>total_n_fert</strong> (<em>float</em>) – Total nitrogen fertiliser applied (kg).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total NH3 emissions (kg) from fertiliser application to soils.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cattle_lca.lca.AirQualityTotals.total_grazing_soils_NH3_AQ">
+<span class="sig-name descname"><span class="pre">total_grazing_soils_NH3_AQ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.lca.AirQualityTotals.total_grazing_soils_NH3_AQ" title="Link to this definition"></a></dt>
+<dd><p>Calculates total NH3 emissions from soils during grazing for the specified animal collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>animal</strong> (<em>Animal</em>) – An instance representing a specific animal collection.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Total NH3 emissions (kg) from soils during grazing for the specified animal collection.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../resource_manager/models/index.html" class="btn btn-neutral float-left" title="cattle_lca.resource_manager.models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Colm Duffy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

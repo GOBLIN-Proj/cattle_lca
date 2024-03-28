@@ -1,0 +1,143 @@
+:py:mod:`cattle_lca.resource_manager.data_loader`
+=================================================
+
+.. py:module:: cattle_lca.resource_manager.data_loader
+
+.. autoapi-nested-parse::
+
+   Data Loader Module
+   ------------------
+
+   This module contains the Loader class, which is responsible for loading and providing access to various data categories required for
+   lifecycle assessment (LCA) calculations.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   cattle_lca.resource_manager.data_loader.Loader
+
+
+
+
+.. py:class:: Loader(ef_country)
+
+
+   The Loader class serves as a data retrieval layer between the data sources and the application logic.
+   It utilizes the DataManager to access different types of environmental and agricultural data based on the specified country's emission factors.
+   This class initializes and provides access to various data categories required for lifecycle assessment (LCA) calculations,
+   such as grass, animal features, concentrates, emissions factors, and upstream data.
+
+   .. attribute:: ef_country
+
+      A string representing the country for which the emission factors and related data are to be loaded.
+
+      :type: str
+
+   .. attribute:: dataframes
+
+      An instance of DataManager initialized with the country-specific data.
+
+      :type: DataManager
+
+   .. attribute:: grass
+
+      An object containing grass-related data.
+
+      :type: Grass
+
+   .. attribute:: animal_features
+
+      An object containing data related to animal features.
+
+      :type: Animal_Features
+
+   .. attribute:: concentrates
+
+      An object containing data related to concentrates (animal feed).
+
+      :type: Concentrate
+
+   .. attribute:: emissions_factors
+
+      An object containing various emissions factors data.
+
+      :type: Emissions_Factors
+
+   .. attribute:: upstream
+
+      An object containing upstream data related to various inputs and processes.
+
+      :type: Upstream
+
+   :param ef_country: The country identifier used to retrieve country-specific data for LCA calculations.
+   :type ef_country: str
+
+   .. method:: get_grass()
+
+      Initializes and returns an instance of the Grass class containing grass-related data.
+
+   .. method:: get_animal_features()
+
+      Initializes and returns an instance of the Animal_Features class containing data related to animal characteristics.
+
+   .. method:: get_concentrates()
+
+      Initializes and returns an instance of the Concentrate class containing data on animal feed concentrates.
+
+   .. method:: get_emissions_factors()
+
+      Initializes and returns an instance of the Emissions_Factors class containing various emissions factors data.
+
+   .. method:: get_upstream()
+
+      Initializes and returns an instance of the Upstream class containing upstream data related to various inputs and processes.
+      
+
+   .. py:method:: get_grass()
+
+      Initializes and returns an instance of the Grass class containing grass-related data.
+
+      :returns: An object containing grass-related data.
+      :rtype: Grass
+
+
+   .. py:method:: get_animal_features()
+
+      Initializes and returns an instance of the Animal_Features class containing data related to animal characteristics.
+
+      :returns: An object containing data related to animal features.
+      :rtype: Animal_Features
+
+
+   .. py:method:: get_concentrates()
+
+      Initializes and returns an instance of the Concentrate class containing data on animal feed concentrates.
+
+      :returns: An object containing data related to concentrates (animal feed).
+      :rtype: Concentrate
+
+
+   .. py:method:: get_emissions_factors()
+
+      Initializes and returns an instance of the Emissions_Factors class containing various emissions factors data.
+
+      :returns: An object containing various emissions factors data.
+      :rtype: Emissions_Factors
+
+
+   .. py:method:: get_upstream()
+
+      Initializes and returns an instance of the Upstream class containing upstream data related to various inputs and processes.
+
+      :returns: An object containing upstream data related to various inputs and processes.
+      :rtype: Upstream
+
+
+

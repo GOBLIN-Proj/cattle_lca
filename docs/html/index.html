@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🐮 Cattle_lca, a lifecycle assessment tool for livestock systems &mdash; Cattle LCA 0.3.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=e259d695"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="autoapi/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Cattle LCA
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Cattle LCA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">🐮 Cattle_lca, a lifecycle assessment tool for livestock systems</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cattle-lca-a-lifecycle-assessment-tool-for-livestock-systems">
+<h1>🐮 Cattle_lca, a lifecycle assessment tool for livestock systems<a class="headerlink" href="#cattle-lca-a-lifecycle-assessment-tool-for-livestock-systems" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/GOBLIN-Proj/cattle_lca/blob/0.1.0/LICENSE"><img alt="license" src="https://img.shields.io/badge/License-MIT-red" /></a>
+<a class="reference external" href="https://github.com/GOBLIN-Proj/cattle_lca"><img alt="python" src="https://img.shields.io/badge/python-3.9-blue?logo=python&amp;logoColor=white" /></a>
+<a class="reference external" href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg" /></a></p>
+<p>Based on the <a class="reference external" href="https://gmd.copernicus.org/articles/15/2239/2022/">GOBLIN</a> (<strong>G</strong>eneral <strong>O</strong>verview for a <strong>B</strong>ackcasting approach of <strong>L</strong>ivestock <strong>IN</strong>tensification) LifeCycle Analysis tool, the Cattle_lca module decouples this module making it an independent distribution package.</p>
+<p>The package is shipped with key data for emissions factors, concentrate feed inputs, animal features, grassland parameters and upstream emissions.</p>
+<p>Currently parameterised for Ireland, but the database can be updated with additional emissions factor contexts, which are selected able with an emissions factor key.</p>
+<p>Final results are output as a dictionary object capturing emissions for:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-   enteric_ch4
+-   manure_management_N2O
+-   manure_management_CH4
+-   manure_applied_N
+-   N_direct_PRP
+-   N_direct_PRP
+-   N_indirect_PRP
+-   N_direct_fertiliser
+-   N_indirect_fertiliser
+-   soils_CO2
+-   soil_organic_N_direct
+-   soil_organic_N_indirect
+-   soil_inorganic_N_direct
+-   soil_inorganic_N_indirect
+-   soil_histosol_N_direct
+-   crop_residues_N_direct
+-   soil_N_direct
+-   soil_N_indirect
+-   soils_N2O
+</pre></div>
+</div>
+<p>Note, that the soil_histosol_N_direct and  crop_residues_N_direct category will be 0. Estimation of the soils N2O direct emissions from histosols uses requires the land use data. Emissions can be included using the <a class="reference external" href="https://github.com/GOBLIN-Proj/landcover_lca">landcover_lca</a> module and the <a class="reference external" href="https://github.com/GOBLIN-Proj/crop_lca">crop_lca</a> module.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>Install from git hub.</p>
+<p>When prompted enter your <code class="docutils literal notranslate"><span class="pre">&lt;username&gt;</span></code> and password, which is your <code class="docutils literal notranslate"><span class="pre">&lt;access_token&gt;</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;access_token&gt;</span></code> is provided by the repo manager.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;username&gt;</span></code> pass your own github username.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;cattle_lca@git+https://github.com/GOBLIN-Proj/cattle_lca.git@main&quot;</span><span class="w"> </span>
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">cattle_lca.resource_manager.models</span> <span class="kn">import</span> <span class="n">load_livestock_data</span><span class="p">,</span> <span class="n">load_farm_data</span>
+<span class="kn">from</span> <span class="nn">cattle_lca.lca</span> <span class="kn">import</span> <span class="n">ClimateChangeTotals</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+
+
+    <span class="c1">#Create some data to generate results </span>
+
+    <span class="n">livestock_data</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;dairy_cows&#39;</span><span class="p">,</span> <span class="mi">175298</span><span class="p">,</span> <span class="mi">538</span><span class="p">,</span> <span class="mf">14.953</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mf">2.992828296</span><span class="p">,</span> <span class="mf">13.5890411</span><span class="p">,</span> <span class="mf">10.4109589</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;suckler_cows&#39;</span><span class="p">,</span> <span class="mi">30587</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mf">1.410958904</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mf">0.842751605</span><span class="p">,</span> <span class="mf">12.2739726</span><span class="p">,</span> <span class="mf">11.7260274</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;DxD_heifers_more_2_yr&#39;</span><span class="p">,</span> <span class="mf">384.1446311</span><span class="p">,</span> <span class="mf">122.125</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">12.98630137</span><span class="p">,</span> <span class="mf">11.01369863</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;DxB_heifers_more_2_yr&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">94.75</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">12.98630137</span><span class="p">,</span> <span class="mf">11.01369863</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;BxB_heifers_more_2_yr&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">103.875</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">12.38356164</span><span class="p">,</span> <span class="mf">11.61643836</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;DxD_heifers_less_2_yr&#39;</span><span class="p">,</span> <span class="mf">49298.56099</span><span class="p">,</span> <span class="mf">395.875</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">11.56164384</span><span class="p">,</span> <span class="mf">12.43835616</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;DxB_heifers_less_2_yr&#39;</span><span class="p">,</span> <span class="mf">30347.42586</span><span class="p">,</span> <span class="mf">346.6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">11.56164384</span><span class="p">,</span> <span class="mf">12.43835616</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;BxB_heifers_less_2_yr&#39;</span><span class="p">,</span> <span class="mf">14763.98982</span><span class="p">,</span> <span class="mf">412.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">11.56164384</span><span class="p">,</span> <span class="mf">12.43835616</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;DxD_steers_less_2_yr&#39;</span><span class="p">,</span> <span class="mf">37646.17385</span><span class="p">,</span> <span class="mf">463.475</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">11.56164384</span><span class="p">,</span> <span class="mf">12.43835616</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;DxB_steers_less_2_yr&#39;</span><span class="p">,</span> <span class="mf">29323.04018</span><span class="p">,</span> <span class="mf">474.425</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">11.56164384</span><span class="p">,</span> <span class="mf">12.43835616</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;BxB_steers_less_2_yr&#39;</span><span class="p">,</span> <span class="mf">14327.92261</span><span class="p">,</span> <span class="mf">479.9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">11.56164384</span><span class="p">,</span> <span class="mf">12.43835616</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;DxD_steers_more_2_yr&#39;</span><span class="p">,</span> <span class="mf">5506.073046</span><span class="p">,</span> <span class="mf">140.45</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">18.73972603</span><span class="p">,</span> <span class="mf">5.260273973</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;DxB_steers_more_2_yr&#39;</span><span class="p">,</span> <span class="mf">4225.590942</span><span class="p">,</span> <span class="mf">129.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">18.73972603</span><span class="p">,</span> <span class="mf">5.260273973</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;BxB_steers_more_2_yr&#39;</span><span class="p">,</span> <span class="mf">2273.779022</span><span class="p">,</span> <span class="mf">162.35</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">18.73972603</span><span class="p">,</span> <span class="mf">5.260273973</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;DxD_calves_f&#39;</span><span class="p">,</span> <span class="mf">46993.69321</span><span class="p">,</span> <span class="mf">149.575</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">7.945205479</span><span class="p">,</span> <span class="mf">16.05479452</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;DxB_calves_f&#39;</span><span class="p">,</span> <span class="mf">33164.48649</span><span class="p">,</span> <span class="mf">116.725</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">7.945205479</span><span class="p">,</span> <span class="mf">16.05479452</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;BxB_calves_f&#39;</span><span class="p">,</span> <span class="mf">13985.29837</span><span class="p">,</span> <span class="mf">175.125</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">7.945205479</span><span class="p">,</span> <span class="mf">16.05479452</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;DxD_calves_m&#39;</span><span class="p">,</span> <span class="mf">32140.1008</span><span class="p">,</span> <span class="mf">122.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">7.945205479</span><span class="p">,</span> <span class="mf">16.05479452</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;DxB_calves_m&#39;</span><span class="p">,</span> <span class="mf">31755.95617</span><span class="p">,</span> <span class="mf">118.55</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">7.945205479</span><span class="p">,</span> <span class="mf">16.05479452</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;BxB_calves_m&#39;</span><span class="p">,</span> <span class="mf">13424.64053</span><span class="p">,</span> <span class="mf">178.775</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">7.945205479</span><span class="p">,</span> <span class="mf">16.05479452</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="s1">&#39;bulls&#39;</span><span class="p">,</span> <span class="mf">4641.388771</span><span class="p">,</span> <span class="mi">773</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;irish_grass&#39;</span><span class="p">,</span> <span class="s1">&#39;pasture&#39;</span><span class="p">,</span> <span class="s1">&#39;concentrate&#39;</span><span class="p">,</span> <span class="mf">0.654140961</span><span class="p">,</span> <span class="mf">11.56164384</span><span class="p">,</span> <span class="mf">12.43835616</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;tank liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;broadcast&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">]</span>
+
+
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ef_country&#39;</span><span class="p">,</span> <span class="s1">&#39;farm_id&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;cohort&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;daily_milk&#39;</span><span class="p">,</span> <span class="s1">&#39;forage&#39;</span><span class="p">,</span> <span class="s1">&#39;grazing&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;con_type&#39;</span><span class="p">,</span> <span class="s1">&#39;con_amount&#39;</span><span class="p">,</span> <span class="s1">&#39;t_outdoors&#39;</span><span class="p">,</span> <span class="s1">&#39;t_indoors&#39;</span><span class="p">,</span> <span class="s1">&#39;wool&#39;</span><span class="p">,</span> <span class="s1">&#39;t_stabled&#39;</span><span class="p">,</span> <span class="s1">&#39;mm_storage&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;daily_spreading&#39;</span><span class="p">,</span> <span class="s1">&#39;n_sold&#39;</span><span class="p">,</span> <span class="s1">&#39;n_bought&#39;</span><span class="p">]</span>
+
+    <span class="n">livestock_data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">livestock_data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+
+    <span class="n">farm_data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;ef_country&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ireland&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;farm_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2018</span><span class="p">],</span>
+        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2018</span><span class="p">],</span>
+        <span class="s1">&#39;total_urea_kg&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2072487.127</span><span class="p">],</span>
+        <span class="s1">&#39;total_lime_kg&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2072487.127</span><span class="p">],</span>
+        <span class="s1">&#39;an_n_fert&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2072487.127</span><span class="p">],</span>
+        <span class="s1">&#39;urea_n_fert&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2072487</span><span class="p">],</span>
+        <span class="s1">&#39;total_urea_abated&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">17310655.18</span><span class="p">],</span>
+        <span class="s1">&#39;total_p_fert&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1615261.859</span><span class="p">],</span>
+        <span class="s1">&#39;total_k_fert&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3922778.8</span><span class="p">],</span>
+        <span class="s1">&#39;diesel_kg&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="s1">&#39;elec_kwh&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="n">farm_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">farm_data</span><span class="p">)</span>
+
+    <span class="c1"># Instantiate ClimateChange Totals Class, passing Ireland as the emissions factor country</span>
+    <span class="n">climatechange</span> <span class="o">=</span> <span class="n">ClimateChangeTotals</span><span class="p">(</span><span class="s2">&quot;ireland&quot;</span><span class="p">)</span>
+
+    <span class="c1">#Create a dictionary to store results </span>
+    <span class="n">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">emissions_dict</span> <span class="o">=</span> <span class="n">climatechange</span><span class="o">.</span><span class="n">create_emissions_dictionary</span><span class="p">([</span><span class="n">index</span><span class="p">])</span>
+    
+    <span class="c1">#load the dataframes </span>
+    <span class="n">animals</span> <span class="o">=</span> <span class="n">load_livestock_data</span><span class="p">(</span><span class="n">livestock_data_frame</span><span class="p">)</span>
+    <span class="n">farms</span> <span class="o">=</span> <span class="n">load_farm_data</span><span class="p">(</span><span class="n">farm_dataframe</span><span class="p">)</span>
+
+
+    <span class="n">animals_loc</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">animals</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">farm_loc</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">farms</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1">#generate results and store them in the dictionary</span>
+
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;enteric_ch4&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span>
+        <span class="n">climatechange</span><span class="o">.</span><span class="n">CH4_enteric_ch4</span><span class="p">(</span>
+            <span class="n">animals</span><span class="p">[</span><span class="n">animals_loc</span><span class="p">][</span><span class="s2">&quot;animals&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;manure_management_N2O&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span>
+        <span class="n">climatechange</span><span class="o">.</span><span class="n">Total_storage_N2O</span><span class="p">(</span>
+            <span class="n">animals</span><span class="p">[</span><span class="n">animals_loc</span><span class="p">][</span><span class="s2">&quot;animals&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;manure_management_CH4&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span>
+        <span class="n">climatechange</span><span class="o">.</span><span class="n">CH4_manure_management</span><span class="p">(</span>
+            <span class="n">animals</span><span class="p">[</span><span class="n">animals_loc</span><span class="p">][</span><span class="s2">&quot;animals&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        
+    <span class="p">)</span>
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;manure_applied_N&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span>
+        <span class="n">climatechange</span><span class="o">.</span><span class="n">Total_N2O_Spreading</span><span class="p">(</span>
+            <span class="n">animals</span><span class="p">[</span><span class="n">animals_loc</span><span class="p">][</span><span class="s2">&quot;animals&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        
+    <span class="p">)</span>
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;N_direct_PRP&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span>
+        <span class="n">climatechange</span><span class="o">.</span><span class="n">N2O_total_PRP_N2O_direct</span><span class="p">(</span>
+            <span class="n">animals</span><span class="p">[</span><span class="n">animals_loc</span><span class="p">][</span><span class="s2">&quot;animals&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        
+    <span class="p">)</span>
+
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;N_indirect_PRP&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span>
+        <span class="n">climatechange</span><span class="o">.</span><span class="n">N2O_total_PRP_N2O_indirect</span><span class="p">(</span>
+            <span class="n">animals</span><span class="p">[</span><span class="n">animals_loc</span><span class="p">][</span><span class="s2">&quot;animals&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        
+    <span class="p">)</span>
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;N_direct_fertiliser&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">climatechange</span><span class="o">.</span><span class="n">N2O_direct_fertiliser</span><span class="p">(</span>
+            <span class="n">farms</span><span class="p">[</span><span class="n">farm_loc</span><span class="p">]</span><span class="o">.</span><span class="n">urea_n_fert</span><span class="p">,</span>
+            <span class="n">farms</span><span class="p">[</span><span class="n">farm_loc</span><span class="p">]</span><span class="o">.</span><span class="n">total_urea_abated</span><span class="p">,</span>
+            <span class="n">farms</span><span class="p">[</span><span class="n">farm_loc</span><span class="p">]</span><span class="o">.</span><span class="n">an_n_fert</span>
+        <span class="p">)</span>
+        
+    <span class="p">)</span>
+
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;N_indirect_fertiliser&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span>
+        <span class="n">climatechange</span><span class="o">.</span><span class="n">N2O_fertiliser_indirect</span><span class="p">(</span>
+            <span class="n">farms</span><span class="p">[</span><span class="n">farm_loc</span><span class="p">]</span><span class="o">.</span><span class="n">urea_n_fert</span><span class="p">,</span>
+            <span class="n">farms</span><span class="p">[</span><span class="n">farm_loc</span><span class="p">]</span><span class="o">.</span><span class="n">total_urea_abated</span><span class="p">,</span>
+            <span class="n">farms</span><span class="p">[</span><span class="n">farm_loc</span><span class="p">]</span><span class="o">.</span><span class="n">an_n_fert</span><span class="p">,</span>
+        <span class="p">)</span>
+        
+    <span class="p">)</span>
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soils_CO2&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span>
+        <span class="n">climatechange</span><span class="o">.</span><span class="n">CO2_soils_GWP</span><span class="p">(</span>
+            <span class="n">farms</span><span class="p">[</span><span class="n">farm_loc</span><span class="p">]</span><span class="o">.</span><span class="n">total_urea_kg</span><span class="p">,</span>
+            <span class="n">farms</span><span class="p">[</span><span class="n">farm_loc</span><span class="p">]</span><span class="o">.</span><span class="n">total_lime_kg</span><span class="p">,</span>
+        <span class="p">)</span>
+        
+    <span class="p">)</span>
+
+
+    <span class="c1"># Add the totals </span>
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soil_organic_N_direct&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;manure_applied_N&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+        <span class="o">+</span> <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;N_direct_PRP&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soil_organic_N_indirect&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">emissions_dict</span><span class="p">[</span>
+        <span class="s2">&quot;N_indirect_PRP&quot;</span>
+    <span class="p">][</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soil_inorganic_N_direct&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">emissions_dict</span><span class="p">[</span>
+        <span class="s2">&quot;N_direct_fertiliser&quot;</span>
+    <span class="p">][</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soil_inorganic_N_indirect&quot;</span><span class="p">][</span>
+        <span class="n">index</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;N_indirect_fertiliser&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soil_N_direct&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soil_organic_N_direct&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+        <span class="o">+</span> <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soil_inorganic_N_direct&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soil_N_indirect&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soil_inorganic_N_indirect&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+        <span class="o">+</span> <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soil_organic_N_indirect&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soils_N2O&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soil_N_direct&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+        <span class="o">+</span> <span class="n">emissions_dict</span><span class="p">[</span><span class="s2">&quot;soil_N_indirect&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="c1">#Print the emission results dictionary</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">emissions_dict</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
+<p>This project is licensed under the terms of the MIT license.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="autoapi/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Colm Duffy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
