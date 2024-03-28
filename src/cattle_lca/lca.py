@@ -1494,10 +1494,22 @@ class FertiliserInputs:
 
 class Upstream:
     """
-    Initializes the Upstream object with country-specific data.
+    Handles the calculation of upstream emissions related to concentrate production, diesel usage, and electricity consumption 
+    for the environmental impact assessment of sheep farming operations. It focuses on CO2 and PO4 emissions from various 
+    sources including fertiliser production, diesel fuel, and electricity used in farm operations.
 
-    Parameters:
-        ef_country (str): The country code for which environmental factor data will be loaded.
+    Attributes:
+        data_manager_class (LCADataManager): Provides access to necessary data for calculations.
+
+    Methods:
+        co2_from_concentrate_production: Calculates CO2 emissions from concentrate production for sheep.
+        po4_from_concentrate_production: Calculates PO4 emissions from concentrate production for sheep.
+        diesel_CO2: Estimates CO2 emissions from diesel fuel usage.
+        diesel_PO4: Estimates PO4 emissions from diesel fuel usage.
+        elec_CO2: Calculates CO2 emissions from electricity consumption.
+        elec_PO4: Calculates PO4 emissions from electricity consumption.
+        fert_upstream_CO2: Estimates CO2 emissions from the production of various fertilisers.
+        fert_upstream_EP: Estimates PO4 emissions from the production of various fertilisers.
     """
     def __init__(self, ef_country):
         self.data_manager_class = LCADataManager(ef_country)
@@ -2158,13 +2170,13 @@ class ClimateChangeTotals:
 
     def N2O_total_PRP_N2O_direct(self, animal):
         """
-        Calculates the direct N2O emissions from pasture, range, and paddock for a given animal.
+        Calculates the direct N2O emissions from pasture, range, and paddock for a given animal collection.
 
         Parameters:
-            animal (AnimalCategory): The animal cohort for which emissions are being calculated.
+            animal (AnimalCategory): The animal cohort collection for which emissions are being calculated.
 
         Returns:
-            float: Direct N2O emissions from PRP for the specified animal.
+            float: Direct N2O emissions from PRP for the specified animal collection.
         """
         mole_weight = 44 / 28
 
@@ -2184,13 +2196,13 @@ class ClimateChangeTotals:
 
     def N2O_total_PRP_N2O_indirect(self, animal):
         """
-        Calculates the indirect N2O emissions from pasture, range, and paddock for a given animal.
+        Calculates the indirect N2O emissions from pasture, range, and paddock for a given animal collection.
 
         Parameters:
-            animal (AnimalCategory): The animal cohort for which emissions are being calculated.
+            animal (AnimalCategory): The animal cohort collection for which emissions are being calculated.
 
         Returns:
-            float: Indirect N2O emissions from PRP for the specified animal.
+            float: Indirect N2O emissions from PRP for the specified animal collection.
         """
         mole_weight = 44 / 28
 
@@ -2321,15 +2333,15 @@ class ClimateChangeTotals:
     
     def co2_from_concentrate_production(self, animal):
         """
-        Calculates the CO2 emissions from the production of concentrates fed to the animal.
-        This function looks at the type and amount of concentrate feed and uses predefined emission factors to estimate the CO2 impact.
+        Calculates the CO2e emissions from the production of concentrates fed to the animal.
+        This function looks at the type and amount of concentrate feed and uses predefined emission factors to estimate the CO2e impact.
 
         Parameters:
-        - animal: The animal collection for which the CO2 emissions are being calculated.
+        - animal: The animal collection for which the CO2e emissions are being calculated.
         This object should contain the type and amount of concentrate feed consumed.
 
         Returns:
-        The total CO2 emissions from the production of concentrate feed, measured in equivalent kilograms of CO2.
+        The total CO2e emissions from the production of concentrate feed, measured in equivalent kilograms of CO2.
 
         """
         return self.upstream_class.co2_from_concentrate_production(animal)
@@ -2342,7 +2354,9 @@ class ClimateChangeTotals:
 
 class EutrophicationTotals:
     """
-    A class responsible for calculating the total eutrophication potential associated with a given farming operation. This includes contributions from manure management, soil management, fertiliser application, and upstream processes related to feed and fuel production.
+    A class responsible for calculating the total eutrophication potential associated with a given farming operation. 
+    This includes contributions from manure management, soil management, fertiliser application, and upstream processes 
+    related to feed and fuel production.
 
     Attributes:
     ----------
