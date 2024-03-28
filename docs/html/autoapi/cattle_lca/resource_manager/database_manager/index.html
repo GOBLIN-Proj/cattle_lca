@@ -107,7 +107,7 @@ from the SQL database for use in lifecycle assessment calculations.</p>
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="cattle_lca.resource_manager.database_manager.DataManager">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.database_manager.</span></span><span class="sig-name descname"><span class="pre">DataManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ef_country</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cattle_lca/resource_manager/database_manager.html#DataManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cattle_lca.resource_manager.database_manager.</span></span><span class="sig-name descname"><span class="pre">DataManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ef_country</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager" title="Link to this definition"></a></dt>
 <dd><p>DataManager handles the retrieval of country-specific and generic data from the SQL database for use in lifecycle assessment calculations.
 It utilizes SQLAlchemy for database connection and operations.
 The data is returned as Pandas DataFrames for easy manipulation and access within the Python ecosystem.</p>
@@ -151,43 +151,43 @@ The data is returned as Pandas DataFrames for easy manipulation and access withi
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="cattle_lca.resource_manager.database_manager.DataManager.data_engine_creater">
-<span class="sig-name descname"><span class="pre">data_engine_creater</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cattle_lca/resource_manager/database_manager.html#DataManager.data_engine_creater"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager.data_engine_creater" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">data_engine_creater</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager.data_engine_creater" title="Link to this definition"></a></dt>
 <dd><p>Initializes and returns a SQLAlchemy engine connected to the local cattle LCA database.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cattle_lca.resource_manager.database_manager.DataManager.grass_data">
-<span class="sig-name descname"><span class="pre">grass_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cattle_lca/resource_manager/database_manager.html#DataManager.grass_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager.grass_data" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">grass_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager.grass_data" title="Link to this definition"></a></dt>
 <dd><p>Retrieves grass-related data from the database. Optional index parameter sets a column as DataFrame index.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cattle_lca.resource_manager.database_manager.DataManager.upstream_data">
-<span class="sig-name descname"><span class="pre">upstream_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cattle_lca/resource_manager/database_manager.html#DataManager.upstream_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager.upstream_data" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">upstream_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager.upstream_data" title="Link to this definition"></a></dt>
 <dd><p>Retrieves upstream (pre-farm gate inputs and processes) data. Optional index parameter for DataFrame indexing.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cattle_lca.resource_manager.database_manager.DataManager.emissions_factor_data">
-<span class="sig-name descname"><span class="pre">emissions_factor_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cattle_lca/resource_manager/database_manager.html#DataManager.emissions_factor_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager.emissions_factor_data" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">emissions_factor_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager.emissions_factor_data" title="Link to this definition"></a></dt>
 <dd><p>Fetches emissions factors specific to the set country. Can set an index column if provided.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cattle_lca.resource_manager.database_manager.DataManager.concentrate_data">
-<span class="sig-name descname"><span class="pre">concentrate_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cattle_lca/resource_manager/database_manager.html#DataManager.concentrate_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager.concentrate_data" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">concentrate_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager.concentrate_data" title="Link to this definition"></a></dt>
 <dd><p>Gathers data regarding animal feed concentrates. Optional indexing with the index parameter.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cattle_lca.resource_manager.database_manager.DataManager.animal_features_data">
-<span class="sig-name descname"><span class="pre">animal_features_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cattle_lca/resource_manager/database_manager.html#DataManager.animal_features_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager.animal_features_data" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">animal_features_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cattle_lca.resource_manager.database_manager.DataManager.animal_features_data" title="Link to this definition"></a></dt>
 <dd><p>Collects data related to the features of various animal types, filtered by country. Indexing option available.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">data_engine_creater</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cattle_lca/resource_manager/database_manager.html#DataManager.data_engine_creater"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">data_engine_creater</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
 <dd><p>Initializes and returns a SQLAlchemy engine connected to the local cattle LCA database.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -201,7 +201,7 @@ The data is returned as Pandas DataFrames for easy manipulation and access withi
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id1">
-<span class="sig-name descname"><span class="pre">grass_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cattle_lca/resource_manager/database_manager.html#DataManager.grass_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">grass_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
 <dd><p>Retrieves grass-related data from the database. Optional index parameter sets a column as DataFrame index.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -218,7 +218,7 @@ The data is returned as Pandas DataFrames for easy manipulation and access withi
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id2">
-<span class="sig-name descname"><span class="pre">upstream_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cattle_lca/resource_manager/database_manager.html#DataManager.upstream_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">upstream_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
 <dd><p>Retrieves upstream (pre-farm gate inputs and processes) data. Optional index parameter for DataFrame indexing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -235,7 +235,7 @@ The data is returned as Pandas DataFrames for easy manipulation and access withi
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id3">
-<span class="sig-name descname"><span class="pre">emissions_factor_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cattle_lca/resource_manager/database_manager.html#DataManager.emissions_factor_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">emissions_factor_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
 <dd><p>Fetches emissions factors specific to the set country. Can set an index column if provided.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -252,7 +252,7 @@ The data is returned as Pandas DataFrames for easy manipulation and access withi
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id4">
-<span class="sig-name descname"><span class="pre">concentrate_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cattle_lca/resource_manager/database_manager.html#DataManager.concentrate_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">concentrate_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
 <dd><p>Gathers data regarding animal feed concentrates. Optional indexing with the index parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -269,7 +269,7 @@ The data is returned as Pandas DataFrames for easy manipulation and access withi
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id5">
-<span class="sig-name descname"><span class="pre">animal_features_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cattle_lca/resource_manager/database_manager.html#DataManager.animal_features_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">animal_features_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
 <dd><p>Collects data related to the features of various animal types, filtered by country. Indexing option available.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
