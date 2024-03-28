@@ -44,5 +44,5 @@ jobs:
 
     - name: Test with pytest
       run: |
-        cd src/tests/
+        cd tests/
         pytest assert_result_generated.py
