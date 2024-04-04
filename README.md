@@ -37,13 +37,6 @@ Note, that the soil_histosol_N_direct and  crop_residues_N_direct category will 
 
 Install from git hub. 
 
-When prompted enter your ```<username>``` and password, which is your ```<access_token>```.
-
-```<access_token>``` is provided by the repo manager.
-
-```<username>``` pass your own github username.
-
-
 ```bash
 pip install "cattle_lca@git+https://github.com/GOBLIN-Proj/cattle_lca.git@main" 
 
