@@ -42,6 +42,13 @@ pip install "cattle_lca@git+https://github.com/GOBLIN-Proj/cattle_lca.git@main"
 
 ```
 
+Install from PyPI. 
+
+```bash
+pip install cattle_lca
+
+```
+
 ## Usage
 ```python
 import pandas as pd
